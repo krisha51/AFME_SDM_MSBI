@@ -1,0 +1,782 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/12/2010 1:41:50 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="CROBIMSRV01"
+  DTS:CreatorName="EMEA\srvcro-sql"
+  DTS:DelayValidation="True"
+  DTS:DTSID="{546410C3-7D11-4C46-A48B-6A2634F876F1}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.7001.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="To Market Fact - All Years"
+  DTS:PackageType="5"
+  DTS:VersionBuild="46"
+  DTS:VersionGUID="{733784D5-2F5A-40FC-A9FA-F0A9AED3781A}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[AfME_SDM_DW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{89C40976-1D9A-471E-BC47-A88BC9E73B68}"
+      DTS:ObjectName="AfME_SDM_DW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=EMAVSP000005179;User ID=SDM_ETL_User;Initial Catalog=AfME_SDM_DW;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-To Market Fact - All Years-{89C40976-1D9A-471E-BC47-A88BC9E73B68}CROBIMSRV01\SQL2005.Sales DW Staging;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SDM_Prod]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{1B381489-E207-4FDA-9400-73811D7EE859}"
+      DTS:ObjectName="SDM_Prod">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=EMAVSP000005180;Initial Catalog=SDM_Prod;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-To Market Fact - All Years-{1B381489-E207-4FDA-9400-73811D7EE859}CROSALESRV01.SDW_Pilot;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Fill To Market Fact Table"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{B5187AA1-1CFA-4707-BDAF-D33F0A50C294}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Fill To Market Fact Table"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v9; (C) 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          engineThreads="5"
+          version="1">
+          <components>
+            <component
+              refId="Package\Fill To Market Fact Table\OLE DB Destination"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ToMarketSalesFact]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destinaton. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fill To Market Fact Table\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[AfME_SDM_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[AfME_SDM_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Fill To Market Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FK_DistributorID]"
+                      cachedDataType="i8"
+                      cachedName="FK_DistributorID"
+                      externalMetadataColumnId="Package\Fill To Market Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_DistributorID]"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_DistributorID]" />
+                    <inputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FK_PeriodID]"
+                      cachedDataType="i4"
+                      cachedName="FK_PeriodID"
+                      externalMetadataColumnId="Package\Fill To Market Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_PeriodID]"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_PeriodID]" />
+                    <inputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FK_DosageFormID]"
+                      cachedDataType="i8"
+                      cachedName="FK_DosageFormID"
+                      externalMetadataColumnId="Package\Fill To Market Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_DosageFormID]"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_DosageFormID]" />
+                    <inputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FK_GeographicalAreaID]"
+                      cachedDataType="i4"
+                      cachedName="FK_GeographicalAreaID"
+                      externalMetadataColumnId="Package\Fill To Market Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_GeographicalAreaID]"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_GeographicalAreaID]" />
+                    <inputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FK_CustomerBranchID]"
+                      cachedDataType="i8"
+                      cachedName="FK_CustomerBranchID"
+                      externalMetadataColumnId="Package\Fill To Market Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_CustomerBranchID]"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_CustomerBranchID]" />
+                    <inputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Qty]"
+                      cachedDataType="r8"
+                      cachedName="Qty"
+                      externalMetadataColumnId="Package\Fill To Market Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Qty]"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Qty]" />
+                    <inputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Total]"
+                      cachedDataType="r8"
+                      cachedName="Total"
+                      externalMetadataColumnId="Package\Fill To Market Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Total]"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Total]" />
+                    <inputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FK_GlobalDosageFormId]"
+                      cachedDataType="i8"
+                      cachedName="FK_GlobalDosageFormId"
+                      externalMetadataColumnId="Package\Fill To Market Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_GlobalDosageFormId]"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_GlobalDosageFormId]" />
+                    <inputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[fk_countryid]"
+                      cachedDataType="i4"
+                      cachedName="fk_countryid"
+                      externalMetadataColumnId="Package\Fill To Market Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[fk_country]"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[fk_countryid]" />
+                    <inputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FK_ChargeTypeID]"
+                      cachedDataType="i4"
+                      cachedName="FK_ChargeTypeID"
+                      externalMetadataColumnId="Package\Fill To Market Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_ChargeTypeID]"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_ChargeTypeID]" />
+                    <inputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FK_SaesTypeID]"
+                      cachedDataType="i2"
+                      cachedName="FK_SaesTypeID"
+                      externalMetadataColumnId="Package\Fill To Market Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_SalesTypeID]"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_SaesTypeID]" />
+                    <inputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FileAmount]"
+                      cachedDataType="r8"
+                      cachedName="FileAmount"
+                      externalMetadataColumnId="Package\Fill To Market Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FileAmount]"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FileAmount]" />
+                    <inputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FK_TransactionTypeID]"
+                      cachedDataType="i4"
+                      cachedName="FK_TransactionTypeID"
+                      externalMetadataColumnId="Package\Fill To Market Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_TransactionTypeID]"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_TransactionTypeID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_DistributorID]"
+                      dataType="i8"
+                      name="FK_DistributorID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_PeriodID]"
+                      dataType="i4"
+                      name="FK_PeriodID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_DosageFormID]"
+                      dataType="i8"
+                      name="FK_DosageFormID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_GeographicalAreaID]"
+                      dataType="i4"
+                      name="FK_GeographicalAreaID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_CustomerBranchID]"
+                      dataType="i8"
+                      name="FK_CustomerBranchID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Qty]"
+                      dataType="numeric"
+                      name="Qty"
+                      precision="38"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Total]"
+                      dataType="r8"
+                      name="Total" />
+                    <externalMetadataColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_GlobalDosageFormId]"
+                      dataType="i8"
+                      name="FK_GlobalDosageFormId" />
+                    <externalMetadataColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[fk_country]"
+                      dataType="numeric"
+                      name="fk_country"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_ChargeTypeID]"
+                      dataType="i4"
+                      name="FK_ChargeTypeID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_SalesTypeID]"
+                      dataType="i4"
+                      name="FK_SalesTypeID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_TransactionTypeID]"
+                      dataType="i4"
+                      name="FK_TransactionTypeID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FileAmount]"
+                      dataType="r8"
+                      name="FileAmount" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fill To Market Fact Table\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Fill To Market Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fill To Market Fact Table\OLE DB Source"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              contactInfo="OLE DB Source;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT	ISNULL(Sales.FK_DistributorID, -1) as FK_DistributorID, Sales.FK_PeriodID, Sales.FK_DosageFormID, 
+		CustomerBranch.FK_GeographicalAreaID , Sales.FK_CustomerBranchID, SUM(Sales.Qty) AS Qty, SUM(Sales.Amount) AS Total, SUM(Sales.FileAmount) AS FileAmount,
+		ISNULL(FK_GlobalDosageFormId,-1) AS 'FK_GlobalDosageFormId' ,sales.fk_countryid, FK_ChargeTypeID, SalesType AS 'FK_SaesTypeID',
+		CASE WHEN sales.TransactionType = 'S' THEN 1
+			 WHEN sales.TransactionType = 'R' THEN 2
+			 WHEN sales.TransactionType = 'B' THEN 3
+			 WHEN sales.TransactionType = 'RB' THEN 4
+			 ELSE 1 END AS 'FK_TransactionTypeID' 
+FROM    VW_SalesAll  sales  With(nolock) inner JOIN
+        CustomerBranch ON Sales.FK_CustomerBranchID = CustomerBranch.CustomerBranchID inner JOIN
+        CustomerGroup ON CustomerBranch.FK_CustomerGroupID = CustomerGroup.CustomerGroupID left outer join 
+		DosageForm on DosageFormId = sales.FK_DosageFormID left outer join 
+		GlobalDosageForm on GlobalDosageFormId = FK_GlobalDosageFormId
+WHERE   /*(Sales.TransactionType IN ('S', 'R')) AND */
+        ((CustomerGroupType = 0 and FK_DistributorID is not null) OR (FK_DistributorID is null and FK_SubDistributorGroupID is null))	
+GROUP BY Sales.FK_DosageFormID, Sales.FK_DistributorID, Sales.FK_PeriodID, CustomerBranch.FK_GeographicalAreaID,  Sales.FK_CustomerBranchID, 
+		 ISNULL(FK_GlobalDosageFormId,-1),sales.fk_countryid, FK_ChargeTypeID, SalesType, sales.TransactionType</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fill To Market Fact Table\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SDM_Prod]"
+                  connectionManagerRefId="Package.ConnectionManagers[SDM_Prod]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_DistributorID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_DistributorID]"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_DistributorID]"
+                      name="FK_DistributorID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_PeriodID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_PeriodID]"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_PeriodID]"
+                      name="FK_PeriodID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_DosageFormID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_DosageFormID]"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_DosageFormID]"
+                      name="FK_DosageFormID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_GeographicalAreaID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_GeographicalAreaID]"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_GeographicalAreaID]"
+                      name="FK_GeographicalAreaID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_CustomerBranchID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_CustomerBranchID]"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_CustomerBranchID]"
+                      name="FK_CustomerBranchID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Qty]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Qty]"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Qty]"
+                      name="Qty"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Total]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Total]"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Total]"
+                      name="Total"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_GlobalDosageFormId]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_GlobalDosageFormId]"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_GlobalDosageFormId]"
+                      name="FK_GlobalDosageFormId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[fk_countryid]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[fk_countryid]"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[fk_countryid]"
+                      name="fk_countryid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_ChargeTypeID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_ChargeTypeID]"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_ChargeTypeID]"
+                      name="FK_ChargeTypeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_SaesTypeID]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_SaesTypeID]"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_SaesTypeID]"
+                      name="FK_SaesTypeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FileAmount]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FileAmount]"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FileAmount]"
+                      name="FileAmount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_TransactionTypeID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_TransactionTypeID]"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_TransactionTypeID]"
+                      name="FK_TransactionTypeID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_DistributorID]"
+                      dataType="i8"
+                      name="FK_DistributorID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_PeriodID]"
+                      dataType="i4"
+                      name="FK_PeriodID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_DosageFormID]"
+                      dataType="i8"
+                      name="FK_DosageFormID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_GeographicalAreaID]"
+                      dataType="i4"
+                      name="FK_GeographicalAreaID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_CustomerBranchID]"
+                      dataType="i8"
+                      name="FK_CustomerBranchID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Qty]"
+                      dataType="r8"
+                      name="Qty" />
+                    <externalMetadataColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Total]"
+                      dataType="r8"
+                      name="Total" />
+                    <externalMetadataColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_GlobalDosageFormId]"
+                      dataType="i8"
+                      name="FK_GlobalDosageFormId" />
+                    <externalMetadataColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[fk_countryid]"
+                      dataType="i4"
+                      name="fk_countryid" />
+                    <externalMetadataColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_ChargeTypeID]"
+                      dataType="i4"
+                      name="FK_ChargeTypeID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_SaesTypeID]"
+                      dataType="i2"
+                      name="FK_SaesTypeID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FileAmount]"
+                      dataType="r8"
+                      name="FileAmount" />
+                    <externalMetadataColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_TransactionTypeID]"
+                      dataType="i4"
+                      name="FK_TransactionTypeID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_DistributorID]"
+                      dataType="i8"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_DistributorID]"
+                      name="FK_DistributorID" />
+                    <outputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_PeriodID]"
+                      dataType="i4"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_PeriodID]"
+                      name="FK_PeriodID" />
+                    <outputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_DosageFormID]"
+                      dataType="i8"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_DosageFormID]"
+                      name="FK_DosageFormID" />
+                    <outputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_GeographicalAreaID]"
+                      dataType="i4"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_GeographicalAreaID]"
+                      name="FK_GeographicalAreaID" />
+                    <outputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_CustomerBranchID]"
+                      dataType="i8"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_CustomerBranchID]"
+                      name="FK_CustomerBranchID" />
+                    <outputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Qty]"
+                      dataType="r8"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Qty]"
+                      name="Qty" />
+                    <outputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Total]"
+                      dataType="r8"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Total]"
+                      name="Total" />
+                    <outputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FileAmount]"
+                      dataType="r8"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FileAmount]"
+                      name="FileAmount" />
+                    <outputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_GlobalDosageFormId]"
+                      dataType="i8"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_GlobalDosageFormId]"
+                      name="FK_GlobalDosageFormId" />
+                    <outputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[fk_countryid]"
+                      dataType="i4"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[fk_countryid]"
+                      name="fk_countryid" />
+                    <outputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_ChargeTypeID]"
+                      dataType="i4"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_ChargeTypeID]"
+                      name="FK_ChargeTypeID" />
+                    <outputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_SaesTypeID]"
+                      dataType="i2"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_SaesTypeID]"
+                      name="FK_SaesTypeID" />
+                    <outputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_TransactionTypeID]"
+                      dataType="i4"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_TransactionTypeID]"
+                      name="FK_TransactionTypeID" />
+                    <outputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Fill To Market Fact Table.Paths[OLE DB Source Output]"
+              endId="Package\Fill To Market Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Fill To Market Fact Table\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate tomarket fact tables"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{D7DBBE23-2247-4FA3-8C81-CCEB93D65361}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate tomarket fact tables"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{89C40976-1D9A-471E-BC47-A88BC9E73B68}"
+          SQLTask:SqlStatementSource="Truncate table ToMarketSalesFact;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{89A24338-03F8-4C0D-A560-E0ECEF6396BB}"
+      DTS:From="Package\Truncate tomarket fact tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Fill To Market Fact Table" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Fill To Market Fact Table"
+          TopLeft="5.5,87.1603773584906" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Truncate tomarket fact tables"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="73.3867924528302,49.4245283018868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.7358490566038"
+              Start="0,0"
+              End="0,30.2358490566038">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2358490566038" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Fill To Market Fact Table">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Fill To Market Fact Table\OLE DB Source"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Fill To Market Fact Table\OLE DB Destination"
+          TopLeft="239.122641509434,137.311320754717" />
+        <EdgeLayout
+          Id="Package\Fill To Market Fact Table.Paths[OLE DB Source Output]"
+          TopLeft="73.3867924528302,49.4245283018868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="233.622641509434,87.8867924528302"
+              Start="0,0"
+              End="233.622641509434,80.3867924528302">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.9245283018868" />
+                  <mssgle:LineSegment
+                    End="233.622641509434,43.9245283018868" />
+                  <mssgle:LineSegment
+                    End="233.622641509434,80.3867924528302" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fill To Market Fact Table\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fill To Market Fact Table\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

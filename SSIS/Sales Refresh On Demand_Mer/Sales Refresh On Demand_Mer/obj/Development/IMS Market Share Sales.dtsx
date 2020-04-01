@@ -1,0 +1,715 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/16/2016 7:45:48 AM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="CROBIMSRV01"
+  DTS:CreatorName="EMEA\srvcro-sql"
+  DTS:DTSID="{3DAE30CB-5FC3-48DF-81D0-2304491E774F}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.7001.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="IMS Market Share Sales"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{27461D62-3E68-4B2B-A3CD-2FC1570ACAD1}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Sales DW Staging]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{AD2427F6-BCB9-45B1-9024-11135D49945F}"
+      DTS:ObjectName="Sales DW Staging">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=EMAVSP000005179;User ID=SDM_ETL_User;Initial Catalog=AfME_SDM_DW;Provider=SQLNCLI11.1;Persist Security Info=True;Application Name=SSIS-IMS Market Share Sales-{AD2427F6-BCB9-45B1-9024-11135D49945F}Sales DW Staging;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SDW Pilot]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{4FAB8D0C-7F60-4194-A52B-EA47BCAD3EAB}"
+      DTS:ObjectName="SDW Pilot">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=EMAVSP000005180;Initial Catalog=SDM_Prod;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-IMS Market Share Sales-{4FAB8D0C-7F60-4194-A52B-EA47BCAD3EAB}SDW Pilot;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Fill IMSSales"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{5992AA6B-6F41-40BE-A513-B34B47FE198C}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Fill IMSSales"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v9; (C) 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          engineThreads="5"
+          version="1">
+          <components>
+            <component
+              refId="Package\Fill IMSSales\OLE DB Destination"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[IMSSalesFact]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destinaton. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fill IMSSales\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Sales DW Staging]"
+                  connectionManagerRefId="Package.ConnectionManagers[Sales DW Staging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Fill IMSSales\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fill IMSSales\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FK_DosageFormID]"
+                      cachedDataType="i8"
+                      cachedName="FK_DosageFormID"
+                      externalMetadataColumnId="Package\Fill IMSSales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_DosageFormID]"
+                      lineageId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_DosageFormID]" />
+                    <inputColumn
+                      refId="Package\Fill IMSSales\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FK_IMSDosageFormId]"
+                      cachedDataType="i4"
+                      cachedName="FK_IMSDosageFormId"
+                      externalMetadataColumnId="Package\Fill IMSSales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_IMSDosageFormID]"
+                      lineageId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_IMSDosageFormId]" />
+                    <inputColumn
+                      refId="Package\Fill IMSSales\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FK_GeographicalAreaID]"
+                      cachedDataType="i4"
+                      cachedName="FK_GeographicalAreaID"
+                      externalMetadataColumnId="Package\Fill IMSSales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_GeographicalAreaId]"
+                      lineageId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_GeographicalAreaID]" />
+                    <inputColumn
+                      refId="Package\Fill IMSSales\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FK_IMSBrickId]"
+                      cachedDataType="i4"
+                      cachedName="FK_IMSBrickId"
+                      externalMetadataColumnId="Package\Fill IMSSales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_IMSBrickId]"
+                      lineageId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_IMSBrickId]" />
+                    <inputColumn
+                      refId="Package\Fill IMSSales\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CountingUnits]"
+                      cachedDataType="i4"
+                      cachedName="CountingUnits"
+                      externalMetadataColumnId="Package\Fill IMSSales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CountingUnits]"
+                      lineageId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].Columns[CountingUnits]" />
+                    <inputColumn
+                      refId="Package\Fill IMSSales\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DosageUnits]"
+                      cachedDataType="i4"
+                      cachedName="DosageUnits"
+                      externalMetadataColumnId="Package\Fill IMSSales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DosageUnits]"
+                      lineageId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].Columns[DosageUnits]" />
+                    <inputColumn
+                      refId="Package\Fill IMSSales\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[IMSPeriodCode]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="IMSPeriodCode"
+                      externalMetadataColumnId="Package\Fill IMSSales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IMSPeriodCode]"
+                      lineageId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].Columns[IMSPeriodCode]" />
+                    <inputColumn
+                      refId="Package\Fill IMSSales\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FK_PeriodID]"
+                      cachedDataType="i4"
+                      cachedName="FK_PeriodID"
+                      externalMetadataColumnId="Package\Fill IMSSales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_PeriodID]"
+                      lineageId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_PeriodID]" />
+                    <inputColumn
+                      refId="Package\Fill IMSSales\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FK_CountryID]"
+                      cachedDataType="i4"
+                      cachedName="FK_CountryID"
+                      externalMetadataColumnId="Package\Fill IMSSales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_CountryID]"
+                      lineageId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_CountryID]" />
+                    <inputColumn
+                      refId="Package\Fill IMSSales\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Qty]"
+                      cachedDataType="r8"
+                      cachedName="Qty"
+                      externalMetadataColumnId="Package\Fill IMSSales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Qty]"
+                      lineageId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].Columns[Qty]" />
+                    <inputColumn
+                      refId="Package\Fill IMSSales\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Amount]"
+                      cachedDataType="r8"
+                      cachedName="Amount"
+                      externalMetadataColumnId="Package\Fill IMSSales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Amount]"
+                      lineageId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].Columns[Amount]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Fill IMSSales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_DosageFormID]"
+                      dataType="i8"
+                      name="FK_DosageFormID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill IMSSales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_IMSDosageFormID]"
+                      dataType="i4"
+                      name="FK_IMSDosageFormID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill IMSSales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_GeographicalAreaId]"
+                      dataType="i4"
+                      name="FK_GeographicalAreaId" />
+                    <externalMetadataColumn
+                      refId="Package\Fill IMSSales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_IMSBrickId]"
+                      dataType="i4"
+                      name="FK_IMSBrickId" />
+                    <externalMetadataColumn
+                      refId="Package\Fill IMSSales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_PeriodID]"
+                      dataType="i4"
+                      name="FK_PeriodID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill IMSSales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IMSPeriodCode]"
+                      dataType="wstr"
+                      length="50"
+                      name="IMSPeriodCode" />
+                    <externalMetadataColumn
+                      refId="Package\Fill IMSSales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Qty]"
+                      dataType="r8"
+                      name="Qty" />
+                    <externalMetadataColumn
+                      refId="Package\Fill IMSSales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Amount]"
+                      dataType="r8"
+                      name="Amount" />
+                    <externalMetadataColumn
+                      refId="Package\Fill IMSSales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_CountryID]"
+                      dataType="i4"
+                      name="FK_CountryID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill IMSSales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CountingUnits]"
+                      dataType="i4"
+                      name="CountingUnits" />
+                    <externalMetadataColumn
+                      refId="Package\Fill IMSSales\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DosageUnits]"
+                      dataType="i4"
+                      name="DosageUnits" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fill IMSSales\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Fill IMSSales\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fill IMSSales\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fill IMSSales\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fill IMSSales\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fill IMSSales\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fill IMSSales\OLE DB Source"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              contactInfo="OLE DB Source;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select   ISNULL(s.FK_DosageFormID,-1) as 'FK_DosageFormID',s.FK_IMSDosageFormId,
+ISNULL(x.FK_GeographicalAreaID,s.FK_CountryID*-1-100) as 'FK_GeographicalAreaID',
+isnull(s.FK_IMSBrickId,-1) FK_IMSBrickId,
+isnull(s.FK_IMSFormID,-1) FK_IMSFormID
+,isnull(s.FK_IMSTherapeuticID,-1) FK_IMSTherapeuticID
+,isnull(FK_IMSClientMarketId,-1) FK_IMSClientMarketId,
+isnull(s.FK_IMSCorporationId,-1) FK_IMSCorporationId,
+isnull(FK_ManufacturerId,-1) FK_ManufacturerId
+,isnull(FK_IMSTerritoryId,-1) FK_IMSTerritoryId,CountingUnits,DosageUnits,
+s.IMSPeriodCode,s.FK_PeriodID,
+s.FK_CountryID,
+(s.qty/ISNULL((select (Case When count(*) = 0 Then null else COUNT(*) END)  as a from IMSGeographicalAreaMapping g Where g.IMSSubTerritoryCode =(select IMSBrickCode from IMSBrick where IMSBrick.IMSBrickID = s.FK_IMSBrickId )  and s.FK_CountryID = g.FK_CountryID
+),1)) as 'Qty',
+(s.amount/ISNULL((select (Case When count(*) = 0 Then null else COUNT(*) END)  as a from IMSGeographicalAreaMapping g
+where  g.IMSSubTerritoryCode = (select IMSBrickCode from IMSBrick where IMSBrick.IMSBrickID = s.FK_IMSBrickId )   and s.FK_CountryID = g.FK_CountryID
+),1))  as 'Amount'
+from IMSSales s
+Left join  IMSGeographicalAreaMapping x on x.IMSSubTerritoryCode = (select IMSBrickCode from IMSBrick where IMSBrick.IMSBrickID = s.FK_IMSBrickId )   and s.FK_CountryID = x.FK_CountryID</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fill IMSSales\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SDW Pilot]"
+                  connectionManagerRefId="Package.ConnectionManagers[SDW Pilot]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_DosageFormID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_DosageFormID]"
+                      lineageId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_DosageFormID]"
+                      name="FK_DosageFormID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_IMSDosageFormId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_IMSDosageFormId]"
+                      lineageId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_IMSDosageFormId]"
+                      name="FK_IMSDosageFormId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_GeographicalAreaID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_GeographicalAreaID]"
+                      lineageId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_GeographicalAreaID]"
+                      name="FK_GeographicalAreaID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_IMSBrickId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_IMSBrickId]"
+                      lineageId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_IMSBrickId]"
+                      name="FK_IMSBrickId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_IMSTerritoryId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_IMSTerritoryId]"
+                      lineageId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_IMSTerritoryId]"
+                      name="FK_IMSTerritoryId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].Columns[CountingUnits]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CountingUnits]"
+                      lineageId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].Columns[CountingUnits]"
+                      name="CountingUnits"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].Columns[DosageUnits]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DosageUnits]"
+                      lineageId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].Columns[DosageUnits]"
+                      name="DosageUnits"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].Columns[IMSPeriodCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IMSPeriodCode]"
+                      length="50"
+                      lineageId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].Columns[IMSPeriodCode]"
+                      name="IMSPeriodCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_PeriodID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_PeriodID]"
+                      lineageId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_PeriodID]"
+                      name="FK_PeriodID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_CountryID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_CountryID]"
+                      lineageId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_CountryID]"
+                      name="FK_CountryID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].Columns[Qty]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Qty]"
+                      lineageId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].Columns[Qty]"
+                      name="Qty"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].Columns[Amount]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Amount]"
+                      lineageId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].Columns[Amount]"
+                      name="Amount"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_DosageFormID]"
+                      dataType="i8"
+                      name="FK_DosageFormID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_IMSDosageFormId]"
+                      dataType="i4"
+                      name="FK_IMSDosageFormId" />
+                    <externalMetadataColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_GeographicalAreaID]"
+                      dataType="i4"
+                      name="FK_GeographicalAreaID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_IMSBrickId]"
+                      dataType="i4"
+                      name="FK_IMSBrickId" />
+                    <externalMetadataColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_IMSFormID]"
+                      dataType="i4"
+                      name="FK_IMSFormID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_IMSTherapeuticID]"
+                      dataType="i4"
+                      name="FK_IMSTherapeuticID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_IMSClientMarketId]"
+                      dataType="i4"
+                      name="FK_IMSClientMarketId" />
+                    <externalMetadataColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_IMSCorporationId]"
+                      dataType="i4"
+                      name="FK_IMSCorporationId" />
+                    <externalMetadataColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_ManufacturerId]"
+                      dataType="i4"
+                      name="FK_ManufacturerId" />
+                    <externalMetadataColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_IMSTerritoryId]"
+                      dataType="i4"
+                      name="FK_IMSTerritoryId" />
+                    <externalMetadataColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CountingUnits]"
+                      dataType="i4"
+                      name="CountingUnits" />
+                    <externalMetadataColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DosageUnits]"
+                      dataType="i4"
+                      name="DosageUnits" />
+                    <externalMetadataColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IMSPeriodCode]"
+                      dataType="wstr"
+                      length="50"
+                      name="IMSPeriodCode" />
+                    <externalMetadataColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_PeriodID]"
+                      dataType="i4"
+                      name="FK_PeriodID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_CountryID]"
+                      dataType="i4"
+                      name="FK_CountryID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Qty]"
+                      dataType="r8"
+                      name="Qty" />
+                    <externalMetadataColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Amount]"
+                      dataType="r8"
+                      name="Amount" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_DosageFormID]"
+                      dataType="i8"
+                      lineageId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_DosageFormID]"
+                      name="FK_DosageFormID" />
+                    <outputColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_IMSDosageFormId]"
+                      dataType="i4"
+                      lineageId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_IMSDosageFormId]"
+                      name="FK_IMSDosageFormId" />
+                    <outputColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_GeographicalAreaID]"
+                      dataType="i4"
+                      lineageId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_GeographicalAreaID]"
+                      name="FK_GeographicalAreaID" />
+                    <outputColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_IMSBrickId]"
+                      dataType="i4"
+                      lineageId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_IMSBrickId]"
+                      name="FK_IMSBrickId" />
+                    <outputColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_IMSTerritoryId]"
+                      dataType="i4"
+                      lineageId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_IMSTerritoryId]"
+                      name="FK_IMSTerritoryId" />
+                    <outputColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CountingUnits]"
+                      dataType="i4"
+                      lineageId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CountingUnits]"
+                      name="CountingUnits" />
+                    <outputColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DosageUnits]"
+                      dataType="i4"
+                      lineageId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DosageUnits]"
+                      name="DosageUnits" />
+                    <outputColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IMSPeriodCode]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IMSPeriodCode]"
+                      name="IMSPeriodCode" />
+                    <outputColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_PeriodID]"
+                      dataType="i4"
+                      lineageId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_PeriodID]"
+                      name="FK_PeriodID" />
+                    <outputColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_CountryID]"
+                      dataType="i4"
+                      lineageId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_CountryID]"
+                      name="FK_CountryID" />
+                    <outputColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Qty]"
+                      dataType="r8"
+                      lineageId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Qty]"
+                      name="Qty" />
+                    <outputColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Amount]"
+                      dataType="r8"
+                      lineageId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Amount]"
+                      name="Amount" />
+                    <outputColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Fill IMSSales.Paths[OLE DB Source Output]"
+              endId="Package\Fill IMSSales\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Fill IMSSales\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate IMSSales"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{94481425-7AC0-487E-8D97-27C29124C21B}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate IMSSales"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{AD2427F6-BCB9-45B1-9024-11135D49945F}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE IMSSalesFact" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{3EB7FEBF-D4F4-4EDA-8EDD-13580FA9D0D1}"
+      DTS:From="Package\Truncate IMSSales"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Fill IMSSales" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Fill IMSSales"
+          TopLeft="34.4433962264151,113.311320754717" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Truncate IMSSales"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="73.3867924528302,49.4245283018868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="28.9433962264151,63.8867924528302"
+              Start="0,0"
+              End="28.9433962264151,56.3867924528302">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.9245283018868" />
+                  <mssgle:LineSegment
+                    End="28.9433962264151,31.9245283018868" />
+                  <mssgle:LineSegment
+                    End="28.9433962264151,56.3867924528302" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <ConnectionManager
+    design-time-name="Package.ConnectionManagers[Sales DW Staging]">
+    <DataSourceID>Sales DW Staging</DataSourceID>
+  </ConnectionManager>
+  <ConnectionManager
+    design-time-name="Package.ConnectionManagers[SDW Pilot]">
+    <DataSourceID>SDW Pilot</DataSourceID>
+  </ConnectionManager>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

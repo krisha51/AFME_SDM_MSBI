@@ -1,0 +1,2968 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/18/2014 3:10:07 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="CROSALESRV02"
+  DTS:CreatorName="EMEA\emacro-bekhia01"
+  DTS:DelayValidation="True"
+  DTS:DTSID="{4683CE16-76E8-47BE-9904-F0203A877334}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.7001.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="GlobalMasterData"
+  DTS:PackageType="5"
+  DTS:VersionBuild="69"
+  DTS:VersionGUID="{AF179384-7CCE-47A2-A944-9D910D60025E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CROBIMSRV01\SQL2005.Sales DW Staging]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{5A799970-5E4E-4AB5-A5E7-273D184C1175}"
+      DTS:ObjectName="CROBIMSRV01\SQL2005.Sales DW Staging">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=EMAVSP000005179;User ID=SDM_ETL_User;Initial Catalog=AfME_SDM_DW;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Target-Sales Adjustments-{81a0b845-f76d-45e7-a333-a0cd033a727f}CROBIMSRV01\SQL2005.Sales DW Staging;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CROSALESRV01.SDW_Pilot]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{A242A6F3-AC7A-42AF-AC90-F34719524A75}"
+      DTS:ObjectName="CROSALESRV01.SDW_Pilot">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=EMAVSP000005180;Initial Catalog=SDM_Prod;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Target-Sales Adjustments-{30eaf9e6-8232-42b1-956a-5f66f512af61}CROSALESRV01.SDW_Pilot;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\FIll Global Dimensions1"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:DelayValidation="True"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{ECC9B4A1-EE37-41C6-8DBC-616E576CC3D3}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FIll Global Dimensions1"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          version="1">
+          <components>
+            <component
+              refId="Package\FIll Global Dimensions1\Global Company"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              contactInfo="OLE DB Source;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              localeId="1033"
+              name="Global Company"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[GlobalCompany]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select GlobalCompanyID , GlobalCompanyCode,GlobalCompanyName,GlobalCompanyAddress
+from GlobalCompany
+
+union
+
+select -1,'NA','NA','NA'</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FIll Global Dimensions1\Global Company.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CROSALESRV01.SDW_Pilot]"
+                  connectionManagerRefId="Package.ConnectionManagers[CROSALESRV01.SDW_Pilot]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\FIll Global Dimensions1\Global Company.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global Company.Outputs[OLE DB Source Output].Columns[GlobalCompanyID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FIll Global Dimensions1\Global Company.Outputs[OLE DB Source Output].ExternalColumns[GlobalCompanyID]"
+                      lineageId="Package\FIll Global Dimensions1\Global Company.Outputs[OLE DB Source Output].Columns[GlobalCompanyID]"
+                      name="GlobalCompanyID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global Company.Outputs[OLE DB Source Output].Columns[GlobalCompanyCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FIll Global Dimensions1\Global Company.Outputs[OLE DB Source Output].ExternalColumns[GlobalCompanyCode]"
+                      length="50"
+                      lineageId="Package\FIll Global Dimensions1\Global Company.Outputs[OLE DB Source Output].Columns[GlobalCompanyCode]"
+                      name="GlobalCompanyCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global Company.Outputs[OLE DB Source Output].Columns[GlobalCompanyName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FIll Global Dimensions1\Global Company.Outputs[OLE DB Source Output].ExternalColumns[GlobalCompanyName]"
+                      length="1000"
+                      lineageId="Package\FIll Global Dimensions1\Global Company.Outputs[OLE DB Source Output].Columns[GlobalCompanyName]"
+                      name="GlobalCompanyName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global Company.Outputs[OLE DB Source Output].Columns[GlobalCompanyAddress]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FIll Global Dimensions1\Global Company.Outputs[OLE DB Source Output].ExternalColumns[GlobalCompanyAddress]"
+                      length="1000"
+                      lineageId="Package\FIll Global Dimensions1\Global Company.Outputs[OLE DB Source Output].Columns[GlobalCompanyAddress]"
+                      name="GlobalCompanyAddress"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions1\Global Company.Outputs[OLE DB Source Output].ExternalColumns[GlobalCompanyID]"
+                      dataType="i4"
+                      name="GlobalCompanyID" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions1\Global Company.Outputs[OLE DB Source Output].ExternalColumns[GlobalCompanyCode]"
+                      dataType="wstr"
+                      length="50"
+                      name="GlobalCompanyCode" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions1\Global Company.Outputs[OLE DB Source Output].ExternalColumns[GlobalCompanyName]"
+                      dataType="wstr"
+                      length="1000"
+                      name="GlobalCompanyName" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions1\Global Company.Outputs[OLE DB Source Output].ExternalColumns[GlobalCompanyAddress]"
+                      dataType="wstr"
+                      length="1000"
+                      name="GlobalCompanyAddress" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\FIll Global Dimensions1\Global Company.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global Company.Outputs[OLE DB Source Error Output].Columns[GlobalCompanyID]"
+                      dataType="i4"
+                      lineageId="Package\FIll Global Dimensions1\Global Company.Outputs[OLE DB Source Error Output].Columns[GlobalCompanyID]"
+                      name="GlobalCompanyID" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global Company.Outputs[OLE DB Source Error Output].Columns[GlobalCompanyCode]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\FIll Global Dimensions1\Global Company.Outputs[OLE DB Source Error Output].Columns[GlobalCompanyCode]"
+                      name="GlobalCompanyCode" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global Company.Outputs[OLE DB Source Error Output].Columns[GlobalCompanyName]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\FIll Global Dimensions1\Global Company.Outputs[OLE DB Source Error Output].Columns[GlobalCompanyName]"
+                      name="GlobalCompanyName" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global Company.Outputs[OLE DB Source Error Output].Columns[GlobalCompanyAddress]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\FIll Global Dimensions1\Global Company.Outputs[OLE DB Source Error Output].Columns[GlobalCompanyAddress]"
+                      name="GlobalCompanyAddress" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global Company.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FIll Global Dimensions1\Global Company.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global Company.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FIll Global Dimensions1\Global Company.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FIll Global Dimensions1\Global Company Dest"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              localeId="1033"
+              name="Global Company Dest"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[GlobalCompany]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destinaton. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FIll Global Dimensions1\Global Company Dest.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CROBIMSRV01\SQL2005.Sales DW Staging]"
+                  connectionManagerRefId="Package.ConnectionManagers[CROBIMSRV01\SQL2005.Sales DW Staging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FIll Global Dimensions1\Global Company Dest.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FIll Global Dimensions1\Global Company Dest.Inputs[OLE DB Destination Input].Columns[GlobalCompanyID]"
+                      cachedDataType="i4"
+                      cachedName="GlobalCompanyID"
+                      externalMetadataColumnId="Package\FIll Global Dimensions1\Global Company Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalCompanyID]"
+                      lineageId="Package\FIll Global Dimensions1\Global Company.Outputs[OLE DB Source Output].Columns[GlobalCompanyID]" />
+                    <inputColumn
+                      refId="Package\FIll Global Dimensions1\Global Company Dest.Inputs[OLE DB Destination Input].Columns[GlobalCompanyCode]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="GlobalCompanyCode"
+                      externalMetadataColumnId="Package\FIll Global Dimensions1\Global Company Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalCompanyCode]"
+                      lineageId="Package\FIll Global Dimensions1\Global Company.Outputs[OLE DB Source Output].Columns[GlobalCompanyCode]" />
+                    <inputColumn
+                      refId="Package\FIll Global Dimensions1\Global Company Dest.Inputs[OLE DB Destination Input].Columns[GlobalCompanyName]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="GlobalCompanyName"
+                      externalMetadataColumnId="Package\FIll Global Dimensions1\Global Company Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalCompanyName]"
+                      lineageId="Package\FIll Global Dimensions1\Global Company.Outputs[OLE DB Source Output].Columns[GlobalCompanyName]" />
+                    <inputColumn
+                      refId="Package\FIll Global Dimensions1\Global Company Dest.Inputs[OLE DB Destination Input].Columns[GlobalCompanyAddress]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="GlobalCompanyAddress"
+                      externalMetadataColumnId="Package\FIll Global Dimensions1\Global Company Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalCompanyAddress]"
+                      lineageId="Package\FIll Global Dimensions1\Global Company.Outputs[OLE DB Source Output].Columns[GlobalCompanyAddress]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions1\Global Company Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalCompanyID]"
+                      dataType="i4"
+                      name="GlobalCompanyID" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions1\Global Company Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalCompanyCode]"
+                      dataType="wstr"
+                      length="50"
+                      name="GlobalCompanyCode" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions1\Global Company Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalCompanyName]"
+                      dataType="wstr"
+                      length="1000"
+                      name="GlobalCompanyName" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions1\Global Company Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalCompanyAddress]"
+                      dataType="wstr"
+                      length="1000"
+                      name="GlobalCompanyAddress" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FIll Global Dimensions1\Global Company Dest.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\FIll Global Dimensions1\Global Company Dest.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global Company Dest.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FIll Global Dimensions1\Global Company Dest.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global Company Dest.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FIll Global Dimensions1\Global Company Dest.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              localeId="1033"
+              name="Global Customer Sector Targeting Group"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[GlobalCustomerSectorTargetingGroup]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select GlobalCustomerSectorTargetingGroupID,GlobalCustomerSectorTargetingGroupCode,GlobalCustomerSectorTargetingGroupName
+from GlobalCustomerSectorTargetingGroup
+
+union
+
+select -1,'NA','NA'</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CROSALESRV01.SDW_Pilot]"
+                  connectionManagerRefId="Package.ConnectionManagers[CROSALESRV01.SDW_Pilot]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group.Outputs[OLE DB Source Output].Columns[GlobalCustomerSectorTargetingGroupID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group.Outputs[OLE DB Source Output].ExternalColumns[GlobalCustomerSectorTargetingGroupID]"
+                      lineageId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group.Outputs[OLE DB Source Output].Columns[GlobalCustomerSectorTargetingGroupID]"
+                      name="GlobalCustomerSectorTargetingGroupID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group.Outputs[OLE DB Source Output].Columns[GlobalCustomerSectorTargetingGroupCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group.Outputs[OLE DB Source Output].ExternalColumns[GlobalCustomerSectorTargetingGroupCode]"
+                      length="50"
+                      lineageId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group.Outputs[OLE DB Source Output].Columns[GlobalCustomerSectorTargetingGroupCode]"
+                      name="GlobalCustomerSectorTargetingGroupCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group.Outputs[OLE DB Source Output].Columns[GlobalCustomerSectorTargetingGroupName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group.Outputs[OLE DB Source Output].ExternalColumns[GlobalCustomerSectorTargetingGroupName]"
+                      length="1000"
+                      lineageId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group.Outputs[OLE DB Source Output].Columns[GlobalCustomerSectorTargetingGroupName]"
+                      name="GlobalCustomerSectorTargetingGroupName"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group.Outputs[OLE DB Source Output].ExternalColumns[GlobalCustomerSectorTargetingGroupID]"
+                      dataType="i4"
+                      name="GlobalCustomerSectorTargetingGroupID" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group.Outputs[OLE DB Source Output].ExternalColumns[GlobalCustomerSectorTargetingGroupCode]"
+                      dataType="wstr"
+                      length="50"
+                      name="GlobalCustomerSectorTargetingGroupCode" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group.Outputs[OLE DB Source Output].ExternalColumns[GlobalCustomerSectorTargetingGroupName]"
+                      dataType="wstr"
+                      length="1000"
+                      name="GlobalCustomerSectorTargetingGroupName" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group.Outputs[OLE DB Source Error Output].Columns[GlobalCustomerSectorTargetingGroupID]"
+                      dataType="i4"
+                      lineageId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group.Outputs[OLE DB Source Error Output].Columns[GlobalCustomerSectorTargetingGroupID]"
+                      name="GlobalCustomerSectorTargetingGroupID" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group.Outputs[OLE DB Source Error Output].Columns[GlobalCustomerSectorTargetingGroupCode]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group.Outputs[OLE DB Source Error Output].Columns[GlobalCustomerSectorTargetingGroupCode]"
+                      name="GlobalCustomerSectorTargetingGroupCode" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group.Outputs[OLE DB Source Error Output].Columns[GlobalCustomerSectorTargetingGroupName]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group.Outputs[OLE DB Source Error Output].Columns[GlobalCustomerSectorTargetingGroupName]"
+                      name="GlobalCustomerSectorTargetingGroupName" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group Dest"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              localeId="1033"
+              name="Global Customer Sector Targeting Group Dest"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[GlobalCustomerSectorTargetingGroup]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destinaton. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group Dest.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CROBIMSRV01\SQL2005.Sales DW Staging]"
+                  connectionManagerRefId="Package.ConnectionManagers[CROBIMSRV01\SQL2005.Sales DW Staging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group Dest.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group Dest.Inputs[OLE DB Destination Input].Columns[GlobalCustomerSectorTargetingGroupID]"
+                      cachedDataType="i4"
+                      cachedName="GlobalCustomerSectorTargetingGroupID"
+                      externalMetadataColumnId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalCustomerSectorTargetingGroupID]"
+                      lineageId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group.Outputs[OLE DB Source Output].Columns[GlobalCustomerSectorTargetingGroupID]" />
+                    <inputColumn
+                      refId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group Dest.Inputs[OLE DB Destination Input].Columns[GlobalCustomerSectorTargetingGroupCode]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="GlobalCustomerSectorTargetingGroupCode"
+                      externalMetadataColumnId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalCustomerSectorTargetingGroupCode]"
+                      lineageId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group.Outputs[OLE DB Source Output].Columns[GlobalCustomerSectorTargetingGroupCode]" />
+                    <inputColumn
+                      refId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group Dest.Inputs[OLE DB Destination Input].Columns[GlobalCustomerSectorTargetingGroupName]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="GlobalCustomerSectorTargetingGroupName"
+                      externalMetadataColumnId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalCustomerSectorTargetingGroupName]"
+                      lineageId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group.Outputs[OLE DB Source Output].Columns[GlobalCustomerSectorTargetingGroupName]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalCustomerSectorTargetingGroupID]"
+                      dataType="i4"
+                      name="GlobalCustomerSectorTargetingGroupID" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalCustomerSectorTargetingGroupCode]"
+                      dataType="wstr"
+                      length="50"
+                      name="GlobalCustomerSectorTargetingGroupCode" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalCustomerSectorTargetingGroupName]"
+                      dataType="wstr"
+                      length="1000"
+                      name="GlobalCustomerSectorTargetingGroupName" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group Dest.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group Dest.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group Dest.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group Dest.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group Dest.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group Dest.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FIll Global Dimensions1\Global Marketing Business  Unit Dest"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              localeId="1033"
+              name="Global Marketing Business  Unit Dest"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[GlobalMarketingBusinessUnit]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destinaton. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FIll Global Dimensions1\Global Marketing Business  Unit Dest.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CROBIMSRV01\SQL2005.Sales DW Staging]"
+                  connectionManagerRefId="Package.ConnectionManagers[CROBIMSRV01\SQL2005.Sales DW Staging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FIll Global Dimensions1\Global Marketing Business  Unit Dest.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FIll Global Dimensions1\Global Marketing Business  Unit Dest.Inputs[OLE DB Destination Input].Columns[GlobalMarketingBusinessUnitId]"
+                      cachedDataType="i8"
+                      cachedName="GlobalMarketingBusinessUnitId"
+                      externalMetadataColumnId="Package\FIll Global Dimensions1\Global Marketing Business  Unit Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalMarketingBusinessUnitID]"
+                      lineageId="Package\FIll Global Dimensions1\Global Marketing Business Unit.Outputs[OLE DB Source Output].Columns[GlobalMarketingBusinessUnitId]" />
+                    <inputColumn
+                      refId="Package\FIll Global Dimensions1\Global Marketing Business  Unit Dest.Inputs[OLE DB Destination Input].Columns[GlobalMarketingBusinessUnitName]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="GlobalMarketingBusinessUnitName"
+                      externalMetadataColumnId="Package\FIll Global Dimensions1\Global Marketing Business  Unit Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalMarketingBusinessUnitName]"
+                      lineageId="Package\FIll Global Dimensions1\Global Marketing Business Unit.Outputs[OLE DB Source Output].Columns[GlobalMarketingBusinessUnitName]" />
+                    <inputColumn
+                      refId="Package\FIll Global Dimensions1\Global Marketing Business  Unit Dest.Inputs[OLE DB Destination Input].Columns[GlobalMarketingBusinessUnitCode]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="GlobalMarketingBusinessUnitCode"
+                      externalMetadataColumnId="Package\FIll Global Dimensions1\Global Marketing Business  Unit Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalMarketingBusinessUnitCode]"
+                      lineageId="Package\FIll Global Dimensions1\Global Marketing Business Unit.Outputs[OLE DB Source Output].Columns[GlobalMarketingBusinessUnitCode]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions1\Global Marketing Business  Unit Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalMarketingBusinessUnitID]"
+                      dataType="i8"
+                      name="GlobalMarketingBusinessUnitID" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions1\Global Marketing Business  Unit Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalMarketingBusinessUnitCode]"
+                      dataType="wstr"
+                      length="100"
+                      name="GlobalMarketingBusinessUnitCode" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions1\Global Marketing Business  Unit Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalMarketingBusinessUnitName]"
+                      dataType="wstr"
+                      length="1000"
+                      name="GlobalMarketingBusinessUnitName" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FIll Global Dimensions1\Global Marketing Business  Unit Dest.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\FIll Global Dimensions1\Global Marketing Business  Unit Dest.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global Marketing Business  Unit Dest.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FIll Global Dimensions1\Global Marketing Business  Unit Dest.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global Marketing Business  Unit Dest.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FIll Global Dimensions1\Global Marketing Business  Unit Dest.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FIll Global Dimensions1\Global Marketing Business Unit"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              contactInfo="OLE DB Source;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              localeId="1033"
+              name="Global Marketing Business Unit"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[GlobalMarketingBusinessUnit]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select GlobalMarketingBusinessUnitId,GlobalMarketingBusinessUnitName,GlobalMarketingBusinessUnitCode
+from GlobalMarketingBusinessUnit
+
+union
+
+select -1,'NA','NA'</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FIll Global Dimensions1\Global Marketing Business Unit.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CROSALESRV01.SDW_Pilot]"
+                  connectionManagerRefId="Package.ConnectionManagers[CROSALESRV01.SDW_Pilot]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\FIll Global Dimensions1\Global Marketing Business Unit.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global Marketing Business Unit.Outputs[OLE DB Source Output].Columns[GlobalMarketingBusinessUnitName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FIll Global Dimensions1\Global Marketing Business Unit.Outputs[OLE DB Source Output].ExternalColumns[GlobalMarketingBusinessUnitName]"
+                      length="1000"
+                      lineageId="Package\FIll Global Dimensions1\Global Marketing Business Unit.Outputs[OLE DB Source Output].Columns[GlobalMarketingBusinessUnitName]"
+                      name="GlobalMarketingBusinessUnitName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global Marketing Business Unit.Outputs[OLE DB Source Output].Columns[GlobalMarketingBusinessUnitCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FIll Global Dimensions1\Global Marketing Business Unit.Outputs[OLE DB Source Output].ExternalColumns[GlobalMarketingBusinessUnitCode]"
+                      length="100"
+                      lineageId="Package\FIll Global Dimensions1\Global Marketing Business Unit.Outputs[OLE DB Source Output].Columns[GlobalMarketingBusinessUnitCode]"
+                      name="GlobalMarketingBusinessUnitCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global Marketing Business Unit.Outputs[OLE DB Source Output].Columns[GlobalMarketingBusinessUnitId]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FIll Global Dimensions1\Global Marketing Business Unit.Outputs[OLE DB Source Output].ExternalColumns[GlobalMarketingBusinessUnitId]"
+                      lineageId="Package\FIll Global Dimensions1\Global Marketing Business Unit.Outputs[OLE DB Source Output].Columns[GlobalMarketingBusinessUnitId]"
+                      name="GlobalMarketingBusinessUnitId"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions1\Global Marketing Business Unit.Outputs[OLE DB Source Output].ExternalColumns[GlobalMarketingBusinessUnitName]"
+                      dataType="wstr"
+                      length="1000"
+                      name="GlobalMarketingBusinessUnitName" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions1\Global Marketing Business Unit.Outputs[OLE DB Source Output].ExternalColumns[GlobalMarketingBusinessUnitCode]"
+                      dataType="wstr"
+                      length="100"
+                      name="GlobalMarketingBusinessUnitCode" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions1\Global Marketing Business Unit.Outputs[OLE DB Source Output].ExternalColumns[GlobalMarketingBusinessUnitId]"
+                      dataType="i8"
+                      name="GlobalMarketingBusinessUnitId" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\FIll Global Dimensions1\Global Marketing Business Unit.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global Marketing Business Unit.Outputs[OLE DB Source Error Output].Columns[GlobalMarketingBusinessUnitId]"
+                      dataType="i8"
+                      lineageId="Package\FIll Global Dimensions1\Global Marketing Business Unit.Outputs[OLE DB Source Error Output].Columns[GlobalMarketingBusinessUnitId]"
+                      name="GlobalMarketingBusinessUnitId" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global Marketing Business Unit.Outputs[OLE DB Source Error Output].Columns[GlobalMarketingBusinessUnitName]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\FIll Global Dimensions1\Global Marketing Business Unit.Outputs[OLE DB Source Error Output].Columns[GlobalMarketingBusinessUnitName]"
+                      name="GlobalMarketingBusinessUnitName" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global Marketing Business Unit.Outputs[OLE DB Source Error Output].Columns[GlobalMarketingBusinessUnitCode]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\FIll Global Dimensions1\Global Marketing Business Unit.Outputs[OLE DB Source Error Output].Columns[GlobalMarketingBusinessUnitCode]"
+                      name="GlobalMarketingBusinessUnitCode" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global Marketing Business Unit.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FIll Global Dimensions1\Global Marketing Business Unit.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global Marketing Business Unit.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FIll Global Dimensions1\Global Marketing Business Unit.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FIll Global Dimensions1\Global MPG"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              contactInfo="OLE DB Source;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              localeId="1033"
+              name="Global MPG"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[GlobalMPG]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select GlobalMPGId,GlobalMPGName,GlobalMPGCode,GlobalMPGAbbrlabel
+from GlobalMPG
+
+union
+
+select -1,'NA','NA','NA'</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FIll Global Dimensions1\Global MPG.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CROSALESRV01.SDW_Pilot]"
+                  connectionManagerRefId="Package.ConnectionManagers[CROSALESRV01.SDW_Pilot]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\FIll Global Dimensions1\Global MPG.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global MPG.Outputs[OLE DB Source Output].Columns[GlobalMPGId]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FIll Global Dimensions1\Global MPG.Outputs[OLE DB Source Output].ExternalColumns[GlobalMPGId]"
+                      lineageId="Package\FIll Global Dimensions1\Global MPG.Outputs[OLE DB Source Output].Columns[GlobalMPGId]"
+                      name="GlobalMPGId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global MPG.Outputs[OLE DB Source Output].Columns[GlobalMPGName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FIll Global Dimensions1\Global MPG.Outputs[OLE DB Source Output].ExternalColumns[GlobalMPGName]"
+                      length="1000"
+                      lineageId="Package\FIll Global Dimensions1\Global MPG.Outputs[OLE DB Source Output].Columns[GlobalMPGName]"
+                      name="GlobalMPGName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global MPG.Outputs[OLE DB Source Output].Columns[GlobalMPGCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FIll Global Dimensions1\Global MPG.Outputs[OLE DB Source Output].ExternalColumns[GlobalMPGCode]"
+                      length="20"
+                      lineageId="Package\FIll Global Dimensions1\Global MPG.Outputs[OLE DB Source Output].Columns[GlobalMPGCode]"
+                      name="GlobalMPGCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global MPG.Outputs[OLE DB Source Output].Columns[GlobalMPGAbbrlabel]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FIll Global Dimensions1\Global MPG.Outputs[OLE DB Source Output].ExternalColumns[GlobalMPGAbbrlabel]"
+                      length="100"
+                      lineageId="Package\FIll Global Dimensions1\Global MPG.Outputs[OLE DB Source Output].Columns[GlobalMPGAbbrlabel]"
+                      name="GlobalMPGAbbrlabel"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions1\Global MPG.Outputs[OLE DB Source Output].ExternalColumns[GlobalMPGId]"
+                      dataType="i8"
+                      name="GlobalMPGId" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions1\Global MPG.Outputs[OLE DB Source Output].ExternalColumns[GlobalMPGName]"
+                      dataType="wstr"
+                      length="1000"
+                      name="GlobalMPGName" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions1\Global MPG.Outputs[OLE DB Source Output].ExternalColumns[GlobalMPGCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="GlobalMPGCode" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions1\Global MPG.Outputs[OLE DB Source Output].ExternalColumns[GlobalMPGAbbrlabel]"
+                      dataType="wstr"
+                      length="100"
+                      name="GlobalMPGAbbrlabel" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\FIll Global Dimensions1\Global MPG.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global MPG.Outputs[OLE DB Source Error Output].Columns[GlobalMPGId]"
+                      dataType="i8"
+                      lineageId="Package\FIll Global Dimensions1\Global MPG.Outputs[OLE DB Source Error Output].Columns[GlobalMPGId]"
+                      name="GlobalMPGId" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global MPG.Outputs[OLE DB Source Error Output].Columns[GlobalMPGName]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\FIll Global Dimensions1\Global MPG.Outputs[OLE DB Source Error Output].Columns[GlobalMPGName]"
+                      name="GlobalMPGName" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global MPG.Outputs[OLE DB Source Error Output].Columns[GlobalMPGCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\FIll Global Dimensions1\Global MPG.Outputs[OLE DB Source Error Output].Columns[GlobalMPGCode]"
+                      name="GlobalMPGCode" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global MPG.Outputs[OLE DB Source Error Output].Columns[GlobalMPGAbbrlabel]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\FIll Global Dimensions1\Global MPG.Outputs[OLE DB Source Error Output].Columns[GlobalMPGAbbrlabel]"
+                      name="GlobalMPGAbbrlabel" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global MPG.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FIll Global Dimensions1\Global MPG.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global MPG.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FIll Global Dimensions1\Global MPG.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FIll Global Dimensions1\Global MPG Dest"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              localeId="1033"
+              name="Global MPG Dest"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[GlobalMPG]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destinaton. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FIll Global Dimensions1\Global MPG Dest.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CROBIMSRV01\SQL2005.Sales DW Staging]"
+                  connectionManagerRefId="Package.ConnectionManagers[CROBIMSRV01\SQL2005.Sales DW Staging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FIll Global Dimensions1\Global MPG Dest.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FIll Global Dimensions1\Global MPG Dest.Inputs[OLE DB Destination Input].Columns[GlobalMPGId]"
+                      cachedDataType="i8"
+                      cachedName="GlobalMPGId"
+                      externalMetadataColumnId="Package\FIll Global Dimensions1\Global MPG Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalMPGId]"
+                      lineageId="Package\FIll Global Dimensions1\Global MPG.Outputs[OLE DB Source Output].Columns[GlobalMPGId]" />
+                    <inputColumn
+                      refId="Package\FIll Global Dimensions1\Global MPG Dest.Inputs[OLE DB Destination Input].Columns[GlobalMPGName]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="GlobalMPGName"
+                      externalMetadataColumnId="Package\FIll Global Dimensions1\Global MPG Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalMPGName]"
+                      lineageId="Package\FIll Global Dimensions1\Global MPG.Outputs[OLE DB Source Output].Columns[GlobalMPGName]" />
+                    <inputColumn
+                      refId="Package\FIll Global Dimensions1\Global MPG Dest.Inputs[OLE DB Destination Input].Columns[GlobalMPGCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="GlobalMPGCode"
+                      externalMetadataColumnId="Package\FIll Global Dimensions1\Global MPG Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalMPGCode]"
+                      lineageId="Package\FIll Global Dimensions1\Global MPG.Outputs[OLE DB Source Output].Columns[GlobalMPGCode]" />
+                    <inputColumn
+                      refId="Package\FIll Global Dimensions1\Global MPG Dest.Inputs[OLE DB Destination Input].Columns[GlobalMPGAbbrlabel]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="GlobalMPGAbbrlabel"
+                      externalMetadataColumnId="Package\FIll Global Dimensions1\Global MPG Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalMPGAbbrlabel]"
+                      lineageId="Package\FIll Global Dimensions1\Global MPG.Outputs[OLE DB Source Output].Columns[GlobalMPGAbbrlabel]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions1\Global MPG Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalMPGId]"
+                      dataType="i8"
+                      name="GlobalMPGId" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions1\Global MPG Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalMPGCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="GlobalMPGCode" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions1\Global MPG Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalMPGName]"
+                      dataType="wstr"
+                      length="1000"
+                      name="GlobalMPGName" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions1\Global MPG Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalMPGAbbrlabel]"
+                      dataType="wstr"
+                      length="100"
+                      name="GlobalMPGAbbrlabel" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FIll Global Dimensions1\Global MPG Dest.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\FIll Global Dimensions1\Global MPG Dest.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global MPG Dest.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FIll Global Dimensions1\Global MPG Dest.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global MPG Dest.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FIll Global Dimensions1\Global MPG Dest.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FIll Global Dimensions1\Global Therapeutic Area"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              contactInfo="OLE DB Source;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              localeId="1033"
+              name="Global Therapeutic Area"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[GlobalTherapeuticArea]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select GlobalTherapeuticAreaId,GlobalTherapeuticAreaName,GlobalTherapeuticAreaCode
+from GlobalTherapeuticArea
+
+union
+
+select -1,'NA','NA'</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FIll Global Dimensions1\Global Therapeutic Area.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CROSALESRV01.SDW_Pilot]"
+                  connectionManagerRefId="Package.ConnectionManagers[CROSALESRV01.SDW_Pilot]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\FIll Global Dimensions1\Global Therapeutic Area.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global Therapeutic Area.Outputs[OLE DB Source Output].Columns[GlobalTherapeuticAreaName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FIll Global Dimensions1\Global Therapeutic Area.Outputs[OLE DB Source Output].ExternalColumns[GlobalTherapeuticAreaName]"
+                      length="1000"
+                      lineageId="Package\FIll Global Dimensions1\Global Therapeutic Area.Outputs[OLE DB Source Output].Columns[GlobalTherapeuticAreaName]"
+                      name="GlobalTherapeuticAreaName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global Therapeutic Area.Outputs[OLE DB Source Output].Columns[GlobalTherapeuticAreaCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FIll Global Dimensions1\Global Therapeutic Area.Outputs[OLE DB Source Output].ExternalColumns[GlobalTherapeuticAreaCode]"
+                      length="50"
+                      lineageId="Package\FIll Global Dimensions1\Global Therapeutic Area.Outputs[OLE DB Source Output].Columns[GlobalTherapeuticAreaCode]"
+                      name="GlobalTherapeuticAreaCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global Therapeutic Area.Outputs[OLE DB Source Output].Columns[GlobalTherapeuticAreaId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FIll Global Dimensions1\Global Therapeutic Area.Outputs[OLE DB Source Output].ExternalColumns[GlobalTherapeuticAreaId]"
+                      lineageId="Package\FIll Global Dimensions1\Global Therapeutic Area.Outputs[OLE DB Source Output].Columns[GlobalTherapeuticAreaId]"
+                      name="GlobalTherapeuticAreaId"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions1\Global Therapeutic Area.Outputs[OLE DB Source Output].ExternalColumns[GlobalTherapeuticAreaName]"
+                      dataType="wstr"
+                      length="1000"
+                      name="GlobalTherapeuticAreaName" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions1\Global Therapeutic Area.Outputs[OLE DB Source Output].ExternalColumns[GlobalTherapeuticAreaCode]"
+                      dataType="wstr"
+                      length="50"
+                      name="GlobalTherapeuticAreaCode" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions1\Global Therapeutic Area.Outputs[OLE DB Source Output].ExternalColumns[GlobalTherapeuticAreaId]"
+                      dataType="i4"
+                      name="GlobalTherapeuticAreaId" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\FIll Global Dimensions1\Global Therapeutic Area.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global Therapeutic Area.Outputs[OLE DB Source Error Output].Columns[GlobalTherapeuticAreaId]"
+                      dataType="i4"
+                      lineageId="Package\FIll Global Dimensions1\Global Therapeutic Area.Outputs[OLE DB Source Error Output].Columns[GlobalTherapeuticAreaId]"
+                      name="GlobalTherapeuticAreaId" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global Therapeutic Area.Outputs[OLE DB Source Error Output].Columns[GlobalTherapeuticAreaName]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\FIll Global Dimensions1\Global Therapeutic Area.Outputs[OLE DB Source Error Output].Columns[GlobalTherapeuticAreaName]"
+                      name="GlobalTherapeuticAreaName" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global Therapeutic Area.Outputs[OLE DB Source Error Output].Columns[GlobalTherapeuticAreaCode]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\FIll Global Dimensions1\Global Therapeutic Area.Outputs[OLE DB Source Error Output].Columns[GlobalTherapeuticAreaCode]"
+                      name="GlobalTherapeuticAreaCode" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global Therapeutic Area.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FIll Global Dimensions1\Global Therapeutic Area.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global Therapeutic Area.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FIll Global Dimensions1\Global Therapeutic Area.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FIll Global Dimensions1\Global Therapeutic Area Dest"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              localeId="1033"
+              name="Global Therapeutic Area Dest"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[GlobalTherapeuticArea]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destinaton. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FIll Global Dimensions1\Global Therapeutic Area Dest.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CROBIMSRV01\SQL2005.Sales DW Staging]"
+                  connectionManagerRefId="Package.ConnectionManagers[CROBIMSRV01\SQL2005.Sales DW Staging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FIll Global Dimensions1\Global Therapeutic Area Dest.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FIll Global Dimensions1\Global Therapeutic Area Dest.Inputs[OLE DB Destination Input].Columns[GlobalTherapeuticAreaId]"
+                      cachedDataType="i4"
+                      cachedName="GlobalTherapeuticAreaId"
+                      externalMetadataColumnId="Package\FIll Global Dimensions1\Global Therapeutic Area Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalTherapeuticAreaID]"
+                      lineageId="Package\FIll Global Dimensions1\Global Therapeutic Area.Outputs[OLE DB Source Output].Columns[GlobalTherapeuticAreaId]" />
+                    <inputColumn
+                      refId="Package\FIll Global Dimensions1\Global Therapeutic Area Dest.Inputs[OLE DB Destination Input].Columns[GlobalTherapeuticAreaName]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="GlobalTherapeuticAreaName"
+                      externalMetadataColumnId="Package\FIll Global Dimensions1\Global Therapeutic Area Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalTherapeuticAreaName]"
+                      lineageId="Package\FIll Global Dimensions1\Global Therapeutic Area.Outputs[OLE DB Source Output].Columns[GlobalTherapeuticAreaName]" />
+                    <inputColumn
+                      refId="Package\FIll Global Dimensions1\Global Therapeutic Area Dest.Inputs[OLE DB Destination Input].Columns[GlobalTherapeuticAreaCode]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="GlobalTherapeuticAreaCode"
+                      externalMetadataColumnId="Package\FIll Global Dimensions1\Global Therapeutic Area Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalTherapeuticAreaCode]"
+                      lineageId="Package\FIll Global Dimensions1\Global Therapeutic Area.Outputs[OLE DB Source Output].Columns[GlobalTherapeuticAreaCode]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions1\Global Therapeutic Area Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalTherapeuticAreaID]"
+                      dataType="i4"
+                      name="GlobalTherapeuticAreaID" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions1\Global Therapeutic Area Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalTherapeuticAreaCode]"
+                      dataType="wstr"
+                      length="50"
+                      name="GlobalTherapeuticAreaCode" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions1\Global Therapeutic Area Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalTherapeuticAreaName]"
+                      dataType="wstr"
+                      length="1000"
+                      name="GlobalTherapeuticAreaName" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FIll Global Dimensions1\Global Therapeutic Area Dest.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\FIll Global Dimensions1\Global Therapeutic Area Dest.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global Therapeutic Area Dest.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FIll Global Dimensions1\Global Therapeutic Area Dest.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions1\Global Therapeutic Area Dest.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FIll Global Dimensions1\Global Therapeutic Area Dest.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\FIll Global Dimensions1.Paths[OLE DB Source Output3]"
+              endId="Package\FIll Global Dimensions1\Global Therapeutic Area Dest.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\FIll Global Dimensions1\Global Therapeutic Area.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\FIll Global Dimensions1.Paths[OLE DB Source Output4]"
+              endId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group Dest.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\FIll Global Dimensions1.Paths[OLE DB Source Output2]"
+              endId="Package\FIll Global Dimensions1\Global Company Dest.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\FIll Global Dimensions1\Global Company.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\FIll Global Dimensions1.Paths[OLE DB Source Output]"
+              endId="Package\FIll Global Dimensions1\Global MPG Dest.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\FIll Global Dimensions1\Global MPG.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\FIll Global Dimensions1.Paths[OLE DB Source Output1]"
+              endId="Package\FIll Global Dimensions1\Global Marketing Business  Unit Dest.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\FIll Global Dimensions1\Global Marketing Business Unit.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\FIll Global Dimensions2"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:DelayValidation="True"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{B443F295-E772-4703-A63A-989F0AAA6580}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FIll Global Dimensions2"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          version="1">
+          <components>
+            <component
+              refId="Package\FIll Global Dimensions2\Global Product"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              contactInfo="OLE DB Source;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              localeId="1033"
+              name="Global Product"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[GlobalProduct]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select GlobalProductId,GlobalProductName,GlobalProductCode,GlobalProductAbbrLabel,ISNULL(FK_GlobalMarketingBusinessUnitID,-1) FK_GlobalMarketingBusinessUnitID,ISNULL(FK_GlobalCompanyID,-1) FK_GlobalCompanyID,ISNULL(FK_GlobalMPGId,-1) FK_GlobalMPGId,ISNULL(FK_GlobalTherapeuticAreaID,-1) FK_GlobalTherapeuticAreaID 
+from GlobalProduct
+
+union
+
+select -1,'NA','NA','NA',-1,-1,-1,-1</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FIll Global Dimensions2\Global Product.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CROSALESRV01.SDW_Pilot]"
+                  connectionManagerRefId="Package.ConnectionManagers[CROSALESRV01.SDW_Pilot]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Output].Columns[GlobalProductId]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Output].ExternalColumns[GlobalProductId]"
+                      lineageId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Output].Columns[GlobalProductId]"
+                      name="GlobalProductId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Output].Columns[GlobalProductName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Output].ExternalColumns[GlobalProductName]"
+                      length="1000"
+                      lineageId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Output].Columns[GlobalProductName]"
+                      name="GlobalProductName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Output].Columns[GlobalProductCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Output].ExternalColumns[GlobalProductCode]"
+                      length="50"
+                      lineageId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Output].Columns[GlobalProductCode]"
+                      name="GlobalProductCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Output].Columns[GlobalProductAbbrLabel]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Output].ExternalColumns[GlobalProductAbbrLabel]"
+                      length="100"
+                      lineageId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Output].Columns[GlobalProductAbbrLabel]"
+                      name="GlobalProductAbbrLabel"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Output].Columns[FK_GlobalMarketingBusinessUnitID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Output].ExternalColumns[FK_GlobalMarketingBusinessUnitID]"
+                      lineageId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Output].Columns[FK_GlobalMarketingBusinessUnitID]"
+                      name="FK_GlobalMarketingBusinessUnitID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Output].Columns[FK_GlobalCompanyID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Output].ExternalColumns[FK_GlobalCompanyID]"
+                      lineageId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Output].Columns[FK_GlobalCompanyID]"
+                      name="FK_GlobalCompanyID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Output].Columns[FK_GlobalMPGId]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Output].ExternalColumns[FK_GlobalMPGId]"
+                      lineageId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Output].Columns[FK_GlobalMPGId]"
+                      name="FK_GlobalMPGId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Output].Columns[FK_GlobalTherapeuticAreaID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Output].ExternalColumns[FK_GlobalTherapeuticAreaID]"
+                      lineageId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Output].Columns[FK_GlobalTherapeuticAreaID]"
+                      name="FK_GlobalTherapeuticAreaID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Output].ExternalColumns[GlobalProductId]"
+                      dataType="i8"
+                      name="GlobalProductId" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Output].ExternalColumns[GlobalProductName]"
+                      dataType="wstr"
+                      length="1000"
+                      name="GlobalProductName" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Output].ExternalColumns[GlobalProductCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="GlobalProductCode" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Output].ExternalColumns[GlobalProductAbbrLabel]"
+                      dataType="wstr"
+                      length="100"
+                      name="GlobalProductAbbrLabel" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Output].ExternalColumns[FK_GlobalMarketingBusinessUnitID]"
+                      dataType="i8"
+                      name="FK_GlobalMarketingBusinessUnitID" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Output].ExternalColumns[FK_GlobalCompanyID]"
+                      dataType="i4"
+                      name="FK_GlobalCompanyID" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Output].ExternalColumns[FK_GlobalMPGId]"
+                      dataType="i8"
+                      name="FK_GlobalMPGId" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Output].ExternalColumns[FK_GlobalTherapeuticAreaID]"
+                      dataType="i4"
+                      name="FK_GlobalTherapeuticAreaID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Error Output].Columns[GlobalProductId]"
+                      dataType="i8"
+                      lineageId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Error Output].Columns[GlobalProductId]"
+                      name="GlobalProductId" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Error Output].Columns[GlobalProductName]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Error Output].Columns[GlobalProductName]"
+                      name="GlobalProductName" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Error Output].Columns[GlobalProductCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Error Output].Columns[GlobalProductCode]"
+                      name="GlobalProductCode" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Error Output].Columns[GlobalProductAbbrLabel]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Error Output].Columns[GlobalProductAbbrLabel]"
+                      name="GlobalProductAbbrLabel" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Error Output].Columns[FK_GlobalMarketingBusinessUnitID]"
+                      dataType="i8"
+                      lineageId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Error Output].Columns[FK_GlobalMarketingBusinessUnitID]"
+                      name="FK_GlobalMarketingBusinessUnitID" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Error Output].Columns[FK_GlobalCompanyID]"
+                      dataType="i4"
+                      lineageId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Error Output].Columns[FK_GlobalCompanyID]"
+                      name="FK_GlobalCompanyID" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Error Output].Columns[FK_GlobalMPGId]"
+                      dataType="i8"
+                      lineageId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Error Output].Columns[FK_GlobalMPGId]"
+                      name="FK_GlobalMPGId" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Error Output].Columns[FK_GlobalTherapeuticAreaID]"
+                      dataType="i4"
+                      lineageId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Error Output].Columns[FK_GlobalTherapeuticAreaID]"
+                      name="FK_GlobalTherapeuticAreaID" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FIll Global Dimensions2\Global Product Dest"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              localeId="1033"
+              name="Global Product Dest"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[GlobalProduct]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destinaton. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FIll Global Dimensions2\Global Product Dest.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CROBIMSRV01\SQL2005.Sales DW Staging]"
+                  connectionManagerRefId="Package.ConnectionManagers[CROBIMSRV01\SQL2005.Sales DW Staging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FIll Global Dimensions2\Global Product Dest.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FIll Global Dimensions2\Global Product Dest.Inputs[OLE DB Destination Input].Columns[GlobalProductId]"
+                      cachedDataType="i8"
+                      cachedName="GlobalProductId"
+                      externalMetadataColumnId="Package\FIll Global Dimensions2\Global Product Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalProductId]"
+                      lineageId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Output].Columns[GlobalProductId]" />
+                    <inputColumn
+                      refId="Package\FIll Global Dimensions2\Global Product Dest.Inputs[OLE DB Destination Input].Columns[GlobalProductName]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="GlobalProductName"
+                      externalMetadataColumnId="Package\FIll Global Dimensions2\Global Product Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalProductName]"
+                      lineageId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Output].Columns[GlobalProductName]" />
+                    <inputColumn
+                      refId="Package\FIll Global Dimensions2\Global Product Dest.Inputs[OLE DB Destination Input].Columns[GlobalProductCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="GlobalProductCode"
+                      externalMetadataColumnId="Package\FIll Global Dimensions2\Global Product Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalProductCode]"
+                      lineageId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Output].Columns[GlobalProductCode]" />
+                    <inputColumn
+                      refId="Package\FIll Global Dimensions2\Global Product Dest.Inputs[OLE DB Destination Input].Columns[GlobalProductAbbrLabel]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="GlobalProductAbbrLabel"
+                      externalMetadataColumnId="Package\FIll Global Dimensions2\Global Product Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalProductAbbrLabel]"
+                      lineageId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Output].Columns[GlobalProductAbbrLabel]" />
+                    <inputColumn
+                      refId="Package\FIll Global Dimensions2\Global Product Dest.Inputs[OLE DB Destination Input].Columns[FK_GlobalMarketingBusinessUnitID]"
+                      cachedDataType="i8"
+                      cachedName="FK_GlobalMarketingBusinessUnitID"
+                      externalMetadataColumnId="Package\FIll Global Dimensions2\Global Product Dest.Inputs[OLE DB Destination Input].ExternalColumns[FK_GlobalMarketingBusinessUnitID]"
+                      lineageId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Output].Columns[FK_GlobalMarketingBusinessUnitID]" />
+                    <inputColumn
+                      refId="Package\FIll Global Dimensions2\Global Product Dest.Inputs[OLE DB Destination Input].Columns[FK_GlobalCompanyID]"
+                      cachedDataType="i4"
+                      cachedName="FK_GlobalCompanyID"
+                      externalMetadataColumnId="Package\FIll Global Dimensions2\Global Product Dest.Inputs[OLE DB Destination Input].ExternalColumns[FK_GlobalCompanyID]"
+                      lineageId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Output].Columns[FK_GlobalCompanyID]" />
+                    <inputColumn
+                      refId="Package\FIll Global Dimensions2\Global Product Dest.Inputs[OLE DB Destination Input].Columns[FK_GlobalMPGId]"
+                      cachedDataType="i8"
+                      cachedName="FK_GlobalMPGId"
+                      externalMetadataColumnId="Package\FIll Global Dimensions2\Global Product Dest.Inputs[OLE DB Destination Input].ExternalColumns[FK_GlobalMPGId]"
+                      lineageId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Output].Columns[FK_GlobalMPGId]" />
+                    <inputColumn
+                      refId="Package\FIll Global Dimensions2\Global Product Dest.Inputs[OLE DB Destination Input].Columns[FK_GlobalTherapeuticAreaID]"
+                      cachedDataType="i4"
+                      cachedName="FK_GlobalTherapeuticAreaID"
+                      externalMetadataColumnId="Package\FIll Global Dimensions2\Global Product Dest.Inputs[OLE DB Destination Input].ExternalColumns[FK_GlobalTherapeuticAreaID]"
+                      lineageId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Output].Columns[FK_GlobalTherapeuticAreaID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions2\Global Product Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalProductId]"
+                      dataType="i8"
+                      name="GlobalProductId" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions2\Global Product Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalProductCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="GlobalProductCode" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions2\Global Product Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalProductName]"
+                      dataType="wstr"
+                      length="1000"
+                      name="GlobalProductName" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions2\Global Product Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalProductAbbrLabel]"
+                      dataType="wstr"
+                      length="100"
+                      name="GlobalProductAbbrLabel" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions2\Global Product Dest.Inputs[OLE DB Destination Input].ExternalColumns[FK_GlobalMarketingBusinessUnitID]"
+                      dataType="i8"
+                      name="FK_GlobalMarketingBusinessUnitID" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions2\Global Product Dest.Inputs[OLE DB Destination Input].ExternalColumns[FK_GlobalCompanyID]"
+                      dataType="i4"
+                      name="FK_GlobalCompanyID" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions2\Global Product Dest.Inputs[OLE DB Destination Input].ExternalColumns[FK_GlobalMPGId]"
+                      dataType="i8"
+                      name="FK_GlobalMPGId" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions2\Global Product Dest.Inputs[OLE DB Destination Input].ExternalColumns[FK_GlobalTherapeuticAreaID]"
+                      dataType="i4"
+                      name="FK_GlobalTherapeuticAreaID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FIll Global Dimensions2\Global Product Dest.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\FIll Global Dimensions2\Global Product Dest.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions2\Global Product Dest.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FIll Global Dimensions2\Global Product Dest.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions2\Global Product Dest.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FIll Global Dimensions2\Global Product Dest.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\FIll Global Dimensions2.Paths[OLE DB Source Output]"
+              endId="Package\FIll Global Dimensions2\Global Product Dest.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\FIll Global Dimensions2\Global Product.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\FIll Global Dimensions3"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:DelayValidation="True"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{43AAAC4E-7933-48C6-9276-877AB5F17975}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FIll Global Dimensions3"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          version="1">
+          <components>
+            <component
+              refId="Package\FIll Global Dimensions3\Global Dosage Form Dest"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              localeId="1033"
+              name="Global Dosage Form Dest"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[GlobalDosageForm]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destinaton. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FIll Global Dimensions3\Global Dosage Form Dest.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CROBIMSRV01\SQL2005.Sales DW Staging]"
+                  connectionManagerRefId="Package.ConnectionManagers[CROBIMSRV01\SQL2005.Sales DW Staging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FIll Global Dimensions3\Global Dosage Form Dest.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FIll Global Dimensions3\Global Dosage Form Dest.Inputs[OLE DB Destination Input].Columns[FK_ProductId]"
+                      cachedDataType="i8"
+                      cachedName="FK_ProductId"
+                      externalMetadataColumnId="Package\FIll Global Dimensions3\Global Dosage Form Dest.Inputs[OLE DB Destination Input].ExternalColumns[FK_ProductId]"
+                      lineageId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Output].Columns[FK_ProductId]"
+                      name="FK_ProductId" />
+                    <inputColumn
+                      refId="Package\FIll Global Dimensions3\Global Dosage Form Dest.Inputs[OLE DB Destination Input].Columns[ISPCCode]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="ISPCCode"
+                      externalMetadataColumnId="Package\FIll Global Dimensions3\Global Dosage Form Dest.Inputs[OLE DB Destination Input].ExternalColumns[ISPCCode]"
+                      lineageId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Output].Columns[ISPCCode]"
+                      name="ISPCCode" />
+                    <inputColumn
+                      refId="Package\FIll Global Dimensions3\Global Dosage Form Dest.Inputs[OLE DB Destination Input].Columns[ISPCDescription]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="ISPCDescription"
+                      externalMetadataColumnId="Package\FIll Global Dimensions3\Global Dosage Form Dest.Inputs[OLE DB Destination Input].ExternalColumns[ISPCDescription]"
+                      lineageId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Output].Columns[ISPCDescription]"
+                      name="ISPCDescription" />
+                    <inputColumn
+                      refId="Package\FIll Global Dimensions3\Global Dosage Form Dest.Inputs[OLE DB Destination Input].Columns[GlobalDosageFormId]"
+                      cachedDataType="i8"
+                      cachedName="GlobalDosageFormId"
+                      externalMetadataColumnId="Package\FIll Global Dimensions3\Global Dosage Form Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalDosageFormId]"
+                      lineageId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Output].Columns[GlobalDosageFormId]" />
+                    <inputColumn
+                      refId="Package\FIll Global Dimensions3\Global Dosage Form Dest.Inputs[OLE DB Destination Input].Columns[GlobalDosageFormCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="GlobalDosageFormCode"
+                      externalMetadataColumnId="Package\FIll Global Dimensions3\Global Dosage Form Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalDosageFormCode]"
+                      lineageId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Output].Columns[GlobalDosageFormCode]" />
+                    <inputColumn
+                      refId="Package\FIll Global Dimensions3\Global Dosage Form Dest.Inputs[OLE DB Destination Input].Columns[GlobalDosageFormName]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="GlobalDosageFormName"
+                      externalMetadataColumnId="Package\FIll Global Dimensions3\Global Dosage Form Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalDosageFormName]"
+                      lineageId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Output].Columns[GlobalDosageFormName]" />
+                    <inputColumn
+                      refId="Package\FIll Global Dimensions3\Global Dosage Form Dest.Inputs[OLE DB Destination Input].Columns[GlobalDosageFormAbbrlabel]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="GlobalDosageFormAbbrlabel"
+                      externalMetadataColumnId="Package\FIll Global Dimensions3\Global Dosage Form Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalDosageFormAbbrlabel]"
+                      lineageId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Output].Columns[GlobalDosageFormAbbrlabel]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions3\Global Dosage Form Dest.Inputs[OLE DB Destination Input].ExternalColumns[FK_ProductId]"
+                      dataType="i8"
+                      name="FK_ProductId" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions3\Global Dosage Form Dest.Inputs[OLE DB Destination Input].ExternalColumns[ISPCCode]"
+                      dataType="wstr"
+                      length="1000"
+                      name="ISPCCode" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions3\Global Dosage Form Dest.Inputs[OLE DB Destination Input].ExternalColumns[ISPCDescription]"
+                      dataType="wstr"
+                      length="1000"
+                      name="ISPCDescription" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions3\Global Dosage Form Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalDosageFormId]"
+                      dataType="i8"
+                      name="GlobalDosageFormId" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions3\Global Dosage Form Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalDosageFormCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="GlobalDosageFormCode" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions3\Global Dosage Form Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalDosageFormName]"
+                      dataType="wstr"
+                      length="300"
+                      name="GlobalDosageFormName" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions3\Global Dosage Form Dest.Inputs[OLE DB Destination Input].ExternalColumns[GlobalDosageFormAbbrlabel]"
+                      dataType="wstr"
+                      length="100"
+                      name="GlobalDosageFormAbbrlabel" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions3\Global Dosage Form Dest.Inputs[OLE DB Destination Input].ExternalColumns[EANCode]"
+                      dataType="wstr"
+                      length="1000"
+                      name="EANCode" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions3\Global Dosage Form Dest.Inputs[OLE DB Destination Input].ExternalColumns[NappiCode]"
+                      dataType="wstr"
+                      length="1000"
+                      name="NappiCode" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FIll Global Dimensions3\Global Dosage Form Dest.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\FIll Global Dimensions3\Global Dosage Form Dest.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions3\Global Dosage Form Dest.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FIll Global Dimensions3\Global Dosage Form Dest.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions3\Global Dosage Form Dest.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FIll Global Dimensions3\Global Dosage Form Dest.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FIll Global Dimensions3\Global DosageForm"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              contactInfo="OLE DB Source;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              localeId="1033"
+              name="Global DosageForm"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[GlobalDosageForm]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select GlobalDosageFormId,GlobalDosageFormCode,GlobalDosageFormName,GlobalDosageFormAbbrlabel,ISPCCode,ISPCDescription,FK_ProductId,EANCode,NappiCode
+from GlobalDosageForm
+
+union 
+
+select -1,'NA','NA','NA','NA','NA',-1,'NA','NA'</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FIll Global Dimensions3\Global DosageForm.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CROSALESRV01.SDW_Pilot]"
+                  connectionManagerRefId="Package.ConnectionManagers[CROSALESRV01.SDW_Pilot]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Output].Columns[FK_ProductId]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Output].ExternalColumns[FK_ProductId]"
+                      lineageId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Output].Columns[FK_ProductId]"
+                      name="FK_ProductId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Output].Columns[ISPCCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Output].ExternalColumns[ISPCCode]"
+                      length="1000"
+                      lineageId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Output].Columns[ISPCCode]"
+                      name="ISPCCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Output].Columns[ISPCDescription]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Output].ExternalColumns[ISPCDescription]"
+                      length="1000"
+                      lineageId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Output].Columns[ISPCDescription]"
+                      name="ISPCDescription"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Output].Columns[GlobalDosageFormId]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Output].ExternalColumns[GlobalDosageFormId]"
+                      lineageId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Output].Columns[GlobalDosageFormId]"
+                      name="GlobalDosageFormId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Output].Columns[GlobalDosageFormCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Output].ExternalColumns[GlobalDosageFormCode]"
+                      length="20"
+                      lineageId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Output].Columns[GlobalDosageFormCode]"
+                      name="GlobalDosageFormCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Output].Columns[GlobalDosageFormName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Output].ExternalColumns[GlobalDosageFormName]"
+                      length="300"
+                      lineageId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Output].Columns[GlobalDosageFormName]"
+                      name="GlobalDosageFormName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Output].Columns[GlobalDosageFormAbbrlabel]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Output].ExternalColumns[GlobalDosageFormAbbrlabel]"
+                      length="100"
+                      lineageId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Output].Columns[GlobalDosageFormAbbrlabel]"
+                      name="GlobalDosageFormAbbrlabel"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Output].ExternalColumns[FK_ProductId]"
+                      dataType="i8"
+                      name="FK_ProductId" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Output].ExternalColumns[ISPCCode]"
+                      dataType="wstr"
+                      length="1000"
+                      name="ISPCCode" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Output].ExternalColumns[ISPCDescription]"
+                      dataType="wstr"
+                      length="1000"
+                      name="ISPCDescription" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Output].ExternalColumns[EANCode]"
+                      dataType="wstr"
+                      length="1000"
+                      name="EANCode" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Output].ExternalColumns[NappiCode]"
+                      dataType="wstr"
+                      length="1000"
+                      name="NappiCode" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Output].ExternalColumns[GlobalDosageFormId]"
+                      dataType="i8"
+                      name="GlobalDosageFormId" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Output].ExternalColumns[GlobalDosageFormCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="GlobalDosageFormCode" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Output].ExternalColumns[GlobalDosageFormName]"
+                      dataType="wstr"
+                      length="300"
+                      name="GlobalDosageFormName" />
+                    <externalMetadataColumn
+                      refId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Output].ExternalColumns[GlobalDosageFormAbbrlabel]"
+                      dataType="wstr"
+                      length="100"
+                      name="GlobalDosageFormAbbrlabel" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Error Output].Columns[GlobalDosageFormId]"
+                      dataType="i8"
+                      lineageId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Error Output].Columns[GlobalDosageFormId]"
+                      name="GlobalDosageFormId" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Error Output].Columns[GlobalDosageFormCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Error Output].Columns[GlobalDosageFormCode]"
+                      name="GlobalDosageFormCode" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Error Output].Columns[GlobalDosageFormName]"
+                      dataType="wstr"
+                      length="300"
+                      lineageId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Error Output].Columns[GlobalDosageFormName]"
+                      name="GlobalDosageFormName" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Error Output].Columns[GlobalDosageFormAbbrlabel]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Error Output].Columns[GlobalDosageFormAbbrlabel]"
+                      name="GlobalDosageFormAbbrlabel" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Error Output].Columns[ISPCCode]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Error Output].Columns[ISPCCode]"
+                      name="ISPCCode" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Error Output].Columns[ISPCDescription]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Error Output].Columns[ISPCDescription]"
+                      name="ISPCDescription" />
+                    <outputColumn
+                      refId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Error Output].Columns[FK_ProductId]"
+                      dataType="i8"
+                      lineageId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Error Output].Columns[FK_ProductId]"
+                      name="FK_ProductId" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\FIll Global Dimensions3.Paths[OLE DB Source Output]"
+              endId="Package\FIll Global Dimensions3\Global Dosage Form Dest.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\FIll Global Dimensions3\Global DosageForm.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate all OLAP tables"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:DelayValidation="True"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{98D8D5B4-98D7-49B5-B0C5-2220FEFB4C09}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate all OLAP tables"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{5A799970-5E4E-4AB5-A5E7-273D184C1175}"
+          SQLTask:SqlStatementSource="exec ClearGlobalTables" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{AA43F4CB-132D-4372-8366-2CED5BA69295}"
+      DTS:From="Package\Truncate all OLAP tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\FIll Global Dimensions1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{85BBBACF-4DBF-4C00-BF87-1E30011016BE}"
+      DTS:From="Package\FIll Global Dimensions1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\FIll Global Dimensions2" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{607475DC-DCB9-4B65-B5A1-72D5BE461AD3}"
+      DTS:From="Package\FIll Global Dimensions2"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\FIll Global Dimensions3" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="136,44"
+          Id="Package\FIll Global Dimensions1"
+          TopLeft="5.5,86.1792452830189" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\FIll Global Dimensions2"
+          TopLeft="5.5,167.839622641509" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\FIll Global Dimensions3"
+          TopLeft="5.5,249.5" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Truncate all OLAP tables"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="73.3867924528302,49.4245283018868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,36.7547169811321"
+              Start="0,0"
+              End="0,29.2547169811321">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.2547169811321" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="73.3867924528302,130.103773584906">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,37.7358490566038"
+              Start="0,0"
+              End="0,30.2358490566038">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2358490566038" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="73.3867924528302,211.764150943396">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,37.7358490566038"
+              Start="0,0"
+              End="0,30.2358490566038">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2358490566038" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\FIll Global Dimensions1">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="252,42"
+          Id="Package\FIll Global Dimensions1\Global Marketing Business  Unit Dest"
+          TopLeft="283,107.5" />
+        <NodeLayout
+          Size="192,42"
+          Id="Package\FIll Global Dimensions1\Global Therapeutic Area"
+          TopLeft="18,5.5" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\FIll Global Dimensions1\Global Company Dest"
+          TopLeft="951,107.5" />
+        <NodeLayout
+          Size="294,42"
+          Id="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group Dest"
+          TopLeft="596,107.5" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\FIll Global Dimensions1\Global MPG Dest"
+          TopLeft="1191.5,107.5" />
+        <NodeLayout
+          Size="224,42"
+          Id="Package\FIll Global Dimensions1\Global Marketing Business Unit"
+          TopLeft="297,5.5" />
+        <NodeLayout
+          Size="217,42"
+          Id="Package\FIll Global Dimensions1\Global Therapeutic Area Dest"
+          TopLeft="5.5,107.5" />
+        <NodeLayout
+          Size="270,42"
+          Id="Package\FIll Global Dimensions1\Global Customer Sector Targeting Group"
+          TopLeft="608,5.5" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\FIll Global Dimensions1\Global Company"
+          TopLeft="963,5.49999999999989" />
+        <NodeLayout
+          Size="133,42"
+          Id="Package\FIll Global Dimensions1\Global MPG"
+          TopLeft="1203.5,5.49999999999989" />
+        <EdgeLayout
+          Id="Package\FIll Global Dimensions1.Paths[OLE DB Source Output1]"
+          TopLeft="409,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FIll Global Dimensions1.Paths[OLE DB Source Output]"
+          TopLeft="1270,47.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FIll Global Dimensions1.Paths[OLE DB Source Output2]"
+          TopLeft="1041,47.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FIll Global Dimensions1.Paths[OLE DB Source Output4]"
+          TopLeft="743,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FIll Global Dimensions1.Paths[OLE DB Source Output3]"
+          TopLeft="114,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\FIll Global Dimensions2">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="172,42"
+          Id="Package\FIll Global Dimensions2\Global Product Dest"
+          TopLeft="175,169" />
+        <NodeLayout
+          Size="147,42"
+          Id="Package\FIll Global Dimensions2\Global Product"
+          TopLeft="130,62" />
+        <EdgeLayout
+          Id="Package\FIll Global Dimensions2.Paths[OLE DB Source Output]"
+          TopLeft="203.5,104">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="57.5,65"
+              Start="0,0"
+              End="57.5,57.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.5"
+                    Point2="0,32.5"
+                    Point3="4,32.5" />
+                  <mssgle:LineSegment
+                    End="53.5,32.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="53.5,32.5"
+                    Point2="57.5,32.5"
+                    Point3="57.5,36.5" />
+                  <mssgle:LineSegment
+                    End="57.5,57.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\FIll Global Dimensions3">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="199,42"
+          Id="Package\FIll Global Dimensions3\Global Dosage Form Dest"
+          TopLeft="199,174" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\FIll Global Dimensions3\Global DosageForm"
+          TopLeft="147,85" />
+        <EdgeLayout
+          Id="Package\FIll Global Dimensions3.Paths[OLE DB Source Output]"
+          TopLeft="232.5,127">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="66,47"
+              Start="0,0"
+              End="66,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.5"
+                    Point2="0,23.5"
+                    Point3="4,23.5" />
+                  <mssgle:LineSegment
+                    End="62,23.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="62,23.5"
+                    Point2="66,23.5"
+                    Point3="66,27.5" />
+                  <mssgle:LineSegment
+                    End="66,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

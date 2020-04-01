@@ -1,0 +1,865 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/9/2010 5:21:14 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="CROBIMSRV01"
+  DTS:CreatorName="EMEA\srvcro-sql"
+  DTS:DelayValidation="True"
+  DTS:DTSID="{3024E0CF-BFAF-4FB5-A0C4-90FBA961F125}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.7001.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Geography IMS Fact - All Years"
+  DTS:PackageType="5"
+  DTS:VersionBuild="75"
+  DTS:VersionGUID="{EABD1C19-7A76-4A6D-B627-E6506BF3C6B3}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CROBIMSRV01\SQL2005.Sales DW Staging]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{BF3CE145-9A94-43D9-BE11-CD9401686452}"
+      DTS:ObjectName="CROBIMSRV01\SQL2005.Sales DW Staging">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=EMAVSP000005179;User ID=SDM_ETL_User;Initial Catalog=AfME_SDM_DW;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Geography IMS Fact - All Years-{BF3CE145-9A94-43D9-BE11-CD9401686452}CROBIMSRV01\SQL2005.Sales DW Staging;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CROSALESRV01.SDW_Pilot]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{8EE691B0-62C5-4F66-A312-52D7A79B1D2B}"
+      DTS:ObjectName="CROSALESRV01.SDW_Pilot">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=EMAVSP000005180;Initial Catalog=SDM_Prod;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Geography IMS Fact - All Years-{8EE691B0-62C5-4F66-A312-52D7A79B1D2B}CROSALESRV01.SDW_Pilot;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Fill Geo Fact Table"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{3097D86B-0846-43E6-9A6C-ABF4C983A961}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Fill Geo Fact Table"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v9; (C) 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          engineThreads="5"
+          version="1">
+          <components>
+            <component
+              refId="Package\Fill Geo Fact Table\OLE DB Destination"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[SalesFactGeo]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destinaton. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fill Geo Fact Table\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CROBIMSRV01\SQL2005.Sales DW Staging]"
+                  connectionManagerRefId="Package.ConnectionManagers[CROBIMSRV01\SQL2005.Sales DW Staging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FK_PeriodID]"
+                      cachedDataType="i4"
+                      cachedName="FK_PeriodID"
+                      externalMetadataColumnId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_PeriodID]"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_PeriodID]" />
+                    <inputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FK_CustomerBranchID]"
+                      cachedDataType="i8"
+                      cachedName="FK_CustomerBranchID"
+                      externalMetadataColumnId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_CustomerBranchID]"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_CustomerBranchID]" />
+                    <inputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FK_GeographicalAreaID]"
+                      cachedDataType="i4"
+                      cachedName="FK_GeographicalAreaID"
+                      externalMetadataColumnId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_GeographicalAreaID]"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_GeographicalAreaID]" />
+                    <inputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Qty]"
+                      cachedDataType="r8"
+                      cachedName="Qty"
+                      externalMetadataColumnId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Qty]"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Qty]" />
+                    <inputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Amount]"
+                      cachedDataType="r8"
+                      cachedName="Amount"
+                      externalMetadataColumnId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Amount]"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Amount]" />
+                    <inputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FK_DistributorID]"
+                      cachedDataType="i8"
+                      cachedName="FK_DistributorID"
+                      externalMetadataColumnId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_DistributorID]"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_DistributorID]" />
+                    <inputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FK_DosageFormID]"
+                      cachedDataType="i8"
+                      cachedName="FK_DosageFormID"
+                      externalMetadataColumnId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_DosageFormID]"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_DosageFormID]" />
+                    <inputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SalesType]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="SalesType"
+                      externalMetadataColumnId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesType]"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesType]" />
+                    <inputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FK_GlobalDosageFormId]"
+                      cachedDataType="i8"
+                      cachedName="FK_GlobalDosageFormId"
+                      externalMetadataColumnId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_GlobalDosageFormId]"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_GlobalDosageFormId]" />
+                    <inputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FK_DistributorBranchID]"
+                      cachedDataType="i8"
+                      cachedName="FK_DistributorBranchID"
+                      externalMetadataColumnId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_DistributorBranchID]"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_DistributorBranchID]" />
+                    <inputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FK_DistributorProductMappingID]"
+                      cachedDataType="i8"
+                      cachedName="FK_DistributorProductMappingID"
+                      externalMetadataColumnId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_DistributorProductMappingID]"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_DistributorProductMappingID]" />
+                    <inputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FK_DistributorCustomerMappingID]"
+                      cachedDataType="i8"
+                      cachedName="FK_DistributorCustomerMappingID"
+                      externalMetadataColumnId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_DistributorCustomerMappingID]"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_DistributorCustomerMappingID]" />
+                    <inputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FK_SalesTypeID]"
+                      cachedDataType="i2"
+                      cachedName="FK_SalesTypeID"
+                      externalMetadataColumnId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_SalesTypeID]"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_SalesTypeID]" />
+                    <inputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TransactionType]"
+                      cachedDataType="i4"
+                      cachedName="TransactionType"
+                      externalMetadataColumnId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_TransactionTypeID]"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionType]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_PeriodID]"
+                      dataType="i4"
+                      name="FK_PeriodID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_CustomerBranchID]"
+                      dataType="i8"
+                      name="FK_CustomerBranchID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_GeographicalAreaID]"
+                      dataType="i4"
+                      name="FK_GeographicalAreaID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Qty]"
+                      dataType="r8"
+                      name="Qty" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Amount]"
+                      dataType="r8"
+                      name="Amount" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_DistributorID]"
+                      dataType="i8"
+                      name="FK_DistributorID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_DosageFormID]"
+                      dataType="i8"
+                      name="FK_DosageFormID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="SalesType" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_GlobalDosageFormId]"
+                      dataType="i8"
+                      name="FK_GlobalDosageFormId" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_DistributorBranchID]"
+                      dataType="i8"
+                      name="FK_DistributorBranchID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_DistributorProductMappingID]"
+                      dataType="i8"
+                      name="FK_DistributorProductMappingID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_DistributorCustomerMappingID]"
+                      dataType="i8"
+                      name="FK_DistributorCustomerMappingID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Fileamount]"
+                      dataType="r8"
+                      name="Fileamount" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesDate]"
+                      dataType="dbTimeStamp"
+                      name="SalesDate" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_SalesTypeID]"
+                      dataType="i2"
+                      name="FK_SalesTypeID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_TransactionTypeID]"
+                      dataType="i4"
+                      name="FK_TransactionTypeID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_CountryID]"
+                      dataType="i4"
+                      name="FK_CountryID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fill Geo Fact Table\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fill Geo Fact Table\OLE DB Source"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              contactInfo="OLE DB Source;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT  FK_PeriodID,  case when FK_SubDistributorGroupID is null then isnull(s.FK_CustomerBranchID, -2) else isnull(s.FK_CustomerBranchID, -1) end as FK_CustomerBranchID, ISNULL(s.FK_GeographicalAreaId, isnull(CustomerBranch.FK_GeographicalAreaID, s.FK_CountryID*-1-100)) AS FK_GeographicalAreaID, isnull(SUM(Qty),0) AS Qty, 
+                      isnull(SUM(Amount),0) AS Amount,CASE WHEN s.FK_DistributorID is null and s.FK_SubDistributorGroupID is null THEN -1 WHEN s.FK_DistributorID is null and s.FK_SubDistributorGroupID is not null THEN -2 ELSE s.FK_DistributorID END as FK_DistributorID,   FK_DosageFormID,
+case when  CustomerGroupType = 2 and FK_SubDistributorGroupID is null then 'AC' 
+When FK_SubDistributorGroupID is not null then 'D' 
+when CustomerGroupType = 1 then 'E' else 'N' END AS SalesType
+, ISNULL(FK_GlobalDosageFormId,-1) AS 'FK_GlobalDosageFormId',
+ISNULL(FK_DistributorBranchID,-1) AS 'FK_DistributorBranchID',
+ISNULL(FK_DistributorCustomerMappingID,-1) FK_DistributorCustomerMappingID,
+ISNULL(FK_DistributorProductMappingID,-1)FK_DistributorProductMappingID,SalesType AS 'FK_SalesTypeID',
+ case when s.TransactionType='s' then 1
+      when s.TransactionType='R' then 2
+	  when s.TransactionType='B' then 3
+	  when s.TransactionType='RB' then 4
+	  end as TransactionType
+
+FROM         sales s With(nolock)  LEFT OUTER JOIN 
+             CustomerBranch ON s.FK_CustomerBranchID = CustomerBranch.CustomerBranchID AND  
+             CustomerBranch.FK_FromPeriodID &lt;= s.FK_PeriodID AND (CustomerBranch.FK_ToPeriodID IS NULL OR 
+             CustomerBranch.FK_ToPeriodID &gt;= s.FK_PeriodID) LEFT OUTER JOIN 
+             CustomerGroup ON CustomerGroup.CustomerGroupID = CustomerBranch.FK_CustomerGroupID /*AND  
+             CustomerGroup.FK_FromPeriodID &lt;= s.FK_PeriodID AND (CustomerGroup.FK_ToPeriodID IS NULL OR 
+             CustomerGroup.FK_ToPeriodID &gt;= s.FK_PeriodID) */
+left outer join DosageForm on DosageFormId = s.FK_DosageFormID
+                      left outer join GlobalDosageForm on GlobalDosageFormId = FK_GlobalDosageFormId
+WHERE    (TransactionType IN ('R', 'S')) and (CustomerGroupType &lt;&gt; 0 or CustomerGroupType is null)  
+GROUP BY FK_PeriodID,  ISNULL(s.FK_GeographicalAreaId, isnull(CustomerBranch.FK_GeographicalAreaID, s.FK_CountryID*-1-100)) , FK_DistributorID, 
+                    case when FK_SubDistributorGroupID is null then isnull(s.FK_CustomerBranchID, -2) else isnull(s.FK_CustomerBranchID, -1) end,   FK_SubDistributorGroupID, FK_DosageFormID, case when  CustomerGroupType = 2 and FK_SubDistributorGroupID is null then 'AC' 
+When FK_SubDistributorGroupID is not null then 'D' 
+when CustomerGroupType = 1 then 'E' else 'N' END ,
+ ISNULL(FK_GlobalDosageFormId,-1),
+ ISNULL(FK_DistributorBranchID,-1) ,
+ISNULL(FK_DistributorCustomerMappingID,-1) ,
+ISNULL(FK_DistributorProductMappingID,-1), SalesType,TransactionType</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping">"Parameter0",{2C2411D5-2242-4AC8-BBD1-1AB1A2179A62};"Parameter1",{DFF089D4-8853-4C63-94F7-77C4540B20BE};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fill Geo Fact Table\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CROSALESRV01.SDW_Pilot]"
+                  connectionManagerRefId="Package.ConnectionManagers[CROSALESRV01.SDW_Pilot]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_PeriodID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_PeriodID]"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_PeriodID]"
+                      name="FK_PeriodID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_CustomerBranchID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_CustomerBranchID]"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_CustomerBranchID]"
+                      name="FK_CustomerBranchID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_GeographicalAreaID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_GeographicalAreaID]"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_GeographicalAreaID]"
+                      name="FK_GeographicalAreaID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Qty]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Qty]"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Qty]"
+                      name="Qty"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Amount]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Amount]"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Amount]"
+                      name="Amount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_DistributorID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_DistributorID]"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_DistributorID]"
+                      name="FK_DistributorID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_DosageFormID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_DosageFormID]"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_DosageFormID]"
+                      name="FK_DosageFormID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesType]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesType]"
+                      length="2"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesType]"
+                      name="SalesType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_GlobalDosageFormId]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_GlobalDosageFormId]"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_GlobalDosageFormId]"
+                      name="FK_GlobalDosageFormId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_DistributorBranchID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_DistributorBranchID]"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_DistributorBranchID]"
+                      name="FK_DistributorBranchID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_DistributorCustomerMappingID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_DistributorCustomerMappingID]"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_DistributorCustomerMappingID]"
+                      name="FK_DistributorCustomerMappingID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_DistributorProductMappingID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_DistributorProductMappingID]"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_DistributorProductMappingID]"
+                      name="FK_DistributorProductMappingID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_SalesTypeID]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_SalesTypeID]"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_SalesTypeID]"
+                      name="FK_SalesTypeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionType]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TransactionType]"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[TransactionType]"
+                      name="TransactionType"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_PeriodID]"
+                      dataType="i4"
+                      name="FK_PeriodID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_CustomerBranchID]"
+                      dataType="i8"
+                      name="FK_CustomerBranchID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_GeographicalAreaID]"
+                      dataType="i4"
+                      name="FK_GeographicalAreaID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Qty]"
+                      dataType="r8"
+                      name="Qty" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Amount]"
+                      dataType="r8"
+                      name="Amount" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_DistributorID]"
+                      dataType="i8"
+                      name="FK_DistributorID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_DosageFormID]"
+                      dataType="i8"
+                      name="FK_DosageFormID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="SalesType" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_GlobalDosageFormId]"
+                      dataType="i8"
+                      name="FK_GlobalDosageFormId" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_DistributorBranchID]"
+                      dataType="i8"
+                      name="FK_DistributorBranchID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_DistributorCustomerMappingID]"
+                      dataType="i8"
+                      name="FK_DistributorCustomerMappingID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_DistributorProductMappingID]"
+                      dataType="i8"
+                      name="FK_DistributorProductMappingID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_SalesTypeID]"
+                      dataType="i2"
+                      name="FK_SalesTypeID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TransactionType]"
+                      dataType="i4"
+                      name="TransactionType" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_PeriodID]"
+                      dataType="i4"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_PeriodID]"
+                      name="FK_PeriodID" />
+                    <outputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_CustomerBranchID]"
+                      dataType="i8"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_CustomerBranchID]"
+                      name="FK_CustomerBranchID" />
+                    <outputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_GeographicalAreaID]"
+                      dataType="i4"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_GeographicalAreaID]"
+                      name="FK_GeographicalAreaID" />
+                    <outputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Qty]"
+                      dataType="r8"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Qty]"
+                      name="Qty" />
+                    <outputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Amount]"
+                      dataType="r8"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Amount]"
+                      name="Amount" />
+                    <outputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_DistributorID]"
+                      dataType="i8"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_DistributorID]"
+                      name="FK_DistributorID" />
+                    <outputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_DosageFormID]"
+                      dataType="i8"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_DosageFormID]"
+                      name="FK_DosageFormID" />
+                    <outputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesType]"
+                      name="SalesType" />
+                    <outputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_GlobalDosageFormId]"
+                      dataType="i8"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_GlobalDosageFormId]"
+                      name="FK_GlobalDosageFormId" />
+                    <outputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_DistributorBranchID]"
+                      dataType="i8"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_DistributorBranchID]"
+                      name="FK_DistributorBranchID" />
+                    <outputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_DistributorCustomerMappingID]"
+                      dataType="i8"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_DistributorCustomerMappingID]"
+                      name="FK_DistributorCustomerMappingID" />
+                    <outputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_DistributorProductMappingID]"
+                      dataType="i8"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_DistributorProductMappingID]"
+                      name="FK_DistributorProductMappingID" />
+                    <outputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_SalesTypeID]"
+                      dataType="i2"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_SalesTypeID]"
+                      name="FK_SalesTypeID" />
+                    <outputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TransactionType]"
+                      dataType="i4"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TransactionType]"
+                      name="TransactionType" />
+                    <outputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Fill Geo Fact Table.Paths[OLE DB Source Output]"
+              endId="Package\Fill Geo Fact Table\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Fill Geo Fact Table\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate Sales Geo Fact"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{1AB53BD8-5143-4E69-9855-2AA7B016EB62}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate Sales Geo Fact"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{BF3CE145-9A94-43D9-BE11-CD9401686452}"
+          SQLTask:SqlStatementSource="Truncate table SalesFactGeo" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{672D255F-2150-4533-B626-B6FF3E9E2F26}"
+      DTS:From="Package\Truncate Sales Geo Fact"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Fill Geo Fact Table" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Fill Geo Fact Table"
+          TopLeft="268.5,172.311320754717" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Truncate Sales Geo Fact"
+          TopLeft="221.5,25.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="289.5,69.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="47,102.811320754717"
+              Start="0,0"
+              End="47,95.311320754717">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.4056603773585" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,47.4056603773585"
+                    Point2="0,51.4056603773585"
+                    Point3="4,51.4056603773585" />
+                  <mssgle:LineSegment
+                    End="43,51.4056603773585" />
+                  <mssgle:CubicBezierSegment
+                    Point1="43,51.4056603773585"
+                    Point2="47,51.4056603773585"
+                    Point3="47,55.4056603773585" />
+                  <mssgle:LineSegment
+                    End="47,95.311320754717" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Fill Geo Fact Table">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Fill Geo Fact Table\OLE DB Destination"
+          TopLeft="222,193" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Fill Geo Fact Table\OLE DB Source"
+          TopLeft="172,78" />
+        <EdgeLayout
+          Id="Package\Fill Geo Fact Table.Paths[OLE DB Source Output]"
+          TopLeft="247,120">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="60.5,73"
+              Start="0,0"
+              End="60.5,65.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.5"
+                    Point2="0,36.5"
+                    Point3="4,36.5" />
+                  <mssgle:LineSegment
+                    End="56.5,36.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="56.5,36.5"
+                    Point2="60.5,36.5"
+                    Point3="60.5,40.5" />
+                  <mssgle:LineSegment
+                    End="60.5,65.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fill Geo Fact Table\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fill Geo Fact Table\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

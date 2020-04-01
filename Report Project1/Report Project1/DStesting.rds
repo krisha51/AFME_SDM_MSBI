@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="DStesting">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=EMAVSP000005179;Initial Catalog=SDM_Prod</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>0f6fbc03-266e-4f51-b027-15a6e0979c4c</DataSourceID>
+</RptDataSource>

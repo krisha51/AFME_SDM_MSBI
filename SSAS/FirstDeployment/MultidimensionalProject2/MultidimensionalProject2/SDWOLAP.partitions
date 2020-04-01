@@ -1,0 +1,1153 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="f26f8370-3242-4bab-88bf-08a651ee3242" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>SDWOLAP</ID>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>Sales Fact Geo Categorized</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="5b6cb024-d06f-4232-9a6e-b5066c005017">
+          <ID>Sales Fact Geo Categorized</ID>
+          <Name>Sales Fact Geo Categorized</Name>
+          <CreatedTimestamp>2019-03-13T10:41:41.023333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2019-10-10T12:30:43.326667Z</LastSchemaUpdate>
+          <LastProcessed>2019-03-18T07:58:40.273333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="6df3d15e-7b3b-44cc-a794-04981091440f">
+            <DataSourceViewID>SDWOLAP</DataSourceViewID>
+            <TableID>dbo_SalesFactGeo_Categorized</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="424c6eb8-6a10-4c1f-8c51-2223df44857a">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="f67ccd46-df00-49d5-bf5e-e336ea1266a5" />
+          </ProactiveCaching>
+          <EstimatedSize>777684</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>To Market Sales Fact</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="7f9199b5-9161-469a-ae26-fae7005451fb">
+          <ID>To Market Sales Fact</ID>
+          <Name>To Market Sales Fact</Name>
+          <CreatedTimestamp>2019-03-13T10:41:41.07Z</CreatedTimestamp>
+          <LastSchemaUpdate>2019-10-10T12:30:43.416667Z</LastSchemaUpdate>
+          <LastProcessed>2019-03-18T07:56:48.013333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="b034a0af-df3f-40c8-befb-a3714fd63016">
+            <DataSourceViewID>SDWOLAP</DataSourceViewID>
+            <TableID>dbo_ToMarketSalesFact</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="a1dfbdfe-f95b-4a10-ab9e-394ef3c9421c">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <AggregationStorage>MolapOnly</AggregationStorage>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="6ee8e47e-1f14-42b1-933b-141fff29c5b8">
+              <NotificationTechnique>Server</NotificationTechnique>
+            </Source>
+          </ProactiveCaching>
+          <EstimatedSize>49806</EstimatedSize>
+          <EstimatedRows>2653046</EstimatedRows>
+          <AggregationDesignID>Full Data</AggregationDesignID>
+        </Partition>
+      </Partitions>
+      <AggregationDesigns>
+        <AggregationDesign>
+          <ID>Full Data</ID>
+          <Name>Full Data</Name>
+          <CreatedTimestamp>2019-03-13T10:41:41.053333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2019-10-10T12:30:43.403333Z</LastSchemaUpdate>
+          <EstimatedRows>2653046</EstimatedRows>
+          <Dimensions>
+            <Dimension>
+              <CubeDimensionID>Distributor</CubeDimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Distributor</AttributeID>
+                  <EstimatedCount>13</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Country Name</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <CubeDimensionID>Geography</CubeDimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Geographical Area</AttributeID>
+                  <EstimatedCount>5350</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>FK Parent ID</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Geographical Area Type ID</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <CubeDimensionID>Time</CubeDimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Year</AttributeID>
+                  <EstimatedCount>14</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Quarter</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>PeriodID</AttributeID>
+                  <EstimatedCount>168</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Date</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Period Name 1</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <CubeDimensionID>Product Manager</CubeDimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Employee ID</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Parent ID</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <CubeDimensionID>Distributor Group</CubeDimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Distributor ID</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Customer Group ID</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <CubeDimensionID>Products</CubeDimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Dosage Form</AttributeID>
+                  <EstimatedCount>1588</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Product</AttributeID>
+                  <EstimatedCount>326</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>MPG</AttributeID>
+                  <EstimatedCount>89</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Product Type</AttributeID>
+                  <EstimatedCount>3</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>ISPC Code</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>ISPC Description</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Country Name</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Product Code</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Lot Number</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Marketing Business Unit Name</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Company Name</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Dosage Form Code</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Therapeutic Area ID</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Marketing Business Root Unit ID</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Marketing Business Parent Unit ID</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <CubeDimensionID>Customer</CubeDimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Customer Sector Name</AttributeID>
+                  <EstimatedCount>3</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Type Name</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Customer Group ID</AttributeID>
+                  <EstimatedCount>80</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Customer Code</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Customer Type ID</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Customer Sub Type ID</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>e Card</AttributeID>
+                  <EstimatedCount>2</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Customer Category ID</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Customer Sector Targeting Group ID</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Address1</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Customer Branch Code</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Country ID</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Customer Name</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Geographical Area ID</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <CubeDimensionID>Customer Sector Targeting Group</CubeDimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Customer Sector Targeting Group ID</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+          </Dimensions>
+          <Aggregations>
+            <Aggregation>
+              <ID>Aggregation 0</ID>
+              <Name>Aggregation 0</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Distributor</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Distributor</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Geography</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product Manager</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Distributor Group</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Products</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Product Type</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Customer</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Customer Sector Targeting Group</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 1</ID>
+              <Name>Aggregation 1</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Distributor</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Distributor</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Geography</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>PeriodID</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product Manager</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Distributor Group</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Products</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Product Type</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Customer</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Customer Sector Name</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Customer Sector Targeting Group</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 2</ID>
+              <Name>Aggregation 2</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Distributor</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Distributor</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Geography</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product Manager</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Distributor Group</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Products</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Product</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Customer</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Customer Sector Name</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Customer Sector Targeting Group</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 3</ID>
+              <Name>Aggregation 3</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Distributor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Geography</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Year</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product Manager</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Distributor Group</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Products</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Product</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Customer</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Customer Sector Name</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Customer Sector Targeting Group</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 4</ID>
+              <Name>Aggregation 4</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Distributor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Geography</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product Manager</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Distributor Group</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Products</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Dosage Form</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Customer</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Customer Sector Name</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Customer Sector Targeting Group</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 5</ID>
+              <Name>Aggregation 5</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Distributor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Geography</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product Manager</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Distributor Group</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Products</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Product</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Customer</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Customer Sector Targeting Group</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 6</ID>
+              <Name>Aggregation 6</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Distributor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Geography</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Year</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product Manager</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Distributor Group</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Products</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Product Type</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Customer</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Customer Sector Name</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Customer Sector Targeting Group</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 7</ID>
+              <Name>Aggregation 7</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Distributor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Geography</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>PeriodID</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product Manager</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Distributor Group</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Products</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Product Type</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Customer</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Customer Sector Targeting Group</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 8</ID>
+              <Name>Aggregation 8</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Distributor</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Distributor</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Geography</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Year</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product Manager</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Distributor Group</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Products</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Customer</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Customer Sector Targeting Group</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 9</ID>
+              <Name>Aggregation 9</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Distributor</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Distributor</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Geography</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product Manager</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Distributor Group</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Products</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Customer</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Customer Sector Targeting Group</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation a</ID>
+              <Name>Aggregation a</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Distributor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Geography</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Geographical Area</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product Manager</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Distributor Group</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Products</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Customer</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Customer Sector Name</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Customer Sector Targeting Group</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation b</ID>
+              <Name>Aggregation b</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Distributor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Geography</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Geographical Area</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product Manager</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Distributor Group</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Products</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Product Type</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Customer</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Customer Sector Targeting Group</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation c</ID>
+              <Name>Aggregation c</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Distributor</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Distributor</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Geography</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Year</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product Manager</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Distributor Group</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Products</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>MPG</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Customer</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Customer Sector Targeting Group</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation d</ID>
+              <Name>Aggregation d</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Distributor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Geography</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>PeriodID</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product Manager</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Distributor Group</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Products</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Product</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Customer</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Customer Sector Targeting Group</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation e</ID>
+              <Name>Aggregation e</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Distributor</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Distributor</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Geography</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product Manager</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Distributor Group</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Products</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Dosage Form</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Customer</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Customer Sector Targeting Group</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation f</ID>
+              <Name>Aggregation f</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Distributor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Geography</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Year</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product Manager</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Distributor Group</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Products</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Dosage Form</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Customer</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Customer Sector Targeting Group</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 10</ID>
+              <Name>Aggregation 10</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Distributor</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Geography</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Time</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>PeriodID</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Product Manager</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Distributor Group</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Products</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Customer</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Customer Sector Targeting Group</CubeDimensionID>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+          </Aggregations>
+        </AggregationDesign>
+      </AggregationDesigns>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Stock</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="1aad3fb5-bbf9-443d-86b3-a14acdc26e56">
+          <ID>Stock</ID>
+          <Name>Stock</Name>
+          <CreatedTimestamp>2019-03-13T10:41:41.083333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2019-10-10T12:30:43.45Z</LastSchemaUpdate>
+          <LastProcessed>2019-03-18T07:56:47.75Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="e1e15f36-35a5-4cde-b279-3670c8955c27">
+            <DataSourceViewID>SDWOLAP</DataSourceViewID>
+            <TableID>dbo_Stock</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="7a7c53a3-fd93-4f4b-9c6c-a8d22afc3a9e">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="c42f8aa8-3b6a-4826-9625-ea511c773477" />
+          </ProactiveCaching>
+          <EstimatedSize>6849</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Customer Branch Target</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="f28e93db-c413-4f05-8ea8-f81c64afb227">
+          <ID>Customer Branch Target</ID>
+          <Name>Customer Branch Target</Name>
+          <CreatedTimestamp>2019-03-13T10:41:41.1Z</CreatedTimestamp>
+          <LastSchemaUpdate>2019-10-10T12:30:43.466667Z</LastSchemaUpdate>
+          <LastProcessed>2019-03-18T07:56:46.436667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="e277adcb-1e3d-4213-957a-2e6bb56b5433">
+            <DataSourceViewID>SDWOLAP</DataSourceViewID>
+            <TableID>dbo_CustomerBranchTarget</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="35dff6de-1c1c-4695-b23c-06b3d7205b0c">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="738c6927-aedd-48ea-aa38-52672de90ed6" />
+          </ProactiveCaching>
+          <EstimatedSize>156</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Brick Target</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="4f089b58-608a-450e-9385-cdcbf5a7a124">
+          <ID>Brick Target</ID>
+          <Name>Brick Target</Name>
+          <CreatedTimestamp>2019-03-13T10:41:41.13Z</CreatedTimestamp>
+          <LastSchemaUpdate>2019-10-10T12:30:43.496667Z</LastSchemaUpdate>
+          <LastProcessed>2019-03-18T07:56:46.97Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="98078ee4-78bb-44fd-b5c8-6784d823b673">
+            <DataSourceViewID>SDWOLAP</DataSourceViewID>
+            <TableID>dbo_BrickTarget</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="2bb880b6-08ae-4277-9de1-b66e63f429ed">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="4af0da3d-30a9-4e88-a72e-395b434ef660" />
+          </ProactiveCaching>
+          <EstimatedSize>156</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Parent Geographical Area Target</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="4ef13a29-952f-4b1b-9779-00afe832c1d9">
+          <ID>Parent Geographical Area Target</ID>
+          <Name>Parent Geographical Area Target</Name>
+          <CreatedTimestamp>2019-03-13T10:41:41.146667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2019-10-10T12:30:43.526667Z</LastSchemaUpdate>
+          <LastProcessed>2019-03-18T07:56:47.046667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="8e3e48c9-221d-4880-92f2-2d77f1e67e3c">
+            <DataSourceViewID>SDWOLAP</DataSourceViewID>
+            <TableID>dbo_ParentGeographicalAreaTarget</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="356a58de-51a2-4d25-8e3f-0ddbb2e3c114">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="3a12db42-3725-4a42-8a25-e61abe8c259e" />
+          </ProactiveCaching>
+          <EstimatedSize>156</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Customer Sector Target</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="225e4bea-0213-4121-8e94-e9dc6d227fde">
+          <ID>Customer Sector Target</ID>
+          <Name>Customer Sector Target</Name>
+          <CreatedTimestamp>2019-03-13T10:41:41.176667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2019-10-10T12:30:43.56Z</LastSchemaUpdate>
+          <LastProcessed>2019-03-18T07:56:46.39Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="0ee47e3d-4055-4e4f-a5da-065c4826626d">
+            <DataSourceViewID>SDWOLAP</DataSourceViewID>
+            <TableID>dbo_CustomerSectorTarget</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="5482e16e-d536-4329-a3cc-6aef636a709f">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="ac9d95c1-0b39-476f-86d2-a32c0c2dc9c2" />
+          </ProactiveCaching>
+          <EstimatedSize>156</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Country Period Number Of Working Days</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="34c71bb0-12c5-4a5d-829f-31585ea26464">
+          <ID>Country Period Number Of Working Days</ID>
+          <Name>Country Period Number Of Working Days</Name>
+          <CreatedTimestamp>2019-03-13T10:41:41.193333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2019-10-10T12:30:43.573333Z</LastSchemaUpdate>
+          <LastProcessed>2019-03-18T07:56:46.266667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="1c417db5-c2aa-466b-abb7-3403d6345f47">
+            <DataSourceViewID>SDWOLAP</DataSourceViewID>
+            <TableID>dbo_CountryPeriodNumberOfWorkingDays</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="ad7dceb6-98a4-49b1-bf80-684a3e2d3614">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="31623d97-b097-40df-8077-c50e91a75716" />
+          </ProactiveCaching>
+          <EstimatedSize>750</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Product Manager</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="1f612b4f-a72a-40b4-89b2-0f22ebffa88a">
+          <ID>Product Manager</ID>
+          <Name>Product Manager</Name>
+          <CreatedTimestamp>2019-03-13T10:41:41.223333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2019-10-10T12:30:43.606667Z</LastSchemaUpdate>
+          <LastProcessed>2019-03-18T07:56:46.36Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="33537a90-5e31-411a-9cfa-29838dd0070b">
+            <DataSourceViewID>SDWOLAP</DataSourceViewID>
+            <TableID>dbo_ProductManager</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="59ad7823-3463-4788-831f-d0c544f06cb5">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="e4cbd10e-76a4-4d03-8f8c-516f2ede89d8" />
+          </ProactiveCaching>
+          <EstimatedSize>156</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+  </MeasureGroups>
+</Cube>

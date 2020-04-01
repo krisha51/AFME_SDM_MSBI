@@ -1,0 +1,788 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/12/2010 1:24:06 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="CROBIMSRV01"
+  DTS:CreatorName="EMEA\srvcro-sql"
+  DTS:DelayValidation="True"
+  DTS:DTSID="{CE310041-D0E6-4208-B62B-84C9FBB877AE}"
+  DTS:EnableConfig="True"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.7001.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Main Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="106"
+  DTS:VersionGUID="{11FCD0C8-E4AF-45EB-BDA8-73682879A7F7}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Customer Sector Target - All Years.dtsx]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{474CE9E4-A880-48A3-BF81-1CCF23D037D2}"
+      DTS:ObjectName="Customer Sector Target - All Years.dtsx">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="F:\VS 2010 SSIS Projects\Migration\2012\Migration\Migration\Customer Sector Target - All Years.dtsx" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[EMAEDCW703.msdb]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{C7EF898B-44D8-47A0-B93C-7715FB383890}"
+      DTS:ObjectName="EMAEDCW703.msdb">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=EMAVSP000005179;Initial Catalog=msdb;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Free Sales Geography Fact - All Years.dtsx]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{65BABB6E-AD20-4CDC-9AD0-CEA769512C72}"
+      DTS:ObjectName="Free Sales Geography Fact - All Years.dtsx">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="F:\VS 2010 SSIS Projects\Migration\2012\Migration\Migration\Free Sales Geography Fact - All Years.dtsx" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Geography IMS Fact - All Years.dtsx]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{E158AADC-CB12-492A-A604-C727643B1197}"
+      DTS:ObjectName="Geography IMS Fact - All Years.dtsx">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="F:\VS 2010 SSIS Projects\Migration\2012\Migration\Migration\Geography IMS Fact - All Years.dtsx" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[GlobalMasterData.dtsx]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{75C4718F-2377-4723-BDF9-DB363D482A59}"
+      DTS:ObjectName="GlobalMasterData.dtsx">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="F:\VS 2010 SSIS Projects\Migration\2012\Migration\Migration\GlobalMasterData.dtsx" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[IMS Market Share.dtsx]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{465FA4FD-AAC4-464C-A6D8-3A5BB1EE77F9}"
+      DTS:ObjectName="IMS Market Share.dtsx">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="F:\VS 2008 SSIS Projects\Sales ETL - MER\Sales ETL - MER\IMS Market Share.dtsx" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MasterData.dtsx]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{1A5B770F-A984-40B2-B6DC-D133ABDC3DA3}"
+      DTS:ObjectName="MasterData.dtsx">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="F:\VS 2010 SSIS Projects\Migration\2012\Migration\Migration\MasterData.dtsx" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Stock Fact.dtsx]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{5FD4D7EF-E50A-41CF-B633-0F6D8DCED7B7}"
+      DTS:ObjectName="Stock Fact.dtsx">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="F:\VS 2010 SSIS Projects\Migration\2012\Migration\Migration\Stock Fact.dtsx" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Target-All.dtsx]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{2A5F8AA3-7BA1-4687-B96D-050AE172F4E4}"
+      DTS:ObjectName="Target-All.dtsx">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="F:\VS 2010 SSIS Projects\Migration\2012\Migration\Migration\Target-All.dtsx" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Target-Sales Adjustments.dtsx]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{04B4C764-2F26-4FE4-9B4B-14C01630B74B}"
+      DTS:ObjectName="Target-Sales Adjustments.dtsx">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="F:\VS 2010 SSIS Projects\Migration\2012\Migration\Migration\Target-Sales Adjustments.dtsx" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[To Market Fact - All Years.dtsx]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{7A553858-26DD-4853-B464-E3083935C058}"
+      DTS:ObjectName="To Market Fact - All Years.dtsx">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="F:\VS 2010 SSIS Projects\Migration\2012\Migration\Migration\To Market Fact - All Years.dtsx" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Configurations>
+    <DTS:Configuration
+      DTS:ConfigurationString="H:\VS 2008 SSIS Projects\SDM\Windows Services\Sales ETL - MER\Sales\Sales\config2.dtsConfig"
+      DTS:ConfigurationType="1"
+      DTS:CreationName=""
+      DTS:DTSID="{82C4F827-5212-47BE-AE5D-6FD56A7079CB}"
+      DTS:ObjectName="Configuration 1" />
+  </DTS:Configurations>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Fill Customer Sector Targets"
+      DTS:CreationName="SSIS.ExecutePackageTask.3"
+      DTS:DelayValidation="True"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{DA95FBE3-E23D-4B39-81E3-A21586BE266F}"
+      DTS:ExecutableType="SSIS.ExecutePackageTask.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Fill Customer Sector Targets"
+      DTS:TaskContact="Executes DTS packages;Microsoft Corporation; Microsoft SQL Server v9; (C) 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <PackageName>\SDM\MER_Daily\Customer Sector Target - All Years</PackageName>
+          <Connection>{C7EF898B-44D8-47A0-B93C-7715FB383890}</Connection>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Fill Free Sales Geo Fact"
+      DTS:CreationName="SSIS.ExecutePackageTask.3"
+      DTS:DelayValidation="True"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{8EF2F15B-57C5-4509-975E-462F85A4771D}"
+      DTS:ExecutableType="SSIS.ExecutePackageTask.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Fill Free Sales Geo Fact"
+      DTS:TaskContact="Executes DTS packages;Microsoft Corporation; Microsoft SQL Server v9; (C) 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <PackageName>\SDM\MER_Daily\Free Sales Geography Fact - All Years</PackageName>
+          <Connection>{C7EF898B-44D8-47A0-B93C-7715FB383890}</Connection>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Fill Geo Fact tables"
+      DTS:CreationName="SSIS.ExecutePackageTask.3"
+      DTS:DelayValidation="True"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{DFAD3B58-2862-41CD-927D-2A9BDBFF834F}"
+      DTS:ExecutableType="SSIS.ExecutePackageTask.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Fill Geo Fact tables"
+      DTS:TaskContact="Executes DTS packages;Microsoft Corporation; Microsoft SQL Server v9; (C) 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <PackageName>\SDM\MER_Daily\Geography IMS Fact - All Years</PackageName>
+          <Connection>{C7EF898B-44D8-47A0-B93C-7715FB383890}</Connection>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\fill Global Master Date"
+      DTS:CreationName="SSIS.ExecutePackageTask.3"
+      DTS:DelayValidation="True"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{508E2B1C-D92E-40B9-9B08-239A58AD233F}"
+      DTS:ExecutableType="SSIS.ExecutePackageTask.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="fill Global Master Date"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <PackageName>\SDM\MER_Daily\GlobalMasterData</PackageName>
+          <Connection>{C7EF898B-44D8-47A0-B93C-7715FB383890}</Connection>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Fill IMS Market Share"
+      DTS:CreationName="SSIS.ExecutePackageTask.3"
+      DTS:Description="Execute Package Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{07F0CF53-4A4F-43C2-9D77-0324A6D49858}"
+      DTS:ExecutableType="SSIS.ExecutePackageTask.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Fill IMS Market Share"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <Connection>{465FA4FD-AAC4-464C-A6D8-3A5BB1EE77F9}</Connection>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Fill Master Data"
+      DTS:CreationName="SSIS.ExecutePackageTask.3"
+      DTS:DelayValidation="True"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{A3CDEBCD-D5AF-437A-98A5-F040D45CD71D}"
+      DTS:ExecutableType="SSIS.ExecutePackageTask.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Fill Master Data"
+      DTS:TaskContact="Executes DTS packages;Microsoft Corporation; Microsoft SQL Server v9; (C) 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <PackageName>\SDM\MER_Daily\MasterData</PackageName>
+          <Connection>{C7EF898B-44D8-47A0-B93C-7715FB383890}</Connection>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Fill Stock Fact"
+      DTS:CreationName="SSIS.ExecutePackageTask.3"
+      DTS:DelayValidation="True"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{4837D5AE-0183-497B-B267-364E1351F61D}"
+      DTS:ExecutableType="SSIS.ExecutePackageTask.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Fill Stock Fact"
+      DTS:TaskContact="Executes DTS packages;Microsoft Corporation; Microsoft SQL Server v9; (C) 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <PackageName>\SDM\MER_Daily\Stock Fact</PackageName>
+          <Connection>{C7EF898B-44D8-47A0-B93C-7715FB383890}</Connection>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Fill Target-Sales Adjustments"
+      DTS:CreationName="SSIS.ExecutePackageTask.3"
+      DTS:DelayValidation="True"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{6DD59046-0F75-4AF7-9A8B-74CDE6F8F33C}"
+      DTS:ExecutableType="SSIS.ExecutePackageTask.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Fill Target-Sales Adjustments"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <PackageName>\SDM\MER_Daily\Target-Sales Adjustments</PackageName>
+          <Connection>{C7EF898B-44D8-47A0-B93C-7715FB383890}</Connection>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Fill Targets"
+      DTS:CreationName="SSIS.ExecutePackageTask.3"
+      DTS:DelayValidation="True"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{6D799CE3-9A38-4DA7-86D9-8C7467474145}"
+      DTS:ExecutableType="SSIS.ExecutePackageTask.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Fill Targets"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <PackageName>\SDM\MER_Daily\Target-All</PackageName>
+          <Connection>{C7EF898B-44D8-47A0-B93C-7715FB383890}</Connection>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Fill ToMarket"
+      DTS:CreationName="SSIS.ExecutePackageTask.3"
+      DTS:DelayValidation="True"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{61D51225-7E58-42C0-A584-E382F4FB05D4}"
+      DTS:ExecutableType="SSIS.ExecutePackageTask.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Fill ToMarket"
+      DTS:TaskContact="Executes DTS packages;Microsoft Corporation; Microsoft SQL Server v9; (C) 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <PackageName>\SDM\MER_Daily\To Market Fact - All Years</PackageName>
+          <Connection>{C7EF898B-44D8-47A0-B93C-7715FB383890}</Connection>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{2F1B216A-467D-45C8-82DB-9BB57EA96279}"
+      DTS:From="Package\Fill Master Data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Fill Geo Fact tables" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{49056067-032D-4CC1-A417-F9F963602EBA}"
+      DTS:From="Package\Fill Master Data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Fill ToMarket" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{16019282-975D-4695-B4F1-867B16A1921A}"
+      DTS:From="Package\Fill Geo Fact tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Fill Free Sales Geo Fact" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{458769E7-E0DF-4C21-BD4F-0FDFEEAA9C27}"
+      DTS:From="Package\Fill ToMarket"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Fill Free Sales Geo Fact" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{1F2F99CB-BAF2-483F-BADE-BD18CEBD09F5}"
+      DTS:From="Package\Fill Free Sales Geo Fact"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Fill Stock Fact" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{543AA18E-32E3-4889-87B5-B7BE30249AC4}"
+      DTS:From="Package\Fill Stock Fact"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\Fill Customer Sector Targets" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{B61FEA49-77F1-4180-BC2D-EEB29007898A}"
+      DTS:From="Package\Fill Customer Sector Targets"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\Fill Targets" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{B615B32E-A623-46F7-8DD0-2ADE65B22C2A}"
+      DTS:From="Package\Fill Targets"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 7"
+      DTS:To="Package\Fill Target-Sales Adjustments" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 8]"
+      DTS:CreationName=""
+      DTS:DTSID="{0C48C95C-02E8-495F-AC76-836D5569B8BD}"
+      DTS:From="Package\fill Global Master Date"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 8"
+      DTS:To="Package\Fill Master Data" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 9]"
+      DTS:CreationName=""
+      DTS:DTSID="{8C8C134D-AD05-45C1-8D33-4311F69B5F8C}"
+      DTS:From="Package\Fill Master Data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 9"
+      DTS:To="Package\Fill IMS Market Share" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="212,42"
+          Id="Package\Fill Customer Sector Targets"
+          TopLeft="88.3679245283019,466.028301886792" />
+        <NodeLayout
+          Size="188,42"
+          Id="Package\Fill Free Sales Geo Fact"
+          TopLeft="91.3490566037736,283.537735849057" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Fill Geo Fact tables"
+          TopLeft="5.5,189.764150943396" />
+        <NodeLayout
+          Size="183,42"
+          Id="Package\fill Global Master Date"
+          TopLeft="92.5566037735849,5.5" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Fill IMS Market Share"
+          TopLeft="376.103773584906,190.405660377358" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Fill Master Data"
+          TopLeft="107.235849056604,93.1226415094339" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Fill Stock Fact"
+          TopLeft="91.3867924528302,375.27358490566" />
+        <NodeLayout
+          Size="131,42"
+          Id="Package\Fill Targets"
+          TopLeft="106.556603773585,540.669811320755" />
+        <NodeLayout
+          Size="216,42"
+          Id="Package\Fill Target-Sales Adjustments"
+          TopLeft="53.6509433962264,611.38679245283" />
+        <NodeLayout
+          Size="139,42"
+          Id="Package\Fill ToMarket"
+          TopLeft="205.990566037736,190.745283018868" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="147.235849056604,135.122641509434">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-57.735849056604,54.6415094339621"
+              Start="0,0"
+              End="-57.735849056604,47.1415094339621">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.8418998048145" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.8418998048145"
+                    Point2="0,18.8418998048145"
+                    Point3="-4,18.8418998048145" />
+                  <mssgle:LineSegment
+                    End="-53.735849056604,18.8418998048145" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-53.735849056604,18.8418998048145"
+                    Point2="-57.735849056604,18.8418998048145"
+                    Point3="-57.735849056604,22.8418998048145" />
+                  <mssgle:LineSegment
+                    End="-57.735849056604,47.1415094339621" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="183.235849056604,135.122641509434">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="92.254716981132,55.6226415094341"
+              Start="0,0"
+              End="92.254716981132,48.1226415094341">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.8113207547171" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.8113207547171"
+                    Point2="0,27.8113207547171"
+                    Point3="4,27.8113207547171" />
+                  <mssgle:LineSegment
+                    End="88.254716981132,27.8113207547171" />
+                  <mssgle:CubicBezierSegment
+                    Point1="88.254716981132,27.8113207547171"
+                    Point2="92.254716981132,27.8113207547171"
+                    Point3="92.254716981132,31.8113207547171" />
+                  <mssgle:LineSegment
+                    End="92.254716981132,48.1226415094341" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="89.5,231.764150943396">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="65.8490566037736,51.773584905661"
+              Start="0,0"
+              End="65.8490566037736,44.273584905661">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.8020062096971" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.8020062096971"
+                    Point2="0,30.8020062096971"
+                    Point3="4,30.8020062096971" />
+                  <mssgle:LineSegment
+                    End="61.8490566037736,30.8020062096971" />
+                  <mssgle:CubicBezierSegment
+                    Point1="61.8490566037736,30.8020062096971"
+                    Point2="65.8490566037736,30.8020062096971"
+                    Point3="65.8490566037736,34.8020062096971" />
+                  <mssgle:LineSegment
+                    End="65.8490566037736,44.273584905661" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="275.490566037736,232.745283018868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-60.1415094339624,50.792452830189"
+              Start="0,0"
+              End="-60.1415094339624,43.292452830189">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.218294721758" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.218294721758"
+                    Point2="0,30.218294721758"
+                    Point3="-4,30.218294721758" />
+                  <mssgle:LineSegment
+                    End="-56.1415094339624,30.218294721758" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-56.1415094339624,30.218294721758"
+                    Point2="-60.1415094339624,30.218294721758"
+                    Point3="-60.1415094339624,34.218294721758" />
+                  <mssgle:LineSegment
+                    End="-60.1415094339624,43.292452830189" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="185.349056603774,325.537735849057">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-21.9622641509434,49.735849056603"
+              Start="0,0"
+              End="-21.9622641509434,42.235849056603">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.8679245283015" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.8679245283015"
+                    Point2="0,24.8679245283015"
+                    Point3="-4,24.8679245283015" />
+                  <mssgle:LineSegment
+                    End="-17.9622641509434,24.8679245283015" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-17.9622641509434,24.8679245283015"
+                    Point2="-21.9622641509434,24.8679245283015"
+                    Point3="-21.9622641509434,28.8679245283015" />
+                  <mssgle:LineSegment
+                    End="-21.9622641509434,42.235849056603" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="163.38679245283,417.27358490566">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="30.9811320754717,48.754716981132"
+              Start="0,0"
+              End="30.9811320754717,41.254716981132">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.377358490566" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.377358490566"
+                    Point2="0,24.377358490566"
+                    Point3="4,24.377358490566" />
+                  <mssgle:LineSegment
+                    End="26.9811320754717,24.377358490566" />
+                  <mssgle:CubicBezierSegment
+                    Point1="26.9811320754717,24.377358490566"
+                    Point2="30.9811320754717,24.377358490566"
+                    Point3="30.9811320754717,28.377358490566" />
+                  <mssgle:LineSegment
+                    End="30.9811320754717,41.254716981132" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="194.367924528302,508.028301886792">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-22.3113207547169,32.641509433963"
+              Start="0,0"
+              End="-22.3113207547169,25.141509433963">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.3207547169815" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.3207547169815"
+                    Point2="0,16.3207547169815"
+                    Point3="-4,16.3207547169815" />
+                  <mssgle:LineSegment
+                    End="-18.3113207547169,16.3207547169815" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.3113207547169,16.3207547169815"
+                    Point2="-22.3113207547169,16.3207547169815"
+                    Point3="-22.3113207547169,20.3207547169815" />
+                  <mssgle:LineSegment
+                    End="-22.3113207547169,25.141509433963" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="172.056603773585,582.669811320755">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-10.4056603773586,28.716981132075"
+              Start="0,0"
+              End="-10.4056603773586,21.216981132075">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.3584905660375" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.3584905660375"
+                    Point2="0,14.3584905660375"
+                    Point3="-4,14.3584905660375" />
+                  <mssgle:LineSegment
+                    End="-6.40566037735857,14.3584905660375" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-6.40566037735857,14.3584905660375"
+                    Point2="-10.4056603773586,14.3584905660375"
+                    Point3="-10.4056603773586,18.3584905660375" />
+                  <mssgle:LineSegment
+                    End="-10.4056603773586,21.216981132075" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 8]"
+          TopLeft="183.646226415094,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,45.6226415094339"
+              Start="0,0"
+              End="0,38.1226415094339">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.1226415094339" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 9]"
+          TopLeft="219.235849056604,135.122641509434">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="224.867924528302,55.2830188679241"
+              Start="0,0"
+              End="224.867924528302,47.7830188679241">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.0631099544566" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.0631099544566"
+                    Point2="0,19.0631099544566"
+                    Point3="4,19.0631099544566" />
+                  <mssgle:LineSegment
+                    End="220.867924528302,19.0631099544566" />
+                  <mssgle:CubicBezierSegment
+                    Point1="220.867924528302,19.0631099544566"
+                    Point2="224.867924528302,19.0631099544566"
+                    Point3="224.867924528302,23.0631099544566" />
+                  <mssgle:LineSegment
+                    End="224.867924528302,47.7830188679241" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

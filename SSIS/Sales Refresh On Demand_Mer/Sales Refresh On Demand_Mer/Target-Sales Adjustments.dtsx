@@ -1,0 +1,697 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/8/2014 2:53:24 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="EMAEDCW499"
+  DTS:CreatorName="EMEA\emacro-elshia"
+  DTS:DTSID="{8C881691-EABA-4EA6-992F-2A6749223D63}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.7001.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Target-Sales Adjustments"
+  DTS:PackageType="5"
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{13D33ABE-EE72-4ED3-B6E0-EA32071E99A0}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CROBIMSRV01\SQL2005.Sales DW Staging]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{3FF08E94-EEC4-4A58-ADC3-19E0E3BE4141}"
+      DTS:ObjectName="CROBIMSRV01\SQL2005.Sales DW Staging">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=EMAVSP000005179;User ID=SDM_ETL_User;Initial Catalog=AfME_SDM_DW;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Target-Sales Adjustments-{3FF08E94-EEC4-4A58-ADC3-19E0E3BE4141}CROBIMSRV01\SQL2005.Sales DW Staging;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CROSALESRV01.SDW_Pilot]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{719D044E-871A-4E8D-BF25-1D8140BB372E}"
+      DTS:ObjectName="CROSALESRV01.SDW_Pilot">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=EMAVSP000005180;Initial Catalog=SDM_Prod;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Target-Sales Adjustments-{719D044E-871A-4E8D-BF25-1D8140BB372E}CROSALESRV01.SDW_Pilot;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Fill Target-Sales Adjustments"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{9DE63AFC-C037-4A1E-B278-C9B4700AFF7F}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Fill Target-Sales Adjustments"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          version="1">
+          <components>
+            <component
+              refId="Package\Fill Target-Sales Adjustments\OLE DB Destination"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[EmployeeTargetAchievementCopy]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fill Target-Sales Adjustments\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CROBIMSRV01\SQL2005.Sales DW Staging]"
+                  connectionManagerRefId="Package.ConnectionManagers[CROBIMSRV01\SQL2005.Sales DW Staging]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Fill Target-Sales Adjustments\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[EmployeeTargetAchievementCopyID]"
+                      cachedDataType="i8"
+                      cachedName="EmployeeTargetAchievementCopyID"
+                      externalMetadataColumnId="Package\Fill Target-Sales Adjustments\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EmployeeTargetAchievementCopyID]"
+                      lineageId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].Columns[EmployeeTargetAchievementCopyID]" />
+                    <inputColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FK_EmployeeID]"
+                      cachedDataType="i8"
+                      cachedName="FK_EmployeeID"
+                      externalMetadataColumnId="Package\Fill Target-Sales Adjustments\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_EmployeeID]"
+                      lineageId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_EmployeeID]" />
+                    <inputColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FK_CustomerSectorTargetingGroupID]"
+                      cachedDataType="i4"
+                      cachedName="FK_CustomerSectorTargetingGroupID"
+                      externalMetadataColumnId="Package\Fill Target-Sales Adjustments\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_CustomerSectorTargetingGroupID]"
+                      lineageId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_CustomerSectorTargetingGroupID]" />
+                    <inputColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FK_PeriodID]"
+                      cachedDataType="i4"
+                      cachedName="FK_PeriodID"
+                      externalMetadataColumnId="Package\Fill Target-Sales Adjustments\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_PeriodID]"
+                      lineageId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_PeriodID]" />
+                    <inputColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FK_ProductID]"
+                      cachedDataType="i8"
+                      cachedName="FK_ProductID"
+                      externalMetadataColumnId="Package\Fill Target-Sales Adjustments\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_ProductID]"
+                      lineageId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_ProductID]" />
+                    <inputColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FK_DosageFormId]"
+                      cachedDataType="i8"
+                      cachedName="FK_DosageFormId"
+                      externalMetadataColumnId="Package\Fill Target-Sales Adjustments\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_DosageFormId]"
+                      lineageId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_DosageFormId]" />
+                    <inputColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SalesType]"
+                      cachedDataType="i2"
+                      cachedName="SalesType"
+                      externalMetadataColumnId="Package\Fill Target-Sales Adjustments\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesType]"
+                      lineageId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesType]" />
+                    <inputColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TargetAmount]"
+                      cachedDataType="numeric"
+                      cachedName="TargetAmount"
+                      cachedPrecision="18"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\Fill Target-Sales Adjustments\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TargetAmount]"
+                      lineageId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].Columns[TargetAmount]" />
+                    <inputColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TargetQuantity]"
+                      cachedDataType="numeric"
+                      cachedName="TargetQuantity"
+                      cachedPrecision="18"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\Fill Target-Sales Adjustments\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TargetQuantity]"
+                      lineageId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].Columns[TargetQuantity]" />
+                    <inputColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SalesAmount]"
+                      cachedDataType="numeric"
+                      cachedName="SalesAmount"
+                      cachedPrecision="18"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\Fill Target-Sales Adjustments\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesAmount]"
+                      lineageId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesAmount]" />
+                    <inputColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SalesQuantity]"
+                      cachedDataType="numeric"
+                      cachedName="SalesQuantity"
+                      cachedPrecision="18"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\Fill Target-Sales Adjustments\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesQuantity]"
+                      lineageId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesQuantity]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EmployeeTargetAchievementCopyID]"
+                      dataType="i8"
+                      name="EmployeeTargetAchievementCopyID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_EmployeeID]"
+                      dataType="i8"
+                      name="FK_EmployeeID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_CustomerSectorTargetingGroupID]"
+                      dataType="i4"
+                      name="FK_CustomerSectorTargetingGroupID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_PeriodID]"
+                      dataType="i4"
+                      name="FK_PeriodID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_ProductID]"
+                      dataType="i8"
+                      name="FK_ProductID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FK_DosageFormId]"
+                      dataType="i8"
+                      name="FK_DosageFormId" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesType]"
+                      dataType="i2"
+                      name="SalesType" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TargetAmount]"
+                      dataType="numeric"
+                      name="TargetAmount"
+                      precision="18"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TargetQuantity]"
+                      dataType="numeric"
+                      name="TargetQuantity"
+                      precision="18"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesAmount]"
+                      dataType="numeric"
+                      name="SalesAmount"
+                      precision="18"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesQuantity]"
+                      dataType="numeric"
+                      name="SalesQuantity"
+                      precision="18"
+                      scale="4" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fill Target-Sales Adjustments\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Fill Target-Sales Adjustments\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fill Target-Sales Adjustments\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fill Target-Sales Adjustments\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fill Target-Sales Adjustments\OLE DB Source"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [EmployeeTargetAchievementCopyID]
+      ,[FK_EmployeeID]
+      ,[FK_CustomerSectorTargetingGroupID]
+      ,[FK_PeriodID]
+      ,[FK_ProductID]
+      ,[FK_DosageFormId]
+      ,[SalesType]
+      ,[TargetAmount]
+      ,[TargetQuantity]
+      ,[SalesAmount]
+      ,[SalesQuantity]
+  FROM [EmployeeTargetAchievementCopy]</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fill Target-Sales Adjustments\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CROSALESRV01.SDW_Pilot]"
+                  connectionManagerRefId="Package.ConnectionManagers[CROSALESRV01.SDW_Pilot]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].Columns[EmployeeTargetAchievementCopyID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EmployeeTargetAchievementCopyID]"
+                      lineageId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].Columns[EmployeeTargetAchievementCopyID]"
+                      name="EmployeeTargetAchievementCopyID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_EmployeeID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_EmployeeID]"
+                      lineageId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_EmployeeID]"
+                      name="FK_EmployeeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_CustomerSectorTargetingGroupID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_CustomerSectorTargetingGroupID]"
+                      lineageId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_CustomerSectorTargetingGroupID]"
+                      name="FK_CustomerSectorTargetingGroupID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_PeriodID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_PeriodID]"
+                      lineageId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_PeriodID]"
+                      name="FK_PeriodID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_ProductID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_ProductID]"
+                      lineageId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_ProductID]"
+                      name="FK_ProductID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_DosageFormId]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_DosageFormId]"
+                      lineageId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].Columns[FK_DosageFormId]"
+                      name="FK_DosageFormId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesType]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesType]"
+                      lineageId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesType]"
+                      name="SalesType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].Columns[TargetAmount]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TargetAmount]"
+                      lineageId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].Columns[TargetAmount]"
+                      name="TargetAmount"
+                      precision="18"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].Columns[TargetQuantity]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TargetQuantity]"
+                      lineageId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].Columns[TargetQuantity]"
+                      name="TargetQuantity"
+                      precision="18"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesAmount]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesAmount]"
+                      lineageId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesAmount]"
+                      name="SalesAmount"
+                      precision="18"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesQuantity]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesQuantity]"
+                      lineageId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesQuantity]"
+                      name="SalesQuantity"
+                      precision="18"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EmployeeTargetAchievementCopyID]"
+                      dataType="i8"
+                      name="EmployeeTargetAchievementCopyID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_EmployeeID]"
+                      dataType="i8"
+                      name="FK_EmployeeID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_CustomerSectorTargetingGroupID]"
+                      dataType="i4"
+                      name="FK_CustomerSectorTargetingGroupID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_PeriodID]"
+                      dataType="i4"
+                      name="FK_PeriodID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_ProductID]"
+                      dataType="i8"
+                      name="FK_ProductID" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FK_DosageFormId]"
+                      dataType="i8"
+                      name="FK_DosageFormId" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesType]"
+                      dataType="i2"
+                      name="SalesType" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TargetAmount]"
+                      dataType="numeric"
+                      name="TargetAmount"
+                      precision="18"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TargetQuantity]"
+                      dataType="numeric"
+                      name="TargetQuantity"
+                      precision="18"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesAmount]"
+                      dataType="numeric"
+                      name="SalesAmount"
+                      precision="18"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesQuantity]"
+                      dataType="numeric"
+                      name="SalesQuantity"
+                      precision="18"
+                      scale="4" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EmployeeTargetAchievementCopyID]"
+                      dataType="i8"
+                      lineageId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EmployeeTargetAchievementCopyID]"
+                      name="EmployeeTargetAchievementCopyID" />
+                    <outputColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_EmployeeID]"
+                      dataType="i8"
+                      lineageId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_EmployeeID]"
+                      name="FK_EmployeeID" />
+                    <outputColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_CustomerSectorTargetingGroupID]"
+                      dataType="i4"
+                      lineageId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_CustomerSectorTargetingGroupID]"
+                      name="FK_CustomerSectorTargetingGroupID" />
+                    <outputColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_PeriodID]"
+                      dataType="i4"
+                      lineageId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_PeriodID]"
+                      name="FK_PeriodID" />
+                    <outputColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_ProductID]"
+                      dataType="i8"
+                      lineageId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_ProductID]"
+                      name="FK_ProductID" />
+                    <outputColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_DosageFormId]"
+                      dataType="i8"
+                      lineageId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FK_DosageFormId]"
+                      name="FK_DosageFormId" />
+                    <outputColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesType]"
+                      dataType="i2"
+                      lineageId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesType]"
+                      name="SalesType" />
+                    <outputColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TargetAmount]"
+                      dataType="numeric"
+                      lineageId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TargetAmount]"
+                      name="TargetAmount"
+                      precision="18"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TargetQuantity]"
+                      dataType="numeric"
+                      lineageId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TargetQuantity]"
+                      name="TargetQuantity"
+                      precision="18"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesAmount]"
+                      dataType="numeric"
+                      lineageId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesAmount]"
+                      name="SalesAmount"
+                      precision="18"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesQuantity]"
+                      dataType="numeric"
+                      lineageId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesQuantity]"
+                      name="SalesQuantity"
+                      precision="18"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Fill Target-Sales Adjustments.Paths[OLE DB Source Output]"
+              endId="Package\Fill Target-Sales Adjustments\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Fill Target-Sales Adjustments\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate Target-Sales Adjustments Table"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{B8575FD4-86CB-460C-BADB-9676799C1784}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate Target-Sales Adjustments Table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{3FF08E94-EEC4-4A58-ADC3-19E0E3BE4141}"
+          SQLTask:SqlStatementSource="Truncate table EmployeeTargetAchievementCopy" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{772072E8-6922-495E-814E-C4F280575662}"
+      DTS:From="Package\Truncate Target-Sales Adjustments Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Fill Target-Sales Adjustments" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Fill Target-Sales Adjustments"
+          TopLeft="62.4433962264151,102.367924528302" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Truncate Target-Sales Adjustments Table"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="73.3867924528302,49.4245283018868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="56.9433962264151,52.9433962264151"
+              Start="0,0"
+              End="56.9433962264151,45.4433962264151">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.4528301886792" />
+                  <mssgle:LineSegment
+                    End="56.9433962264151,26.4528301886792" />
+                  <mssgle:LineSegment
+                    End="56.9433962264151,45.4433962264151" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

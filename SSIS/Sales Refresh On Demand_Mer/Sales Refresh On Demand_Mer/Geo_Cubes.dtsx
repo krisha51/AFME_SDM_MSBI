@@ -1,0 +1,2640 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/25/2016 11:56:37 AM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="EMAEDCW704"
+  DTS:CreatorName="EMEA\srvcro-sql"
+  DTS:DTSID="{B0A6E374-B791-49E3-A65B-87131D361BFD}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.7001.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Geo_Cubes"
+  DTS:PackageType="5"
+  DTS:VersionBuild="84"
+  DTS:VersionGUID="{5971444F-3687-4F6F-98F5-0087ED70FBB4}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[EMAEDCW703.AfME_SDM_DW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{AE1A23E8-C336-4DD5-8F79-9BE73407F717}"
+      DTS:ObjectName="EMAEDCW703.AfME_SDM_DW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=EMAVSP000005179;User ID=SDM_ETL_User;Initial Catalog=AfME_SDM_DW;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[EMAEDCW704.Sales BI - BHN]"
+      DTS:CreationName="MSOLAP100"
+      DTS:DTSID="{9A171D92-BDD1-4030-A96E-F05E2A657B8D}"
+      DTS:ObjectName="EMAEDCW704.Sales BI - BHN">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=emavsp000005179;Initial Catalog=Sales BI - BHN;Provider=MSOLAP.5;Integrated Security=SSPI;Impersonation Level=Impersonate;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[EMAEDCW704.Sales BI - EGY]"
+      DTS:CreationName="MSOLAP100"
+      DTS:DTSID="{2FB50FEE-4D72-4DFA-A00F-E7806EFDB694}"
+      DTS:ObjectName="EMAEDCW704.Sales BI - EGY">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=emavsp000005179;Initial Catalog=Sales BI - EGY - Live;Provider=MSOLAP.5;Integrated Security=SSPI;Impersonation Level=Impersonate;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[EMAEDCW704.Sales BI - JRD]"
+      DTS:CreationName="MSOLAP100"
+      DTS:DTSID="{257D39B2-AA25-469B-9D68-C464889424C0}"
+      DTS:ObjectName="EMAEDCW704.Sales BI - JRD">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=emavsp000005179;Initial Catalog=Sales BI - JRD;Provider=MSOLAP.5;Integrated Security=SSPI;Impersonation Level=Impersonate;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[EMAEDCW704.Sales BI - KWT]"
+      DTS:CreationName="MSOLAP100"
+      DTS:DTSID="{A77CCDF6-B249-4552-B2E1-982477896B69}"
+      DTS:ObjectName="EMAEDCW704.Sales BI - KWT">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=emavsp000005179;Initial Catalog=Sales BI - KWT;Provider=MSOLAP.5;Integrated Security=SSPI;Impersonation Level=Impersonate;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[EMAEDCW704.Sales BI - LBN]"
+      DTS:CreationName="MSOLAP100"
+      DTS:DTSID="{04896521-6BAD-4DB7-9E7C-F5ECD257D07D}"
+      DTS:ObjectName="EMAEDCW704.Sales BI - LBN">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=emavsp000005179;Initial Catalog=Sales BI - LBN;Provider=MSOLAP.5;Integrated Security=SSPI;Impersonation Level=Impersonate;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[EMAEDCW704.Sales BI - LEV]"
+      DTS:CreationName="MSOLAP100"
+      DTS:DTSID="{6d0ee8ac-5686-4667-89b7-86b620a1c92f}"
+      DTS:ObjectName="EMAEDCW704.Sales BI - LEV">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=emavsp000005179;Initial Catalog=Sales BI - LEV;Provider=MSOLAP.5;Integrated Security=SSPI;Impersonation Level=Impersonate;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[EMAEDCW704.Sales BI - OMN]"
+      DTS:CreationName="MSOLAP100"
+      DTS:DTSID="{DBD9F841-180E-4656-A02A-623D322BBEB7}"
+      DTS:ObjectName="EMAEDCW704.Sales BI - OMN">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=emavsp000005179;Initial Catalog=Sales BI - OMN;Provider=MSOLAP.5;Integrated Security=SSPI;Impersonation Level=Impersonate;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[EMAEDCW704.Sales BI - QTR]"
+      DTS:CreationName="MSOLAP100"
+      DTS:DTSID="{50624A49-FEF1-41ED-BA87-87CCCD82487D}"
+      DTS:ObjectName="EMAEDCW704.Sales BI - QTR">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=emavsp000005179;Initial Catalog=Sales BI - QTR;Provider=MSOLAP.5;Integrated Security=SSPI;Impersonation Level=Impersonate;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[EMAEDCW704.Sales BI - UAE]"
+      DTS:CreationName="MSOLAP100"
+      DTS:DTSID="{7D028141-4649-4D1A-84C0-3D0C4934A63E}"
+      DTS:ObjectName="EMAEDCW704.Sales BI - UAE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=emavsp000005179;Initial Catalog=Sales BI - UAE;Provider=MSOLAP.5;Integrated Security=SSPI;Impersonation Level=Impersonate;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[EMAEDCW704.Sales BI – Global]"
+      DTS:CreationName="MSOLAP100"
+      DTS:DTSID="{D6DF608A-D117-4AE7-BFDD-2C13F92D82BA}"
+      DTS:ObjectName="EMAEDCW704.Sales BI – Global">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=emavsp000005179;Initial Catalog=Sales BI – Global;Provider=MSOLAP.5;Integrated Security=SSPI;Impersonation Level=Impersonate;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:LogProviders>
+    <DTS:LogProvider
+      DTS:ConfigString="EMAEDCW703.AfME_SDM_DW"
+      DTS:CreationName="DTS.LogProviderSQLServer.3"
+      DTS:Description="Writes log entries for events to a SQL Server database"
+      DTS:DTSID="{82F9714F-2B4A-4327-99E6-18FEB8E4D33E}"
+      DTS:ObjectName="SSIS log provider for SQL Server">
+      <DTS:ObjectData>
+        <InnerObject />
+      </DTS:ObjectData>
+    </DTS:LogProvider>
+  </DTS:LogProviders>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{66E26679-3AF5-4CD8-9282-50771918834F}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LogID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:LoggingOptions
+    DTS:FilterKind="0"
+    DTS:LoggingMode="1">
+    <DTS:Property
+      DTS:DataType="8"
+      DTS:Name="EventFilter">5,7,OnError,13,OnPostExecute,12,OnPreExecute,12,OnTaskFailed,9,OnWarning</DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnError"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnPostExecute"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnPreExecute"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnTaskFailed"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnWarning"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:SelectedLogProviders>
+      <DTS:SelectedLogProvider
+        DTS:InstanceID="{82F9714F-2B4A-4327-99E6-18FEB8E4D33E}" />
+    </DTS:SelectedLogProviders>
+  </DTS:LoggingOptions>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Egypt Cubes"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:Disabled="True"
+      DTS:DTSID="{A2FF49AB-6E64-42F9-875A-E79535D29799}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Egypt Cubes">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:PropertyExpression
+        DTS:Name="Disable">@[$Project::Market] == 2</DTS:PropertyExpression>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Egypt Cubes\Logging"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{0E3FB58A-F462-4F1B-89EF-36E29CF39AAF}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Logging"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{AE1A23E8-C336-4DD5-8F79-9BE73407F717}"
+              SQLTask:SqlStatementSource="INSERT INTO [dbo].[OnDemandLogs]&#xA;&#xA;SELECT a.source AS [Step], 'Success' AS [Status], MAX(a.starttime) AS [Starttime], MAX(b.endtime) AS [EndTime], ? AS Market FROM (&#xA;&#xA;SELECT [ID], [SOURCE], [starttime] FROM sysSSISLog&#xA;WHERE [EVENT] = 'OnPreExecute' AND [SOURCE] = 'Sales BI - EGY Without Ignoring Errors'&#xA;) a&#xA;INNER JOIN&#xA;(&#xA;SELECT [ID], [SOURCE], [endtime] FROM sysSSISLog&#xA;WHERE [EVENT] = 'OnPostExecute' AND [SOURCE] = 'Sales BI - EGY Without Ignoring Errors'&#xA;) b&#xA;&#xA;ON a.[source] = b.[source]&#xA;GROUP BY a.[source]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Project::Market"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Egypt Cubes\Logging2"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{6a35b1d2-8baa-4e7a-9f73-1dfbb244af47}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Logging2"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{AE1A23E8-C336-4DD5-8F79-9BE73407F717}"
+              SQLTask:SqlStatementSource="INSERT INTO [dbo].[OnDemandLogs]&#xA;&#xA;SELECT a.source AS [Step], 'Success' AS [Status], MAX(a.starttime) AS [Starttime], MAX(b.endtime) AS [EndTime], ? AS Market FROM (&#xA;&#xA;SELECT [ID], [SOURCE], [starttime] FROM sysSSISLog&#xA;WHERE [EVENT] = 'OnPreExecute' AND [SOURCE] = 'Sales BI - EGY With Ignoring Errors'&#xA;) a&#xA;INNER JOIN&#xA;(&#xA;SELECT [ID], [SOURCE], [endtime] FROM sysSSISLog&#xA;WHERE [EVENT] = 'OnPostExecute' AND [SOURCE] = 'Sales BI - EGY With Ignoring Errors'&#xA;) b&#xA;&#xA;ON a.[source] = b.[source]&#xA;GROUP BY a.[source]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Project::Market"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Egypt Cubes\Sales BI - EGY With Ignoring Errors"
+          DTS:CreationName="Microsoft.DataTransformationServices.Tasks.DTSProcessingTask.DTSProcessingTask, Microsoft.SqlServer.ASTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Analysis Services Processing Task"
+          DTS:DTSID="{F0676AF6-E112-40BE-86E5-10B5636A4DCF}"
+          DTS:ExecutableType="Microsoft.DataTransformationServices.Tasks.DTSProcessingTask.DTSProcessingTask, Microsoft.SqlServer.ASTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Sales BI - EGY With Ignoring Errors"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <ASProcessingData
+              ConnectionName="EMAEDCW704.Sales BI - EGY"
+              ProcessingCommands="&lt;Batch xmlns=&quot;http://schemas.microsoft.com/analysisservices/2003/engine&quot;&gt;&#xA;  &lt;ErrorConfiguration xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot;&gt;&#xA;    &lt;KeyErrorLimit&gt;-1&lt;/KeyErrorLimit&gt;&#xA;    &lt;KeyNotFound&gt;IgnoreError&lt;/KeyNotFound&gt;&#xA;    &lt;NullKeyNotAllowed&gt;IgnoreError&lt;/NullKeyNotAllowed&gt;&#xA;  &lt;/ErrorConfiguration&gt;&#xA;  &lt;Process xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot;&gt;&#xA;    &lt;Object&gt;&#xA;      &lt;DatabaseID&gt;Sales BI - EGY - Live&lt;/DatabaseID&gt;&#xA;    &lt;/Object&gt;&#xA;    &lt;Type&gt;ProcessFull&lt;/Type&gt;&#xA;    &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;  &lt;/Process&gt;&#xA;&lt;/Batch&gt;" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Egypt Cubes\Sales BI - EGY Without Ignoring Errors"
+          DTS:CreationName="Microsoft.DataTransformationServices.Tasks.DTSProcessingTask.DTSProcessingTask, Microsoft.SqlServer.ASTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Process Egy Geo Cube"
+          DTS:DTSID="{B57E1846-AD32-4FF6-90E1-7224CF58AF2A}"
+          DTS:ExecutableType="Microsoft.DataTransformationServices.Tasks.DTSProcessingTask.DTSProcessingTask, Microsoft.SqlServer.ASTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Sales BI - EGY Without Ignoring Errors"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <ASProcessingData
+              ConnectionName="EMAEDCW704.Sales BI - EGY"
+              ProcessingCommands="&lt;Batch xmlns=&quot;http://schemas.microsoft.com/analysisservices/2003/engine&quot;&gt;&#xA;  &lt;Process xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot;&gt;&#xA;    &lt;Object&gt;&#xA;      &lt;DatabaseID&gt;Sales BI - EGY - Live&lt;/DatabaseID&gt;&#xA;    &lt;/Object&gt;&#xA;    &lt;Type&gt;ProcessFull&lt;/Type&gt;&#xA;    &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;  &lt;/Process&gt;&#xA;&lt;/Batch&gt;" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Egypt Cubes.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{0022DDE6-043F-4DDB-8494-169C09E2B74F}"
+          DTS:From="Package\Egypt Cubes\Sales BI - EGY Without Ignoring Errors"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Egypt Cubes\Logging" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Egypt Cubes.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{9E182183-062B-4F53-B891-6FBF3C6E66F5}"
+          DTS:From="Package\Egypt Cubes\Sales BI - EGY With Ignoring Errors"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Egypt Cubes\Logging2" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Egypt Cubes.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{6C937CBB-880F-404D-97C1-33C099AC85F9}"
+          DTS:From="Package\Egypt Cubes\Sales BI - EGY Without Ignoring Errors"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\Egypt Cubes\Sales BI - EGY With Ignoring Errors"
+          DTS:Value="1" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\GLM Cubes"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{88F69CD2-A37E-40EC-94B5-3FA7C94C6F0D}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="GLM Cubes">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:PropertyExpression
+        DTS:Name="Disable">@[$Project::Market] == 1</DTS:PropertyExpression>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\GLM Cubes\Logging"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{1afe8341-2a81-4575-a100-bcb707a056d8}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Logging"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="19">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{AE1A23E8-C336-4DD5-8F79-9BE73407F717}"
+              SQLTask:SqlStatementSource="INSERT INTO [dbo].[OnDemandLogs]&#xA;&#xA;SELECT a.source, 'Success' AS [Status],MAX(a.starttime) AS [Starttime], MAX(b.endtime) AS [EndTime], ? AS Market FROM (&#xA;&#xA;SELECT [ID], [SOURCE], [starttime] FROM sysSSISLog&#xA;WHERE [EVENT] = 'OnPreExecute' AND [SOURCE] = 'Sales BI - Global Without Ignoring Errors'&#xA;) a&#xA;INNER JOIN&#xA;(&#xA;SELECT [ID], [SOURCE], [endtime] FROM sysSSISLog&#xA;WHERE [EVENT] = 'OnPostExecute' AND [SOURCE] = 'Sales BI - Global Without Ignoring Errors'&#xA;) b&#xA;&#xA;ON a.[source] = b.[source]&#xA;GROUP BY a.[source]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Project::Market"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GLM Cubes\Logging 1"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{b6f64983-9d70-4cb2-a2e2-740fcb97eee9}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Logging 1"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="10">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{AE1A23E8-C336-4DD5-8F79-9BE73407F717}"
+              SQLTask:SqlStatementSource="INSERT INTO [dbo].[OnDemandLogs]&#xA;&#xA;SELECT a.source, 'Success' AS [Status], MAX(a.starttime) AS [Starttime], MAX(b.endtime) AS [EndTime], ? AS Market FROM (&#xA;&#xA;SELECT [ID], [SOURCE], [starttime] FROM sysSSISLog&#xA;WHERE [EVENT] = 'OnPreExecute' AND [SOURCE] = 'Sales BI - Global With Ignoring Errors'&#xA;) a&#xA;INNER JOIN&#xA;(&#xA;SELECT [ID], [SOURCE], [endtime] FROM sysSSISLog&#xA;WHERE [EVENT] = 'OnPostExecute' AND [SOURCE] = 'Sales BI - Global With Ignoring Errors'&#xA;) b&#xA;&#xA;ON a.[source] = b.[source]&#xA;GROUP BY a.[source]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Project::Market"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GLM Cubes\Logging 10"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{6df6bd6d-6603-4909-8473-141c3f22db11}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Logging 10"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="6">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{AE1A23E8-C336-4DD5-8F79-9BE73407F717}"
+              SQLTask:SqlStatementSource="&#xA;INSERT INTO [dbo].[OnDemandLogs]&#xA;&#xA;SELECT a.source, 'Success' AS [Status], MAX(a.starttime) AS [Starttime], MAX(b.endtime) AS [EndTime], ? AS Market FROM (&#xA;&#xA;SELECT [ID], [SOURCE], [starttime] FROM sysSSISLog&#xA;WHERE [EVENT] = 'OnPreExecute' AND [SOURCE] = 'Sales BI - LBN Without Ignoring Errors'&#xA;) a&#xA;INNER JOIN&#xA;(&#xA;SELECT [ID], [SOURCE], [endtime] FROM sysSSISLog&#xA;WHERE [EVENT] = 'OnPostExecute' AND [SOURCE] = 'Sales BI - LBN Without Ignoring Errors'&#xA;) b&#xA;&#xA;ON a.[source] = b.[source]&#xA;GROUP BY a.[source]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Project::Market"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GLM Cubes\Logging 11"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{af67a8f8-e5eb-4c12-9247-7857f0074903}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Logging 11"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="8">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{AE1A23E8-C336-4DD5-8F79-9BE73407F717}"
+              SQLTask:SqlStatementSource="&#xA;INSERT INTO [dbo].[OnDemandLogs]&#xA;&#xA;SELECT a.source, 'Success' AS [Status], MAX(a.starttime) AS [Starttime], MAX(b.endtime) AS [EndTime], ? AS Market FROM (&#xA;&#xA;SELECT [ID], [SOURCE], [starttime] FROM sysSSISLog&#xA;WHERE [EVENT] = 'OnPreExecute' AND [SOURCE] = 'Sales BI - LBN With Ignoring Errors'&#xA;) a&#xA;INNER JOIN&#xA;(&#xA;SELECT [ID], [SOURCE], [endtime] FROM sysSSISLog&#xA;WHERE [EVENT] = 'OnPostExecute' AND [SOURCE] = 'Sales BI - LBN With Ignoring Errors'&#xA;) b&#xA;&#xA;ON a.[source] = b.[source]&#xA;GROUP BY a.[source]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Project::Market"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GLM Cubes\Logging 12"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{84e27bc2-a348-41df-8be5-00ea4b00e8d9}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Logging 12"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{AE1A23E8-C336-4DD5-8F79-9BE73407F717}"
+              SQLTask:SqlStatementSource="&#xA;INSERT INTO [dbo].[OnDemandLogs]&#xA;&#xA;SELECT a.source, 'Success' AS [Status], MAX(a.starttime) AS [Starttime], MAX(b.endtime) AS [EndTime], ? AS Market FROM (&#xA;&#xA;SELECT [ID], [SOURCE], [starttime] FROM sysSSISLog&#xA;WHERE [EVENT] = 'OnPreExecute' AND [SOURCE] = 'Sales BI - QTR Without Ignoring Errors'&#xA;) a&#xA;INNER JOIN&#xA;(&#xA;SELECT [ID], [SOURCE], [endtime] FROM sysSSISLog&#xA;WHERE [EVENT] = 'OnPostExecute' AND [SOURCE] = 'Sales BI - QTR Without Ignoring Errors'&#xA;) b&#xA;&#xA;ON a.[source] = b.[source]&#xA;GROUP BY a.[source]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Project::Market"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GLM Cubes\Logging 13"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{46fa6949-ee1c-47be-81f7-7e40e3b4ee83}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Logging 13"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="7">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{AE1A23E8-C336-4DD5-8F79-9BE73407F717}"
+              SQLTask:SqlStatementSource="&#xA;INSERT INTO [dbo].[OnDemandLogs]&#xA;&#xA;SELECT a.source, 'Success' AS [Status], MAX(a.starttime) AS [Starttime], MAX(b.endtime) AS [EndTime], ? AS Market FROM (&#xA;&#xA;SELECT [ID], [SOURCE], [starttime] FROM sysSSISLog&#xA;WHERE [EVENT] = 'OnPreExecute' AND [SOURCE] = 'Sales BI - QTR With Ignoring Errors'&#xA;) a&#xA;INNER JOIN&#xA;(&#xA;SELECT [ID], [SOURCE], [endtime] FROM sysSSISLog&#xA;WHERE [EVENT] = 'OnPostExecute' AND [SOURCE] = 'Sales BI - QTR With Ignoring Errors'&#xA;) b&#xA;&#xA;ON a.[source] = b.[source]&#xA;GROUP BY a.[source]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Project::Market"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GLM Cubes\Logging 14"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{63d5c4c3-f53d-48be-83bb-ae1c955b62eb}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Logging 14"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="9">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{AE1A23E8-C336-4DD5-8F79-9BE73407F717}"
+              SQLTask:SqlStatementSource="&#xA;INSERT INTO [dbo].[OnDemandLogs]&#xA;&#xA;SELECT a.source, 'Success' AS [Status], MAX(a.starttime) AS [Starttime], MAX(b.endtime) AS [EndTime], ? AS Market FROM (&#xA;&#xA;SELECT [ID], [SOURCE], [starttime] FROM sysSSISLog&#xA;WHERE [EVENT] = 'OnPreExecute' AND [SOURCE] = 'Sales BI - BHN Without Ignoring Errors'&#xA;) a&#xA;INNER JOIN&#xA;(&#xA;SELECT [ID], [SOURCE], [endtime] FROM sysSSISLog&#xA;WHERE [EVENT] = 'OnPostExecute' AND [SOURCE] = 'Sales BI - BHN Without Ignoring Errors'&#xA;) b&#xA;&#xA;ON a.[source] = b.[source]&#xA;GROUP BY a.[source]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Project::Market"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GLM Cubes\Logging 15"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{0da1cd75-bb3c-41b6-995d-11990e16140d}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Logging 15"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="3">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{AE1A23E8-C336-4DD5-8F79-9BE73407F717}"
+              SQLTask:SqlStatementSource="&#xA;INSERT INTO [dbo].[OnDemandLogs]&#xA;&#xA;SELECT a.source, 'Success' AS [Status], MAX(a.starttime) AS [Starttime], MAX(b.endtime) AS [EndTime], ? AS Market FROM (&#xA;&#xA;SELECT [ID], [SOURCE], [starttime] FROM sysSSISLog&#xA;WHERE [EVENT] = 'OnPreExecute' AND [SOURCE] = 'Sales BI - BHN With Ignoring Errors'&#xA;) a&#xA;INNER JOIN&#xA;(&#xA;SELECT [ID], [SOURCE], [endtime] FROM sysSSISLog&#xA;WHERE [EVENT] = 'OnPostExecute' AND [SOURCE] = 'Sales BI - BHN With Ignoring Errors'&#xA;) b&#xA;&#xA;ON a.[source] = b.[source]&#xA;GROUP BY a.[source]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Project::Market"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GLM Cubes\Logging 16"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{bed7d385-c02b-4fee-8cb8-06b6d43b825c}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Logging 16"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="11">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{AE1A23E8-C336-4DD5-8F79-9BE73407F717}"
+              SQLTask:SqlStatementSource="&#xA;INSERT INTO [dbo].[OnDemandLogs]&#xA;&#xA;SELECT a.source, 'Success' AS [Status], MAX(a.starttime) AS [Starttime], MAX(b.endtime) AS [EndTime], ? AS Market FROM (&#xA;&#xA;SELECT [ID], [SOURCE], [starttime] FROM sysSSISLog&#xA;WHERE [EVENT] = 'OnPreExecute' AND [SOURCE] = 'Sales BI - OMN Without Ignoring Errors'&#xA;) a&#xA;INNER JOIN&#xA;(&#xA;SELECT [ID], [SOURCE], [endtime] FROM sysSSISLog&#xA;WHERE [EVENT] = 'OnPostExecute' AND [SOURCE] = 'Sales BI - OMN Without Ignoring Errors'&#xA;) b&#xA;&#xA;ON a.[source] = b.[source]&#xA;GROUP BY a.[source]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Project::Market"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GLM Cubes\Logging 17"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{c83428df-95f2-466c-bcbb-a5bdb0055e82}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Logging 17"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="15">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{AE1A23E8-C336-4DD5-8F79-9BE73407F717}"
+              SQLTask:SqlStatementSource="&#xA;INSERT INTO [dbo].[OnDemandLogs]&#xA;&#xA;SELECT a.source, 'Success' AS [Status], MAX(a.starttime) AS [Starttime], MAX(b.endtime) AS [EndTime], ? AS Market FROM (&#xA;&#xA;SELECT [ID], [SOURCE], [starttime] FROM sysSSISLog&#xA;WHERE [EVENT] = 'OnPreExecute' AND [SOURCE] = 'Sales BI - OMN With Ignoring Errors'&#xA;) a&#xA;INNER JOIN&#xA;(&#xA;SELECT [ID], [SOURCE], [endtime] FROM sysSSISLog&#xA;WHERE [EVENT] = 'OnPostExecute' AND [SOURCE] = 'Sales BI - OMN With Ignoring Errors'&#xA;) b&#xA;&#xA;ON a.[source] = b.[source]&#xA;GROUP BY a.[source]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Project::Market"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GLM Cubes\Logging 2"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{a0dc0f9f-e09e-48b2-bfd9-a5ad65905055}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Logging 2"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="16">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{AE1A23E8-C336-4DD5-8F79-9BE73407F717}"
+              SQLTask:SqlStatementSource="INSERT INTO [dbo].[OnDemandLogs]&#xA;&#xA;SELECT a.source, 'Success' AS [Status], MAX(a.starttime) AS [Starttime], MAX(b.endtime) AS [EndTime], ? AS Market FROM (&#xA;&#xA;SELECT [ID], [SOURCE], [starttime] FROM sysSSISLog&#xA;WHERE [EVENT] = 'OnPreExecute' AND [SOURCE] = 'Sales BI - UAE Without Ignoring Errors'&#xA;) a&#xA;INNER JOIN&#xA;(&#xA;SELECT [ID], [SOURCE], [endtime] FROM sysSSISLog&#xA;WHERE [EVENT] = 'OnPostExecute' AND [SOURCE] = 'Sales BI - UAE Without Ignoring Errors'&#xA;) b&#xA;&#xA;ON a.[source] = b.[source]&#xA;GROUP BY a.[source]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Project::Market"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GLM Cubes\Logging 3"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{66a15e0f-8d5d-48d6-a632-8dd614cc94b1}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Logging 3"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="4">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{AE1A23E8-C336-4DD5-8F79-9BE73407F717}"
+              SQLTask:SqlStatementSource="INSERT INTO [dbo].[OnDemandLogs]&#xA;&#xA;SELECT a.source, 'Success' AS [Status], MAX(a.starttime) AS [Starttime], MAX(b.endtime) AS [EndTime], ? AS Market FROM (&#xA;&#xA;SELECT [ID], [SOURCE], [starttime] FROM sysSSISLog&#xA;WHERE [EVENT] = 'OnPreExecute' AND [SOURCE] = 'Sales BI - UAE With Ignoring Errors'&#xA;) a&#xA;INNER JOIN&#xA;(&#xA;SELECT [ID], [SOURCE], [endtime] FROM sysSSISLog&#xA;WHERE [EVENT] = 'OnPostExecute' AND [SOURCE] = 'Sales BI - UAE With Ignoring Errors'&#xA;) b&#xA;&#xA;ON a.[source] = b.[source]&#xA;GROUP BY a.[source]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Project::Market"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GLM Cubes\Logging 4"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{9045c937-ff2c-4a6c-ad59-89ac4215090b}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Logging 4"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="13">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{AE1A23E8-C336-4DD5-8F79-9BE73407F717}"
+              SQLTask:SqlStatementSource="INSERT INTO [dbo].[OnDemandLogs]&#xA;&#xA;SELECT a.source, 'Success' AS [Status], MAX(a.starttime) AS [Starttime], MAX(b.endtime) AS [EndTime], ? AS Market FROM (&#xA;&#xA;SELECT [ID], [SOURCE], [starttime] FROM sysSSISLog&#xA;WHERE [EVENT] = 'OnPreExecute' AND [SOURCE] = 'Sales BI - LEV Without Ignoring Errors'&#xA;) a&#xA;INNER JOIN&#xA;(&#xA;SELECT [ID], [SOURCE], [endtime] FROM sysSSISLog&#xA;WHERE [EVENT] = 'OnPostExecute' AND [SOURCE] = 'Sales BI - LEV Without Ignoring Errors'&#xA;) b&#xA;&#xA;ON a.[source] = b.[source]&#xA;GROUP BY a.[source]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Project::Market"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GLM Cubes\Logging 5"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{97412f9d-7db9-4562-95b9-27b276c892ed}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Logging 5"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="12">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{AE1A23E8-C336-4DD5-8F79-9BE73407F717}"
+              SQLTask:SqlStatementSource="INSERT INTO [dbo].[OnDemandLogs]&#xA;&#xA;SELECT a.source, 'Success' AS [Status], MAX(a.starttime) AS [Starttime], MAX(b.endtime) AS [EndTime], ? AS Market FROM (&#xA;&#xA;SELECT [ID], [SOURCE], [starttime] FROM sysSSISLog&#xA;WHERE [EVENT] = 'OnPreExecute' AND [SOURCE] = 'Sales BI - LEV With Ignoring Errors'&#xA;) a&#xA;INNER JOIN&#xA;(&#xA;SELECT [ID], [SOURCE], [endtime] FROM sysSSISLog&#xA;WHERE [EVENT] = 'OnPostExecute' AND [SOURCE] = 'Sales BI - LEV With Ignoring Errors'&#xA;) b&#xA;&#xA;ON a.[source] = b.[source]&#xA;GROUP BY a.[source]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Project::Market"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GLM Cubes\Logging 6"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{9c2f14d5-4794-4b4b-8243-54b6aec809f5}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Logging 6"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="14">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{AE1A23E8-C336-4DD5-8F79-9BE73407F717}"
+              SQLTask:SqlStatementSource="&#xA;INSERT INTO [dbo].[OnDemandLogs]&#xA;&#xA;SELECT a.source, 'Success' AS [Status], MAX(a.starttime) AS [Starttime], MAX(b.endtime) AS [EndTime], ? AS Market FROM (&#xA;&#xA;SELECT [ID], [SOURCE], [starttime] FROM sysSSISLog&#xA;WHERE [EVENT] = 'OnPreExecute' AND [SOURCE] = 'Sales BI - JRD With Ignoring Errors'&#xA;) a&#xA;INNER JOIN&#xA;(&#xA;SELECT [ID], [SOURCE], [endtime] FROM sysSSISLog&#xA;WHERE [EVENT] = 'OnPostExecute' AND [SOURCE] = 'Sales BI - JRD With Ignoring Errors'&#xA;) b&#xA;&#xA;ON a.[source] = b.[source]&#xA;GROUP BY a.[source]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Project::Market"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GLM Cubes\Logging 7"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{0897605c-182c-4763-af24-f0a35eadf957}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Logging 7"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="5">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{AE1A23E8-C336-4DD5-8F79-9BE73407F717}"
+              SQLTask:SqlStatementSource="&#xA;INSERT INTO [dbo].[OnDemandLogs]&#xA;&#xA;SELECT a.source, 'Success' AS [Status], MAX(a.starttime) AS [Starttime], MAX(b.endtime) AS [EndTime], ? AS Market FROM (&#xA;&#xA;SELECT [ID], [SOURCE], [starttime] FROM sysSSISLog&#xA;WHERE [EVENT] = 'OnPreExecute' AND [SOURCE] = 'Sales BI - JRD Without Ignoring Errors'&#xA;) a&#xA;INNER JOIN&#xA;(&#xA;SELECT [ID], [SOURCE], [endtime] FROM sysSSISLog&#xA;WHERE [EVENT] = 'OnPostExecute' AND [SOURCE] = 'Sales BI - JRD Without Ignoring Errors'&#xA;) b&#xA;&#xA;ON a.[source] = b.[source]&#xA;GROUP BY a.[source]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Project::Market"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GLM Cubes\Logging 8"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{b1c44df1-811b-4ca3-a3a3-eb388ad64212}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Logging 8"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="17">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{AE1A23E8-C336-4DD5-8F79-9BE73407F717}"
+              SQLTask:SqlStatementSource="&#xA;INSERT INTO [dbo].[OnDemandLogs]&#xA;&#xA;SELECT a.source, 'Success' AS [Status], MAX(a.starttime) AS [Starttime], MAX(b.endtime) AS [EndTime], ? AS Market FROM (&#xA;&#xA;SELECT [ID], [SOURCE], [starttime] FROM sysSSISLog&#xA;WHERE [EVENT] = 'OnPreExecute' AND [SOURCE] = 'Sales BI - KWT Without Ignoring Errors'&#xA;) a&#xA;INNER JOIN&#xA;(&#xA;SELECT [ID], [SOURCE], [endtime] FROM sysSSISLog&#xA;WHERE [EVENT] = 'OnPostExecute' AND [SOURCE] = 'Sales BI - KWT Without Ignoring Errors'&#xA;) b&#xA;&#xA;ON a.[source] = b.[source]&#xA;GROUP BY a.[source]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Project::Market"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GLM Cubes\Logging 9"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{4967f710-b89b-4600-bf6b-30ebe02d9837}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Logging 9"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="18">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{AE1A23E8-C336-4DD5-8F79-9BE73407F717}"
+              SQLTask:SqlStatementSource="&#xA;INSERT INTO [dbo].[OnDemandLogs]&#xA;&#xA;SELECT a.source, 'Success' AS [Status], MAX(a.starttime) AS [Starttime], MAX(b.endtime) AS [EndTime], ? AS Market FROM (&#xA;&#xA;SELECT [ID], [SOURCE], [starttime] FROM sysSSISLog&#xA;WHERE [EVENT] = 'OnPreExecute' AND [SOURCE] = 'Sales BI - KWT With Ignoring Errors'&#xA;) a&#xA;INNER JOIN&#xA;(&#xA;SELECT [ID], [SOURCE], [endtime] FROM sysSSISLog&#xA;WHERE [EVENT] = 'OnPostExecute' AND [SOURCE] = 'Sales BI - KWT With Ignoring Errors'&#xA;) b&#xA;&#xA;ON a.[source] = b.[source]&#xA;GROUP BY a.[source]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Project::Market"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GLM Cubes\Sales BI - BHN Without Ignoring Errors"
+          DTS:CreationName="Microsoft.DataTransformationServices.Tasks.DTSProcessingTask.DTSProcessingTask, Microsoft.SqlServer.ASTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Process Geo Cube"
+          DTS:DTSID="{f799cbee-1c0b-49c4-af11-1b3cc3f6b1a1}"
+          DTS:ExecutableType="Microsoft.DataTransformationServices.Tasks.DTSProcessingTask.DTSProcessingTask, Microsoft.SqlServer.ASTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Sales BI - BHN Without Ignoring Errors"
+          DTS:ThreadHint="3">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <ASProcessingData
+              ConnectionName="EMAEDCW704.Sales BI - BHN"
+              ProcessingCommands="&lt;Batch xmlns=&quot;http://schemas.microsoft.com/analysisservices/2003/engine&quot;&gt;&#xA;  &lt;Process xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot;&gt;&#xA;    &lt;Object&gt;&#xA;      &lt;DatabaseID&gt;Sales BI - BHN&lt;/DatabaseID&gt;&#xA;    &lt;/Object&gt;&#xA;    &lt;Type&gt;ProcessFull&lt;/Type&gt;&#xA;    &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;  &lt;/Process&gt;&#xA;&lt;/Batch&gt;" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GLM Cubes\Sales BI - Global With Ignoring Errors"
+          DTS:CreationName="Microsoft.DataTransformationServices.Tasks.DTSProcessingTask.DTSProcessingTask, Microsoft.SqlServer.ASTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Analysis Services Processing Task"
+          DTS:DTSID="{9D2C11E0-F374-4998-B30D-209CE9532F62}"
+          DTS:ExecutableType="Microsoft.DataTransformationServices.Tasks.DTSProcessingTask.DTSProcessingTask, Microsoft.SqlServer.ASTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Sales BI - Global With Ignoring Errors"
+          DTS:ThreadHint="10">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ASProcessingData
+              ConnectionName="EMAEDCW704.Sales BI – Global"
+              ProcessingCommands="&lt;Batch xmlns=&quot;http://schemas.microsoft.com/analysisservices/2003/engine&quot;&gt;&#xA;  &lt;ErrorConfiguration xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot;&gt;&#xA;    &lt;KeyErrorLimit&gt;-1&lt;/KeyErrorLimit&gt;&#xA;  &lt;/ErrorConfiguration&gt;&#xA;  &lt;Process xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot;&gt;&#xA;    &lt;Object&gt;&#xA;      &lt;DatabaseID&gt;Sales BI – Global&lt;/DatabaseID&gt;&#xA;    &lt;/Object&gt;&#xA;    &lt;Type&gt;ProcessFull&lt;/Type&gt;&#xA;    &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;  &lt;/Process&gt;&#xA;&lt;/Batch&gt;" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GLM Cubes\Sales BI - Global Without Ignoring Errors"
+          DTS:CreationName="Microsoft.DataTransformationServices.Tasks.DTSProcessingTask.DTSProcessingTask, Microsoft.SqlServer.ASTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Analysis Services Processing Task"
+          DTS:DTSID="{06C47E00-FBB8-41DA-B9DA-6CD3C0C923D8}"
+          DTS:ExecutableType="Microsoft.DataTransformationServices.Tasks.DTSProcessingTask.DTSProcessingTask, Microsoft.SqlServer.ASTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Sales BI - Global Without Ignoring Errors"
+          DTS:ThreadHint="10">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ASProcessingData
+              ConnectionName="EMAEDCW704.Sales BI – Global"
+              ProcessingCommands="&lt;Batch xmlns=&quot;http://schemas.microsoft.com/analysisservices/2003/engine&quot;&gt;&#xA;  &lt;Process xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot;&gt;&#xA;    &lt;Object&gt;&#xA;      &lt;DatabaseID&gt;Sales BI – Global&lt;/DatabaseID&gt;&#xA;    &lt;/Object&gt;&#xA;    &lt;Type&gt;ProcessFull&lt;/Type&gt;&#xA;    &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;  &lt;/Process&gt;&#xA;&lt;/Batch&gt;" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GLM Cubes\Sales BI - JRD With Ignoring Errors"
+          DTS:CreationName="Microsoft.DataTransformationServices.Tasks.DTSProcessingTask.DTSProcessingTask, Microsoft.SqlServer.ASTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Analysis Services Processing Task"
+          DTS:DTSID="{B3790758-0361-4C35-ABCE-ECAA7BA17C15}"
+          DTS:ExecutableType="Microsoft.DataTransformationServices.Tasks.DTSProcessingTask.DTSProcessingTask, Microsoft.SqlServer.ASTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Sales BI - JRD With Ignoring Errors"
+          DTS:ThreadHint="14">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <ASProcessingData
+              ConnectionName="EMAEDCW704.Sales BI - JRD"
+              ProcessingCommands="&lt;Batch xmlns=&quot;http://schemas.microsoft.com/analysisservices/2003/engine&quot;&gt;&#xA;  &lt;ErrorConfiguration xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot;&gt;&#xA;    &lt;KeyErrorLimit&gt;-1&lt;/KeyErrorLimit&gt;&#xA;    &lt;KeyErrorLogFile&gt;G:\Sales Refresh - MER Logs\Sales Refresh - MER.log&lt;/KeyErrorLogFile&gt;&#xA;    &lt;KeyDuplicate&gt;ReportAndContinue&lt;/KeyDuplicate&gt;&#xA;    &lt;NullKeyConvertedToUnknown&gt;ReportAndContinue&lt;/NullKeyConvertedToUnknown&gt;&#xA;  &lt;/ErrorConfiguration&gt;&#xA;  &lt;Process xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot;&gt;&#xA;    &lt;Object&gt;&#xA;      &lt;DatabaseID&gt;Sales BI - JRD&lt;/DatabaseID&gt;&#xA;    &lt;/Object&gt;&#xA;    &lt;Type&gt;ProcessFull&lt;/Type&gt;&#xA;    &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;  &lt;/Process&gt;&#xA;&lt;/Batch&gt;" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GLM Cubes\Sales BI - JRD Without Ignoring Errors"
+          DTS:CreationName="Microsoft.DataTransformationServices.Tasks.DTSProcessingTask.DTSProcessingTask, Microsoft.SqlServer.ASTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Process JRD Geo Cube"
+          DTS:DTSID="{883FA5AA-93EF-4389-8131-E8AEC7712ADA}"
+          DTS:ExecutableType="Microsoft.DataTransformationServices.Tasks.DTSProcessingTask.DTSProcessingTask, Microsoft.SqlServer.ASTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Sales BI - JRD Without Ignoring Errors"
+          DTS:ThreadHint="5">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <ASProcessingData
+              ConnectionName="EMAEDCW704.Sales BI - JRD"
+              ProcessingCommands="&lt;Batch xmlns=&quot;http://schemas.microsoft.com/analysisservices/2003/engine&quot;&gt;&#xA;  &lt;Process xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot;&gt;&#xA;    &lt;Object&gt;&#xA;      &lt;DatabaseID&gt;Sales BI - JRD&lt;/DatabaseID&gt;&#xA;    &lt;/Object&gt;&#xA;    &lt;Type&gt;ProcessFull&lt;/Type&gt;&#xA;    &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;  &lt;/Process&gt;&#xA;&lt;/Batch&gt;" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GLM Cubes\Sales BI - KWT With Ignoring Errors"
+          DTS:CreationName="Microsoft.DataTransformationServices.Tasks.DTSProcessingTask.DTSProcessingTask, Microsoft.SqlServer.ASTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Analysis Services Processing Task"
+          DTS:DTSID="{6C56A3C2-A85B-4FB9-A61C-0213942C7DC1}"
+          DTS:ExecutableType="Microsoft.DataTransformationServices.Tasks.DTSProcessingTask.DTSProcessingTask, Microsoft.SqlServer.ASTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Sales BI - KWT With Ignoring Errors"
+          DTS:ThreadHint="18">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <ASProcessingData
+              ConnectionName="EMAEDCW704.Sales BI - KWT"
+              ProcessingCommands="&lt;Batch xmlns=&quot;http://schemas.microsoft.com/analysisservices/2003/engine&quot;&gt;&#xA;  &lt;ErrorConfiguration xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot;&gt;&#xA;    &lt;KeyErrorLimit&gt;-1&lt;/KeyErrorLimit&gt;&#xA;    &lt;KeyErrorLogFile&gt;G:\Sales Refresh - MER Logs\Sales Refresh - MER.log&lt;/KeyErrorLogFile&gt;&#xA;    &lt;KeyDuplicate&gt;ReportAndContinue&lt;/KeyDuplicate&gt;&#xA;    &lt;NullKeyConvertedToUnknown&gt;ReportAndContinue&lt;/NullKeyConvertedToUnknown&gt;&#xA;  &lt;/ErrorConfiguration&gt;&#xA;  &lt;Process xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot;&gt;&#xA;    &lt;Object&gt;&#xA;      &lt;DatabaseID&gt;Sales BI - KWT&lt;/DatabaseID&gt;&#xA;    &lt;/Object&gt;&#xA;    &lt;Type&gt;ProcessFull&lt;/Type&gt;&#xA;    &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;  &lt;/Process&gt;&#xA;&lt;/Batch&gt;" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GLM Cubes\Sales BI - KWT Without Ignoring Errors"
+          DTS:CreationName="Microsoft.DataTransformationServices.Tasks.DTSProcessingTask.DTSProcessingTask, Microsoft.SqlServer.ASTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Process Geo Cube"
+          DTS:DTSID="{48B5DAC9-131D-421C-B109-E3F159295369}"
+          DTS:ExecutableType="Microsoft.DataTransformationServices.Tasks.DTSProcessingTask.DTSProcessingTask, Microsoft.SqlServer.ASTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Sales BI - KWT Without Ignoring Errors"
+          DTS:ThreadHint="17">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <ASProcessingData
+              ConnectionName="EMAEDCW704.Sales BI - KWT"
+              ProcessingCommands="&lt;Batch xmlns=&quot;http://schemas.microsoft.com/analysisservices/2003/engine&quot;&gt;&#xA;  &lt;Process xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot;&gt;&#xA;    &lt;Object&gt;&#xA;      &lt;DatabaseID&gt;Sales BI - KWT&lt;/DatabaseID&gt;&#xA;    &lt;/Object&gt;&#xA;    &lt;Type&gt;ProcessFull&lt;/Type&gt;&#xA;    &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;  &lt;/Process&gt;&#xA;&lt;/Batch&gt;" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GLM Cubes\Sales BI - LBN With Ignoring Errors"
+          DTS:CreationName="Microsoft.DataTransformationServices.Tasks.DTSProcessingTask.DTSProcessingTask, Microsoft.SqlServer.ASTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Analysis Services Processing Task"
+          DTS:DTSID="{18936C02-7147-4559-A8C2-D8DCB8AE7DC4}"
+          DTS:ExecutableType="Microsoft.DataTransformationServices.Tasks.DTSProcessingTask.DTSProcessingTask, Microsoft.SqlServer.ASTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Sales BI - LBN With Ignoring Errors"
+          DTS:ThreadHint="8">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <ASProcessingData
+              ConnectionName="EMAEDCW704.Sales BI - LBN"
+              ProcessingCommands="&lt;Batch xmlns=&quot;http://schemas.microsoft.com/analysisservices/2003/engine&quot;&gt;&#xA;  &lt;ErrorConfiguration xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot;&gt;&#xA;    &lt;KeyErrorLimit&gt;-1&lt;/KeyErrorLimit&gt;&#xA;    &lt;KeyErrorLogFile&gt;G:\Sales Refresh - MER Logs\Sales Refresh - MER.log&lt;/KeyErrorLogFile&gt;&#xA;    &lt;KeyDuplicate&gt;ReportAndContinue&lt;/KeyDuplicate&gt;&#xA;    &lt;NullKeyConvertedToUnknown&gt;ReportAndContinue&lt;/NullKeyConvertedToUnknown&gt;&#xA;  &lt;/ErrorConfiguration&gt;&#xA;  &lt;Process xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot;&gt;&#xA;    &lt;Object&gt;&#xA;      &lt;DatabaseID&gt;Sales BI - LBN&lt;/DatabaseID&gt;&#xA;    &lt;/Object&gt;&#xA;    &lt;Type&gt;ProcessFull&lt;/Type&gt;&#xA;    &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;  &lt;/Process&gt;&#xA;&lt;/Batch&gt;" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GLM Cubes\Sales BI - LBN Without Ignoring Errors"
+          DTS:CreationName="Microsoft.DataTransformationServices.Tasks.DTSProcessingTask.DTSProcessingTask, Microsoft.SqlServer.ASTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Process Geo Cube"
+          DTS:DTSID="{22BABF95-6976-4438-AE85-E33D7E2419C5}"
+          DTS:ExecutableType="Microsoft.DataTransformationServices.Tasks.DTSProcessingTask.DTSProcessingTask, Microsoft.SqlServer.ASTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Sales BI - LBN Without Ignoring Errors"
+          DTS:ThreadHint="6">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <ASProcessingData
+              ConnectionName="EMAEDCW704.Sales BI - LBN"
+              ProcessingCommands="&lt;Batch xmlns=&quot;http://schemas.microsoft.com/analysisservices/2003/engine&quot;&gt;&#xA;  &lt;Process xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot;&gt;&#xA;    &lt;Object&gt;&#xA;      &lt;DatabaseID&gt;Sales BI - LBN&lt;/DatabaseID&gt;&#xA;    &lt;/Object&gt;&#xA;    &lt;Type&gt;ProcessFull&lt;/Type&gt;&#xA;    &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;  &lt;/Process&gt;&#xA;&lt;/Batch&gt;" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GLM Cubes\Sales BI - LEV With Ignoring Errors"
+          DTS:CreationName="Microsoft.DataTransformationServices.Tasks.DTSProcessingTask.DTSProcessingTask, Microsoft.SqlServer.ASTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Analysis Services Processing Task"
+          DTS:DTSID="{101528B1-3191-486B-BA02-FC6416AFDEB8}"
+          DTS:ExecutableType="Microsoft.DataTransformationServices.Tasks.DTSProcessingTask.DTSProcessingTask, Microsoft.SqlServer.ASTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Sales BI - LEV With Ignoring Errors"
+          DTS:ThreadHint="12">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <ASProcessingData
+              ConnectionName="EMAEDCW704.Sales BI - LEV"
+              ProcessingCommands="&lt;Batch xmlns=&quot;http://schemas.microsoft.com/analysisservices/2003/engine&quot;&gt;&#xA;  &lt;ErrorConfiguration xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot;&gt;&#xA;    &lt;KeyErrorLimit&gt;-1&lt;/KeyErrorLimit&gt;&#xA;    &lt;KeyErrorLogFile&gt;G:\Sales Refresh - MER Logs\Sales Refresh - MER.log&lt;/KeyErrorLogFile&gt;&#xA;    &lt;KeyDuplicate&gt;ReportAndContinue&lt;/KeyDuplicate&gt;&#xA;    &lt;NullKeyConvertedToUnknown&gt;ReportAndContinue&lt;/NullKeyConvertedToUnknown&gt;&#xA;  &lt;/ErrorConfiguration&gt;&#xA;  &lt;Process xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot;&gt;&#xA;    &lt;Object&gt;&#xA;      &lt;DatabaseID&gt;Sales BI - LEV&lt;/DatabaseID&gt;&#xA;    &lt;/Object&gt;&#xA;    &lt;Type&gt;ProcessFull&lt;/Type&gt;&#xA;    &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;  &lt;/Process&gt;&#xA;&lt;/Batch&gt;" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GLM Cubes\Sales BI - LEV Without Ignoring Errors"
+          DTS:CreationName="Microsoft.DataTransformationServices.Tasks.DTSProcessingTask.DTSProcessingTask, Microsoft.SqlServer.ASTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Process Geo Cube"
+          DTS:DTSID="{F23778C3-68E7-40EE-AD5B-0167E32C63E6}"
+          DTS:ExecutableType="Microsoft.DataTransformationServices.Tasks.DTSProcessingTask.DTSProcessingTask, Microsoft.SqlServer.ASTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Sales BI - LEV Without Ignoring Errors"
+          DTS:ThreadHint="12">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <ASProcessingData
+              ConnectionName="EMAEDCW704.Sales BI - LEV"
+              ProcessingCommands="&lt;Batch xmlns=&quot;http://schemas.microsoft.com/analysisservices/2003/engine&quot;&gt;&#xA;  &lt;Process xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot;&gt;&#xA;    &lt;Object&gt;&#xA;      &lt;DatabaseID&gt;Sales BI - LEV&lt;/DatabaseID&gt;&#xA;    &lt;/Object&gt;&#xA;    &lt;Type&gt;ProcessFull&lt;/Type&gt;&#xA;    &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;  &lt;/Process&gt;&#xA;&lt;/Batch&gt;" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GLM Cubes\Sales BI - OMN With Ignoring Errors"
+          DTS:CreationName="Microsoft.DataTransformationServices.Tasks.DTSProcessingTask.DTSProcessingTask, Microsoft.SqlServer.ASTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Analysis Services Processing Task"
+          DTS:DTSID="{89e3026a-a30f-4b91-a513-2d0feb9c516c}"
+          DTS:ExecutableType="Microsoft.DataTransformationServices.Tasks.DTSProcessingTask.DTSProcessingTask, Microsoft.SqlServer.ASTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Sales BI - OMN With Ignoring Errors"
+          DTS:ThreadHint="15">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <ASProcessingData
+              ConnectionName="EMAEDCW704.Sales BI - OMN"
+              ProcessingCommands="&lt;Batch xmlns=&quot;http://schemas.microsoft.com/analysisservices/2003/engine&quot;&gt;&#xA;  &lt;ErrorConfiguration xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot;&gt;&#xA;    &lt;KeyErrorLimit&gt;-1&lt;/KeyErrorLimit&gt;&#xA;    &lt;KeyErrorLogFile&gt;G:\Sales Refresh - MER Logs\Sales Refresh - MER.log&lt;/KeyErrorLogFile&gt;&#xA;    &lt;KeyDuplicate&gt;ReportAndContinue&lt;/KeyDuplicate&gt;&#xA;    &lt;NullKeyConvertedToUnknown&gt;ReportAndContinue&lt;/NullKeyConvertedToUnknown&gt;&#xA;  &lt;/ErrorConfiguration&gt;&#xA;  &lt;Process xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot;&gt;&#xA;    &lt;Object&gt;&#xA;      &lt;DatabaseID&gt;Sales BI - OMN&lt;/DatabaseID&gt;&#xA;    &lt;/Object&gt;&#xA;    &lt;Type&gt;ProcessFull&lt;/Type&gt;&#xA;    &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;  &lt;/Process&gt;&#xA;&lt;/Batch&gt;" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GLM Cubes\Sales BI - OMN Without Ignoring Errors"
+          DTS:CreationName="Microsoft.DataTransformationServices.Tasks.DTSProcessingTask.DTSProcessingTask, Microsoft.SqlServer.ASTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Process Geo Cube"
+          DTS:DTSID="{e8a22a2e-6163-4164-a068-b44ebf374fc0}"
+          DTS:ExecutableType="Microsoft.DataTransformationServices.Tasks.DTSProcessingTask.DTSProcessingTask, Microsoft.SqlServer.ASTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Sales BI - OMN Without Ignoring Errors"
+          DTS:ThreadHint="11">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <ASProcessingData
+              ConnectionName="EMAEDCW704.Sales BI - OMN"
+              ProcessingCommands="&lt;Batch xmlns=&quot;http://schemas.microsoft.com/analysisservices/2003/engine&quot;&gt;&#xA;  &lt;Process xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot;&gt;&#xA;    &lt;Object&gt;&#xA;      &lt;DatabaseID&gt;Sales BI - OMN&lt;/DatabaseID&gt;&#xA;    &lt;/Object&gt;&#xA;    &lt;Type&gt;ProcessFull&lt;/Type&gt;&#xA;    &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;  &lt;/Process&gt;&#xA;&lt;/Batch&gt;" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GLM Cubes\Sales BI - QTR With Ignoring Errors"
+          DTS:CreationName="Microsoft.DataTransformationServices.Tasks.DTSProcessingTask.DTSProcessingTask, Microsoft.SqlServer.ASTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Analysis Services Processing Task"
+          DTS:DTSID="{92DBA490-06AA-4C70-835E-E0479CAFD095}"
+          DTS:ExecutableType="Microsoft.DataTransformationServices.Tasks.DTSProcessingTask.DTSProcessingTask, Microsoft.SqlServer.ASTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Sales BI - QTR With Ignoring Errors"
+          DTS:ThreadHint="7">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <ASProcessingData
+              ConnectionName="EMAEDCW704.Sales BI - QTR"
+              ProcessingCommands="&lt;Batch xmlns=&quot;http://schemas.microsoft.com/analysisservices/2003/engine&quot;&gt;&#xA;  &lt;ErrorConfiguration xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot;&gt;&#xA;    &lt;KeyErrorLimit&gt;-1&lt;/KeyErrorLimit&gt;&#xA;    &lt;KeyErrorLogFile&gt;G:\Sales Refresh - MER Logs\Sales Refresh - MER.log&lt;/KeyErrorLogFile&gt;&#xA;    &lt;KeyDuplicate&gt;ReportAndContinue&lt;/KeyDuplicate&gt;&#xA;    &lt;NullKeyConvertedToUnknown&gt;ReportAndContinue&lt;/NullKeyConvertedToUnknown&gt;&#xA;  &lt;/ErrorConfiguration&gt;&#xA;  &lt;Process xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot;&gt;&#xA;    &lt;Object&gt;&#xA;      &lt;DatabaseID&gt;Sales BI - QTR&lt;/DatabaseID&gt;&#xA;    &lt;/Object&gt;&#xA;    &lt;Type&gt;ProcessFull&lt;/Type&gt;&#xA;    &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;  &lt;/Process&gt;&#xA;&lt;/Batch&gt;" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GLM Cubes\Sales BI - QTR Without Ignoring Errors"
+          DTS:CreationName="Microsoft.DataTransformationServices.Tasks.DTSProcessingTask.DTSProcessingTask, Microsoft.SqlServer.ASTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Process Geo Cube"
+          DTS:DTSID="{DF563668-0DF1-43A9-B649-0530A3BD6D7E}"
+          DTS:ExecutableType="Microsoft.DataTransformationServices.Tasks.DTSProcessingTask.DTSProcessingTask, Microsoft.SqlServer.ASTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Sales BI - QTR Without Ignoring Errors"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <ASProcessingData
+              ConnectionName="EMAEDCW704.Sales BI - QTR"
+              ProcessingCommands="&lt;Batch xmlns=&quot;http://schemas.microsoft.com/analysisservices/2003/engine&quot;&gt;&#xA;  &lt;Process xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot;&gt;&#xA;    &lt;Object&gt;&#xA;      &lt;DatabaseID&gt;Sales BI - QTR&lt;/DatabaseID&gt;&#xA;    &lt;/Object&gt;&#xA;    &lt;Type&gt;ProcessFull&lt;/Type&gt;&#xA;    &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;  &lt;/Process&gt;&#xA;&lt;/Batch&gt;" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GLM Cubes\Sales BI - UAE With Ignoring Errors"
+          DTS:CreationName="Microsoft.DataTransformationServices.Tasks.DTSProcessingTask.DTSProcessingTask, Microsoft.SqlServer.ASTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Process Geo Cube"
+          DTS:DTSID="{7123f5b9-dfe8-4be9-a093-7cc18b5b4f1d}"
+          DTS:ExecutableType="Microsoft.DataTransformationServices.Tasks.DTSProcessingTask.DTSProcessingTask, Microsoft.SqlServer.ASTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Sales BI - UAE With Ignoring Errors"
+          DTS:ThreadHint="4">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <ASProcessingData
+              ConnectionName="EMAEDCW704.Sales BI - UAE"
+              ProcessingCommands="&lt;Batch xmlns=&quot;http://schemas.microsoft.com/analysisservices/2003/engine&quot;&gt;&#xA;  &lt;ErrorConfiguration xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot;&gt;&#xA;    &lt;KeyErrorLimit&gt;-1&lt;/KeyErrorLimit&gt;&#xA;  &lt;/ErrorConfiguration&gt;&#xA;  &lt;Process xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot;&gt;&#xA;    &lt;Object&gt;&#xA;      &lt;DatabaseID&gt;Sales BI - UAE&lt;/DatabaseID&gt;&#xA;    &lt;/Object&gt;&#xA;    &lt;Type&gt;ProcessFull&lt;/Type&gt;&#xA;    &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;  &lt;/Process&gt;&#xA;&lt;/Batch&gt;" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GLM Cubes\Sales BI - UAE Without Ignoring Errors"
+          DTS:CreationName="Microsoft.DataTransformationServices.Tasks.DTSProcessingTask.DTSProcessingTask, Microsoft.SqlServer.ASTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Process Geo Cube"
+          DTS:DTSID="{71DC0690-C861-4BAB-A1E5-F088146EC87E}"
+          DTS:ExecutableType="Microsoft.DataTransformationServices.Tasks.DTSProcessingTask.DTSProcessingTask, Microsoft.SqlServer.ASTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Sales BI - UAE Without Ignoring Errors"
+          DTS:ThreadHint="4">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <ASProcessingData
+              ConnectionName="EMAEDCW704.Sales BI - UAE"
+              ProcessingCommands="&lt;Batch xmlns=&quot;http://schemas.microsoft.com/analysisservices/2003/engine&quot;&gt;&#xA;  &lt;Process xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot;&gt;&#xA;    &lt;Object&gt;&#xA;      &lt;DatabaseID&gt;Sales BI - UAE&lt;/DatabaseID&gt;&#xA;    &lt;/Object&gt;&#xA;    &lt;Type&gt;ProcessFull&lt;/Type&gt;&#xA;    &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;  &lt;/Process&gt;&#xA;&lt;/Batch&gt;" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\GLM Cubes\Sales BI -BHN With Ignoring Errors"
+          DTS:CreationName="Microsoft.DataTransformationServices.Tasks.DTSProcessingTask.DTSProcessingTask, Microsoft.SqlServer.ASTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Analysis Services Processing Task"
+          DTS:DTSID="{25307a51-a0bd-48ab-8afb-6734025df3fc}"
+          DTS:ExecutableType="Microsoft.DataTransformationServices.Tasks.DTSProcessingTask.DTSProcessingTask, Microsoft.SqlServer.ASTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Sales BI -BHN With Ignoring Errors"
+          DTS:ThreadHint="3">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <ASProcessingData
+              ConnectionName="EMAEDCW704.Sales BI - BHN"
+              ProcessingCommands="&lt;Batch xmlns=&quot;http://schemas.microsoft.com/analysisservices/2003/engine&quot;&gt;&#xA;  &lt;ErrorConfiguration xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot;&gt;&#xA;    &lt;KeyErrorLimit&gt;-1&lt;/KeyErrorLimit&gt;&#xA;    &lt;KeyErrorLogFile&gt;G:\Sales Refresh - MER Logs\Sales Refresh - MER.log&lt;/KeyErrorLogFile&gt;&#xA;    &lt;KeyDuplicate&gt;ReportAndContinue&lt;/KeyDuplicate&gt;&#xA;    &lt;NullKeyConvertedToUnknown&gt;ReportAndContinue&lt;/NullKeyConvertedToUnknown&gt;&#xA;  &lt;/ErrorConfiguration&gt;&#xA;  &lt;Process xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:ddl2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2&quot; xmlns:ddl2_2=&quot;http://schemas.microsoft.com/analysisservices/2003/engine/2/2&quot; xmlns:ddl100_100=&quot;http://schemas.microsoft.com/analysisservices/2008/engine/100/100&quot; xmlns:ddl200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200&quot; xmlns:ddl200_200=&quot;http://schemas.microsoft.com/analysisservices/2010/engine/200/200&quot; xmlns:ddl300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300&quot; xmlns:ddl300_300=&quot;http://schemas.microsoft.com/analysisservices/2011/engine/300/300&quot; xmlns:ddl400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400&quot; xmlns:ddl400_400=&quot;http://schemas.microsoft.com/analysisservices/2012/engine/400/400&quot;&gt;&#xA;    &lt;Object&gt;&#xA;      &lt;DatabaseID&gt;Sales BI - BHN&lt;/DatabaseID&gt;&#xA;    &lt;/Object&gt;&#xA;    &lt;Type&gt;ProcessFull&lt;/Type&gt;&#xA;    &lt;WriteBackTableCreation&gt;UseExisting&lt;/WriteBackTableCreation&gt;&#xA;  &lt;/Process&gt;&#xA;&lt;/Batch&gt;" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\GLM Cubes.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{B1CEF19E-4221-427F-8712-CD04A9462C48}"
+          DTS:From="Package\GLM Cubes\Sales BI - Global Without Ignoring Errors"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\GLM Cubes\Logging" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\GLM Cubes.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{7C6BDA40-94DC-434F-ACD8-A911CC7A756C}"
+          DTS:From="Package\GLM Cubes\Sales BI - Global Without Ignoring Errors"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\GLM Cubes\Sales BI - Global With Ignoring Errors"
+          DTS:Value="1" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\GLM Cubes.PrecedenceConstraints[Constraint 10]"
+          DTS:CreationName=""
+          DTS:DTSID="{CE018442-123F-439E-A0FC-64CDDB30F680}"
+          DTS:From="Package\GLM Cubes\Sales BI - KWT With Ignoring Errors"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 10"
+          DTS:To="Package\GLM Cubes\Logging 9" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\GLM Cubes.PrecedenceConstraints[Constraint 11]"
+          DTS:CreationName=""
+          DTS:DTSID="{9468F834-7085-4A24-B323-712B8F341453}"
+          DTS:From="Package\GLM Cubes\Sales BI - LBN Without Ignoring Errors"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 11"
+          DTS:To="Package\GLM Cubes\Logging 10" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\GLM Cubes.PrecedenceConstraints[Constraint 12]"
+          DTS:CreationName=""
+          DTS:DTSID="{CF6186A5-2202-4FB2-A3E5-59927CD60ACD}"
+          DTS:From="Package\GLM Cubes\Sales BI - LBN With Ignoring Errors"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 12"
+          DTS:To="Package\GLM Cubes\Logging 11" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\GLM Cubes.PrecedenceConstraints[Constraint 13]"
+          DTS:CreationName=""
+          DTS:DTSID="{A5D6C4CF-C704-4CA4-A3BB-9E75C200D862}"
+          DTS:From="Package\GLM Cubes\Sales BI - QTR Without Ignoring Errors"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 13"
+          DTS:To="Package\GLM Cubes\Logging 12" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\GLM Cubes.PrecedenceConstraints[Constraint 14]"
+          DTS:CreationName=""
+          DTS:DTSID="{3B80A292-38EF-4537-BED9-F25D8C267B71}"
+          DTS:From="Package\GLM Cubes\Sales BI - QTR With Ignoring Errors"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 14"
+          DTS:To="Package\GLM Cubes\Logging 13" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\GLM Cubes.PrecedenceConstraints[Constraint 15]"
+          DTS:CreationName=""
+          DTS:DTSID="{63F2AACF-476B-454E-9171-CC2D422ADB51}"
+          DTS:From="Package\GLM Cubes\Sales BI - BHN Without Ignoring Errors"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 15"
+          DTS:To="Package\GLM Cubes\Logging 14" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\GLM Cubes.PrecedenceConstraints[Constraint 16]"
+          DTS:CreationName=""
+          DTS:DTSID="{55858A15-7CDA-4A62-B615-8C622D65ED03}"
+          DTS:From="Package\GLM Cubes\Sales BI -BHN With Ignoring Errors"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 16"
+          DTS:To="Package\GLM Cubes\Logging 15" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\GLM Cubes.PrecedenceConstraints[Constraint 17]"
+          DTS:CreationName=""
+          DTS:DTSID="{93BAAE94-785A-4279-8181-A6764D922B86}"
+          DTS:From="Package\GLM Cubes\Sales BI - OMN Without Ignoring Errors"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 17"
+          DTS:To="Package\GLM Cubes\Logging 16" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\GLM Cubes.PrecedenceConstraints[Constraint 18]"
+          DTS:CreationName=""
+          DTS:DTSID="{5C31406C-B878-4457-AC2A-DBCA75D5C2D5}"
+          DTS:From="Package\GLM Cubes\Sales BI - OMN With Ignoring Errors"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 18"
+          DTS:To="Package\GLM Cubes\Logging 17" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\GLM Cubes.PrecedenceConstraints[Constraint 19]"
+          DTS:CreationName=""
+          DTS:DTSID="{C7F62203-2BF2-459C-919E-9D349A58E616}"
+          DTS:From="Package\GLM Cubes\Sales BI - UAE With Ignoring Errors"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 19"
+          DTS:To="Package\GLM Cubes\Logging 3" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\GLM Cubes.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{52CFE1BE-4AB7-4B5C-B064-5F779ED5B6BB}"
+          DTS:From="Package\GLM Cubes\Sales BI - UAE Without Ignoring Errors"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\GLM Cubes\Logging 2" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\GLM Cubes.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{387D5A36-0A7E-4467-B3B0-3F23766449C8}"
+          DTS:From="Package\GLM Cubes\Sales BI - Global With Ignoring Errors"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\GLM Cubes\Logging 1" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\GLM Cubes.PrecedenceConstraints[Constraint 3 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{D94F0484-F323-403C-A8DF-FDACE805A010}"
+          DTS:From="Package\GLM Cubes\Sales BI - JRD Without Ignoring Errors"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3 1"
+          DTS:To="Package\GLM Cubes\Sales BI - JRD With Ignoring Errors"
+          DTS:Value="1" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\GLM Cubes.PrecedenceConstraints[Constraint 3 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{CFD4D901-4BC1-4FA5-AAD2-7672C508516F}"
+          DTS:From="Package\GLM Cubes\Sales BI - KWT Without Ignoring Errors"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3 2"
+          DTS:To="Package\GLM Cubes\Sales BI - KWT With Ignoring Errors"
+          DTS:Value="1" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\GLM Cubes.PrecedenceConstraints[Constraint 3 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{B9C259D0-236F-4A0D-92B1-DBF8A530E016}"
+          DTS:From="Package\GLM Cubes\Sales BI - LBN Without Ignoring Errors"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3 3"
+          DTS:To="Package\GLM Cubes\Sales BI - LBN With Ignoring Errors"
+          DTS:Value="1" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\GLM Cubes.PrecedenceConstraints[Constraint 3 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{EC42C4C7-D104-481E-BBB5-CC13BEAB845E}"
+          DTS:From="Package\GLM Cubes\Sales BI - QTR Without Ignoring Errors"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3 4"
+          DTS:To="Package\GLM Cubes\Sales BI - QTR With Ignoring Errors"
+          DTS:Value="1" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\GLM Cubes.PrecedenceConstraints[Constraint 3 6]"
+          DTS:CreationName=""
+          DTS:DTSID="{7BE8CBF1-6C9B-4D6B-8B02-AC2E49BEBA38}"
+          DTS:From="Package\GLM Cubes\Sales BI - LEV Without Ignoring Errors"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3 6"
+          DTS:To="Package\GLM Cubes\Sales BI - LEV With Ignoring Errors"
+          DTS:Value="1" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\GLM Cubes.PrecedenceConstraints[Constraint 3 6 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{4bb4e6ce-fe21-461c-bd35-767e9265eec6}"
+          DTS:From="Package\GLM Cubes\Sales BI - BHN Without Ignoring Errors"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3 6 1"
+          DTS:To="Package\GLM Cubes\Sales BI -BHN With Ignoring Errors"
+          DTS:Value="1" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\GLM Cubes.PrecedenceConstraints[Constraint 3 6 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{7fd95dee-0097-4a90-ae23-84e01b7a8a11}"
+          DTS:From="Package\GLM Cubes\Sales BI - OMN Without Ignoring Errors"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3 6 2"
+          DTS:To="Package\GLM Cubes\Sales BI - OMN With Ignoring Errors"
+          DTS:Value="1" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\GLM Cubes.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{217799C1-E12A-4C2C-93F5-248EE6332A4A}"
+          DTS:From="Package\GLM Cubes\Sales BI - UAE Without Ignoring Errors"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\GLM Cubes\Sales BI - UAE With Ignoring Errors"
+          DTS:Value="1" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\GLM Cubes.PrecedenceConstraints[Constraint 5]"
+          DTS:CreationName=""
+          DTS:DTSID="{B88D0A81-D5FB-43A1-B01C-F54999449EF9}"
+          DTS:From="Package\GLM Cubes\Sales BI - LEV Without Ignoring Errors"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 5"
+          DTS:To="Package\GLM Cubes\Logging 4" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\GLM Cubes.PrecedenceConstraints[Constraint 6]"
+          DTS:CreationName=""
+          DTS:DTSID="{151ABBD6-8FD8-45E6-B10F-41582FB94CE7}"
+          DTS:From="Package\GLM Cubes\Sales BI - LEV With Ignoring Errors"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 6"
+          DTS:To="Package\GLM Cubes\Logging 5" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\GLM Cubes.PrecedenceConstraints[Constraint 7]"
+          DTS:CreationName=""
+          DTS:DTSID="{076B4821-2C24-49F8-A9FE-3C90C6C8E692}"
+          DTS:From="Package\GLM Cubes\Sales BI - JRD Without Ignoring Errors"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 7"
+          DTS:To="Package\GLM Cubes\Logging 7" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\GLM Cubes.PrecedenceConstraints[Constraint 8]"
+          DTS:CreationName=""
+          DTS:DTSID="{93C9B97A-EEAB-4FA5-ACBF-5F1D94AF2382}"
+          DTS:From="Package\GLM Cubes\Sales BI - JRD With Ignoring Errors"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 8"
+          DTS:To="Package\GLM Cubes\Logging 6" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\GLM Cubes.PrecedenceConstraints[Constraint 9]"
+          DTS:CreationName=""
+          DTS:DTSID="{F9337AD5-6E3F-4430-8109-399800B5B1C4}"
+          DTS:From="Package\GLM Cubes\Sales BI - KWT Without Ignoring Errors"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 9"
+          DTS:To="Package\GLM Cubes\Logging 8" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="128" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="116,42"
+          Id="Package\Egypt Cubes\Logging"
+          TopLeft="312.5,107.5" />
+        <NodeLayout
+          Size="122,42"
+          Id="Package\Egypt Cubes\Logging2"
+          TopLeft="67.5000000000001,209.5" />
+        <NodeLayout
+          Size="246,42"
+          Id="Package\Egypt Cubes\Sales BI - EGY With Ignoring Errors"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="261,42"
+          Id="Package\Egypt Cubes\Sales BI - EGY Without Ignoring Errors"
+          TopLeft="240,5.5" />
+        <EdgeLayout
+          Id="Package\Egypt Cubes.PrecedenceConstraints[Constraint]"
+          TopLeft="412.666666666667,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-42.1666666666666,60"
+              Start="0,0"
+              End="-42.1666666666666,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2193450114242" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2193450114242"
+                    Point2="0,24.2193450114242"
+                    Point3="-4,24.2193450114242" />
+                  <mssgle:LineSegment
+                    End="-38.1666666666666,24.2193450114242" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-38.1666666666666,24.2193450114242"
+                    Point2="-42.1666666666666,24.2193450114242"
+                    Point3="-42.1666666666666,28.2193450114242" />
+                  <mssgle:LineSegment
+                    End="-42.1666666666666,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Egypt Cubes.PrecedenceConstraints[Constraint 1]"
+          TopLeft="128.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Egypt Cubes.PrecedenceConstraints[Constraint 3]"
+          TopLeft="328.333333333333,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-199.833333333333,60"
+              Start="0,0"
+              End="-199.833333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2193450114242" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2193450114242"
+                    Point2="0,24.2193450114242"
+                    Point3="-4,24.2193450114242" />
+                  <mssgle:LineSegment
+                    End="-195.833333333333,24.2193450114242" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-195.833333333333,24.2193450114242"
+                    Point2="-199.833333333333,24.2193450114242"
+                    Point3="-199.833333333333,28.2193450114242" />
+                  <mssgle:LineSegment
+                    End="-199.833333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-115.158014322917,29.2193450114242,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="False"
+          PanelSize="506,306"
+          Size="161,43"
+          Id="Package\Egypt Cubes"
+          TopLeft="78,39" />
+        <NodeLayout
+          Size="116,42"
+          Id="Package\GLM Cubes\Logging"
+          TopLeft="169.5,89.5" />
+        <NodeLayout
+          Size="125,42"
+          Id="Package\GLM Cubes\Logging 1"
+          TopLeft="169.5,242.5" />
+        <NodeLayout
+          Size="116,42"
+          Id="Package\GLM Cubes\Logging 10"
+          TopLeft="1797,104" />
+        <NodeLayout
+          Size="131,42"
+          Id="Package\GLM Cubes\Logging 11"
+          TopLeft="1794,244" />
+        <NodeLayout
+          Size="116,42"
+          Id="Package\GLM Cubes\Logging 12"
+          TopLeft="2121,105" />
+        <NodeLayout
+          Size="116,42"
+          Id="Package\GLM Cubes\Logging 13"
+          TopLeft="2124,240" />
+        <NodeLayout
+          Size="116,42"
+          Id="Package\GLM Cubes\Logging 14"
+          TopLeft="2450,107" />
+        <NodeLayout
+          Size="116,42"
+          Id="Package\GLM Cubes\Logging 15"
+          TopLeft="2455,242" />
+        <NodeLayout
+          Size="116,42"
+          Id="Package\GLM Cubes\Logging 16"
+          TopLeft="2758,98" />
+        <NodeLayout
+          Size="116,42"
+          Id="Package\GLM Cubes\Logging 17"
+          TopLeft="2757,240" />
+        <NodeLayout
+          Size="125,42"
+          Id="Package\GLM Cubes\Logging 2"
+          TopLeft="497.5,92.5" />
+        <NodeLayout
+          Size="125,42"
+          Id="Package\GLM Cubes\Logging 3"
+          TopLeft="494.5,247.5" />
+        <NodeLayout
+          Size="116,42"
+          Id="Package\GLM Cubes\Logging 4"
+          TopLeft="815.5,99.5" />
+        <NodeLayout
+          Size="116,42"
+          Id="Package\GLM Cubes\Logging 5"
+          TopLeft="817.5,243.5" />
+        <NodeLayout
+          Size="125,42"
+          Id="Package\GLM Cubes\Logging 6"
+          TopLeft="1153,244" />
+        <NodeLayout
+          Size="116,42"
+          Id="Package\GLM Cubes\Logging 7"
+          TopLeft="1140,95" />
+        <NodeLayout
+          Size="116,42"
+          Id="Package\GLM Cubes\Logging 8"
+          TopLeft="1463,105" />
+        <NodeLayout
+          Size="116,42"
+          Id="Package\GLM Cubes\Logging 9"
+          TopLeft="1463,242" />
+        <NodeLayout
+          Size="263,42"
+          Id="Package\GLM Cubes\Sales BI - BHN Without Ignoring Errors"
+          TopLeft="2272.5,5.49999999999966" />
+        <NodeLayout
+          Size="256,42"
+          Id="Package\GLM Cubes\Sales BI - Global With Ignoring Errors"
+          TopLeft="10,159" />
+        <NodeLayout
+          Size="271,42"
+          Id="Package\GLM Cubes\Sales BI - Global Without Ignoring Errors"
+          TopLeft="13,17" />
+        <NodeLayout
+          Size="245,42"
+          Id="Package\GLM Cubes\Sales BI - JRD With Ignoring Errors"
+          TopLeft="987.5,161.5" />
+        <NodeLayout
+          Size="260,42"
+          Id="Package\GLM Cubes\Sales BI - JRD Without Ignoring Errors"
+          TopLeft="981,5.49999999999989" />
+        <NodeLayout
+          Size="249,42"
+          Id="Package\GLM Cubes\Sales BI - KWT With Ignoring Errors"
+          TopLeft="1311.5,162.5" />
+        <NodeLayout
+          Size="264,42"
+          Id="Package\GLM Cubes\Sales BI - KWT Without Ignoring Errors"
+          TopLeft="1302,5.49999999999977" />
+        <NodeLayout
+          Size="246,42"
+          Id="Package\GLM Cubes\Sales BI - LBN With Ignoring Errors"
+          TopLeft="1633,161.5" />
+        <NodeLayout
+          Size="261,42"
+          Id="Package\GLM Cubes\Sales BI - LBN Without Ignoring Errors"
+          TopLeft="1626.5,5.49999999999977" />
+        <NodeLayout
+          Size="245,42"
+          Id="Package\GLM Cubes\Sales BI - LEV With Ignoring Errors"
+          TopLeft="666.5,164.5" />
+        <NodeLayout
+          Size="260,42"
+          Id="Package\GLM Cubes\Sales BI - LEV Without Ignoring Errors"
+          TopLeft="660,5.49999999999989" />
+        <NodeLayout
+          Size="250,42"
+          Id="Package\GLM Cubes\Sales BI - OMN With Ignoring Errors"
+          TopLeft="2605,159.5" />
+        <NodeLayout
+          Size="265,42"
+          Id="Package\GLM Cubes\Sales BI - OMN Without Ignoring Errors"
+          TopLeft="2596.5,5.49999999999966" />
+        <NodeLayout
+          Size="247,42"
+          Id="Package\GLM Cubes\Sales BI - QTR With Ignoring Errors"
+          TopLeft="1954.5,162.5" />
+        <NodeLayout
+          Size="263,42"
+          Id="Package\GLM Cubes\Sales BI - QTR Without Ignoring Errors"
+          TopLeft="1948.5,5.49999999999977" />
+        <NodeLayout
+          Size="246,42"
+          Id="Package\GLM Cubes\Sales BI - UAE With Ignoring Errors"
+          TopLeft="342,159" />
+        <NodeLayout
+          Size="262,42"
+          Id="Package\GLM Cubes\Sales BI - UAE Without Ignoring Errors"
+          TopLeft="337,5.49999999999989" />
+        <NodeLayout
+          Size="244,42"
+          Id="Package\GLM Cubes\Sales BI -BHN With Ignoring Errors"
+          TopLeft="2277,159.5" />
+        <EdgeLayout
+          Id="Package\GLM Cubes.PrecedenceConstraints[Constraint]"
+          TopLeft="148.5,59">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="79,30.5"
+              Start="0,0"
+              End="79,23">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.25"
+                    Point2="0,15.25"
+                    Point3="4,15.25" />
+                  <mssgle:LineSegment
+                    End="75,15.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="75,15.25"
+                    Point2="79,15.25"
+                    Point3="79,19.25" />
+                  <mssgle:LineSegment
+                    End="79,23" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GLM Cubes.PrecedenceConstraints[Constraint 1]"
+          TopLeft="104.666666666667,59">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="33.3333333333333,100"
+              Start="0,0"
+              End="33.3333333333333,92.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.3521643433602" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.3521643433602"
+                    Point2="0,40.3521643433602"
+                    Point3="4,40.3521643433602" />
+                  <mssgle:LineSegment
+                    End="29.3333333333333,40.3521643433602" />
+                  <mssgle:CubicBezierSegment
+                    Point1="29.3333333333333,40.3521643433602"
+                    Point2="33.3333333333333,40.3521643433602"
+                    Point3="33.3333333333333,44.3521643433602" />
+                  <mssgle:LineSegment
+                    End="33.3333333333333,92.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="1.42531901041667,45.3521643433602,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GLM Cubes.PrecedenceConstraints[Constraint 10]"
+          TopLeft="1436,204.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="85,37.5"
+              Start="0,0"
+              End="85,30">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.75"
+                    Point2="0,18.75"
+                    Point3="4,18.75" />
+                  <mssgle:LineSegment
+                    End="81,18.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="81,18.75"
+                    Point2="85,18.75"
+                    Point3="85,22.75" />
+                  <mssgle:LineSegment
+                    End="85,30" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GLM Cubes.PrecedenceConstraints[Constraint 11]"
+          TopLeft="1799.16666666667,47.4999999999998">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="55.8333333333333,56.5000000000002"
+              Start="0,0"
+              End="55.8333333333333,49.0000000000002">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.8065498857579" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.8065498857579"
+                    Point2="0,22.8065498857579"
+                    Point3="4,22.8065498857579" />
+                  <mssgle:LineSegment
+                    End="51.8333333333333,22.8065498857579" />
+                  <mssgle:CubicBezierSegment
+                    Point1="51.8333333333333,22.8065498857579"
+                    Point2="55.8333333333333,22.8065498857579"
+                    Point3="55.8333333333333,26.8065498857579" />
+                  <mssgle:LineSegment
+                    End="55.8333333333333,49.0000000000002" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GLM Cubes.PrecedenceConstraints[Constraint 12]"
+          TopLeft="1756,203.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="103.5,40.5"
+              Start="0,0"
+              End="103.5,33">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.25"
+                    Point2="0,20.25"
+                    Point3="4,20.25" />
+                  <mssgle:LineSegment
+                    End="99.5,20.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="99.5,20.25"
+                    Point2="103.5,20.25"
+                    Point3="103.5,24.25" />
+                  <mssgle:LineSegment
+                    End="103.5,33" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GLM Cubes.PrecedenceConstraints[Constraint 13]"
+          TopLeft="2122.5,47.4999999999998">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="56.5,57.5000000000002"
+              Start="0,0"
+              End="56.5,50.0000000000002">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.2086167800454" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.2086167800454"
+                    Point2="0,23.2086167800454"
+                    Point3="4,23.2086167800454" />
+                  <mssgle:LineSegment
+                    End="52.5,23.2086167800454" />
+                  <mssgle:CubicBezierSegment
+                    Point1="52.5,23.2086167800454"
+                    Point2="56.5,23.2086167800454"
+                    Point3="56.5,27.2086167800454" />
+                  <mssgle:LineSegment
+                    End="56.5,50.0000000000002" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GLM Cubes.PrecedenceConstraints[Constraint 14]"
+          TopLeft="2078,204.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="104,35.5"
+              Start="0,0"
+              End="104,28">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.75"
+                    Point2="0,17.75"
+                    Point3="4,17.75" />
+                  <mssgle:LineSegment
+                    End="100,17.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="100,17.75"
+                    Point2="104,17.75"
+                    Point3="104,21.75" />
+                  <mssgle:LineSegment
+                    End="104,28" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GLM Cubes.PrecedenceConstraints[Constraint 15]"
+          TopLeft="2446.5,47.4999999999997">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="61.5,59.5000000000003"
+              Start="0,0"
+              End="61.5,52.0000000000003">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.0158730158732" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.0158730158732"
+                    Point2="0,24.0158730158732"
+                    Point3="4,24.0158730158732" />
+                  <mssgle:LineSegment
+                    End="57.5,24.0158730158732" />
+                  <mssgle:CubicBezierSegment
+                    Point1="57.5,24.0158730158732"
+                    Point2="61.5,24.0158730158732"
+                    Point3="61.5,28.0158730158732" />
+                  <mssgle:LineSegment
+                    End="61.5,52.0000000000003" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GLM Cubes.PrecedenceConstraints[Constraint 16]"
+          TopLeft="2399,201.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="114,40.5"
+              Start="0,0"
+              End="114,33">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.25"
+                    Point2="0,20.25"
+                    Point3="4,20.25" />
+                  <mssgle:LineSegment
+                    End="110,20.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="110,20.25"
+                    Point2="114,20.25"
+                    Point3="114,24.25" />
+                  <mssgle:LineSegment
+                    End="114,33" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GLM Cubes.PrecedenceConstraints[Constraint 17]"
+          TopLeft="2771.83333333333,47.4999999999997">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="44.1666666666665,50.5000000000003"
+              Start="0,0"
+              End="44.1666666666665,43.0000000000003">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.3818454613655" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.3818454613655"
+                    Point2="0,20.3818454613655"
+                    Point3="4,20.3818454613655" />
+                  <mssgle:LineSegment
+                    End="40.1666666666665,20.3818454613655" />
+                  <mssgle:CubicBezierSegment
+                    Point1="40.1666666666665,20.3818454613655"
+                    Point2="44.1666666666665,20.3818454613655"
+                    Point3="44.1666666666665,24.3818454613655" />
+                  <mssgle:LineSegment
+                    End="44.1666666666665,43.0000000000003" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GLM Cubes.PrecedenceConstraints[Constraint 18]"
+          TopLeft="2730,201.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="85,38.5"
+              Start="0,0"
+              End="85,31">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.25"
+                    Point2="0,19.25"
+                    Point3="4,19.25" />
+                  <mssgle:LineSegment
+                    End="81,19.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="81,19.25"
+                    Point2="85,19.25"
+                    Point3="85,23.25" />
+                  <mssgle:LineSegment
+                    End="85,31" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GLM Cubes.PrecedenceConstraints[Constraint 19]"
+          TopLeft="465,201">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="92,46.5"
+              Start="0,0"
+              End="92,39">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.25"
+                    Point2="0,23.25"
+                    Point3="4,23.25" />
+                  <mssgle:LineSegment
+                    End="88,23.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="88,23.25"
+                    Point2="92,23.25"
+                    Point3="92,27.25" />
+                  <mssgle:LineSegment
+                    End="92,39" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GLM Cubes.PrecedenceConstraints[Constraint 2]"
+          TopLeft="510.333333333333,47.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="49.6666666666667,45.0000000000001"
+              Start="0,0"
+              End="49.6666666666667,37.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.1638846737482" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.1638846737482"
+                    Point2="0,18.1638846737482"
+                    Point3="4,18.1638846737482" />
+                  <mssgle:LineSegment
+                    End="45.6666666666667,18.1638846737482" />
+                  <mssgle:CubicBezierSegment
+                    Point1="45.6666666666667,18.1638846737482"
+                    Point2="49.6666666666667,18.1638846737482"
+                    Point3="49.6666666666667,22.1638846737482" />
+                  <mssgle:LineSegment
+                    End="49.6666666666667,37.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GLM Cubes.PrecedenceConstraints[Constraint 3]"
+          TopLeft="138,201">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="94,41.5"
+              Start="0,0"
+              End="94,34">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.75"
+                    Point2="0,20.75"
+                    Point3="4,20.75" />
+                  <mssgle:LineSegment
+                    End="90,20.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="90,20.75"
+                    Point2="94,20.75"
+                    Point3="94,24.75" />
+                  <mssgle:LineSegment
+                    End="94,34" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GLM Cubes.PrecedenceConstraints[Constraint 3 1]"
+          TopLeft="1069,47.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="41,114"
+              Start="0,0"
+              End="41,106.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.0183486238533" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,42.0183486238533"
+                    Point2="0,46.0183486238533"
+                    Point3="4,46.0183486238533" />
+                  <mssgle:LineSegment
+                    End="37,46.0183486238533" />
+                  <mssgle:CubicBezierSegment
+                    Point1="37,46.0183486238533"
+                    Point2="41,46.0183486238533"
+                    Point3="41,50.0183486238533" />
+                  <mssgle:LineSegment
+                    End="41,106.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="5.25865234375,51.0183486238533,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GLM Cubes.PrecedenceConstraints[Constraint 3 2]"
+          TopLeft="1391.33333333333,47.4999999999998">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="44.6666666666667,115"
+              Start="0,0"
+              End="44.6666666666667,107.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.4156626506025" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,42.4156626506025"
+                    Point2="0,46.4156626506025"
+                    Point3="4,46.4156626506025" />
+                  <mssgle:LineSegment
+                    End="40.6666666666667,46.4156626506025" />
+                  <mssgle:CubicBezierSegment
+                    Point1="40.6666666666667,46.4156626506025"
+                    Point2="44.6666666666667,46.4156626506025"
+                    Point3="44.6666666666667,50.4156626506025" />
+                  <mssgle:LineSegment
+                    End="44.6666666666667,107.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="7.09198567708335,51.4156626506025,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GLM Cubes.PrecedenceConstraints[Constraint 3 3]"
+          TopLeft="1714.83333333333,47.4999999999998">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="41.1666666666667,114"
+              Start="0,0"
+              End="41.1666666666667,106.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.0167555217061" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,42.0167555217061"
+                    Point2="0,46.0167555217061"
+                    Point3="4,46.0167555217061" />
+                  <mssgle:LineSegment
+                    End="37.1666666666667,46.0167555217061" />
+                  <mssgle:CubicBezierSegment
+                    Point1="37.1666666666667,46.0167555217061"
+                    Point2="41.1666666666667,46.0167555217061"
+                    Point3="41.1666666666667,50.0167555217061" />
+                  <mssgle:LineSegment
+                    End="41.1666666666667,106.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="5.34198567708335,51.0167555217061,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GLM Cubes.PrecedenceConstraints[Constraint 3 4]"
+          TopLeft="2037.5,47.4999999999998">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="40.5,115"
+              Start="0,0"
+              End="40.5,107.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.4172335600908" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,42.4172335600908"
+                    Point2="0,46.4172335600908"
+                    Point3="4,46.4172335600908" />
+                  <mssgle:LineSegment
+                    End="36.5,46.4172335600908" />
+                  <mssgle:CubicBezierSegment
+                    Point1="36.5,46.4172335600908"
+                    Point2="40.5,46.4172335600908"
+                    Point3="40.5,50.4172335600908" />
+                  <mssgle:LineSegment
+                    End="40.5,107.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="5.00865234375,51.4172335600908,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GLM Cubes.PrecedenceConstraints[Constraint 3 6]"
+          TopLeft="748,47.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="41,117"
+              Start="0,0"
+              End="41,109.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.2293577981652" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,43.2293577981652"
+                    Point2="0,47.2293577981652"
+                    Point3="4,47.2293577981652" />
+                  <mssgle:LineSegment
+                    End="37,47.2293577981652" />
+                  <mssgle:CubicBezierSegment
+                    Point1="37,47.2293577981652"
+                    Point2="41,47.2293577981652"
+                    Point3="41,51.2293577981652" />
+                  <mssgle:LineSegment
+                    End="41,109.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="5.25865234375,52.2293577981652,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GLM Cubes.PrecedenceConstraints[Constraint 3 6 1]"
+          TopLeft="2361.5,47.4999999999997">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="37.5,112"
+              Start="0,0"
+              End="37.5,104.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.2063492063493" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,41.2063492063493"
+                    Point2="0,45.2063492063493"
+                    Point3="4,45.2063492063493" />
+                  <mssgle:LineSegment
+                    End="33.5,45.2063492063493" />
+                  <mssgle:CubicBezierSegment
+                    Point1="33.5,45.2063492063493"
+                    Point2="37.5,45.2063492063493"
+                    Point3="37.5,49.2063492063493" />
+                  <mssgle:LineSegment
+                    End="37.5,104.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="3.50865234375,50.2063492063493,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GLM Cubes.PrecedenceConstraints[Constraint 3 6 2]"
+          TopLeft="2686.16666666667,47.4999999999997">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="43.8333333333335,112"
+              Start="0,0"
+              End="43.8333333333335,104.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.2033008252064" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,41.2033008252064"
+                    Point2="0,45.2033008252064"
+                    Point3="4,45.2033008252064" />
+                  <mssgle:LineSegment
+                    End="39.8333333333335,45.2033008252064" />
+                  <mssgle:CubicBezierSegment
+                    Point1="39.8333333333335,45.2033008252064"
+                    Point2="43.8333333333335,45.2033008252064"
+                    Point3="43.8333333333335,49.2033008252064" />
+                  <mssgle:LineSegment
+                    End="43.8333333333335,104.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="6.67531901041675,50.2033008252064,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GLM Cubes.PrecedenceConstraints[Constraint 4]"
+          TopLeft="425.666666666667,47.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="39.3333333333334,111.5"
+              Start="0,0"
+              End="39.3333333333334,104">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.0060698027314" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,41.0060698027314"
+                    Point2="0,45.0060698027314"
+                    Point3="4,45.0060698027314" />
+                  <mssgle:LineSegment
+                    End="35.3333333333334,45.0060698027314" />
+                  <mssgle:CubicBezierSegment
+                    Point1="35.3333333333334,45.0060698027314"
+                    Point2="39.3333333333334,45.0060698027314"
+                    Point3="39.3333333333334,49.0060698027314" />
+                  <mssgle:LineSegment
+                    End="39.3333333333334,104" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="4.42531901041669,50.0060698027314,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GLM Cubes.PrecedenceConstraints[Constraint 5]"
+          TopLeft="832,47.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="41.5,52.0000000000001"
+              Start="0,0"
+              End="41.5,44.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.9908256880734" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.9908256880734"
+                    Point2="0,20.9908256880734"
+                    Point3="4,20.9908256880734" />
+                  <mssgle:LineSegment
+                    End="37.5,20.9908256880734" />
+                  <mssgle:CubicBezierSegment
+                    Point1="37.5,20.9908256880734"
+                    Point2="41.5,20.9908256880734"
+                    Point3="41.5,24.9908256880734" />
+                  <mssgle:LineSegment
+                    End="41.5,44.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GLM Cubes.PrecedenceConstraints[Constraint 6]"
+          TopLeft="789,206.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="86.5,37"
+              Start="0,0"
+              End="86.5,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.5"
+                    Point2="0,18.5"
+                    Point3="4,18.5" />
+                  <mssgle:LineSegment
+                    End="82.5,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="82.5,18.5"
+                    Point2="86.5,18.5"
+                    Point3="86.5,22.5" />
+                  <mssgle:LineSegment
+                    End="86.5,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GLM Cubes.PrecedenceConstraints[Constraint 7]"
+          TopLeft="1153,47.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="45,47.5000000000001"
+              Start="0,0"
+              End="45,40.0000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.1743119266056" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.1743119266056"
+                    Point2="0,19.1743119266056"
+                    Point3="4,19.1743119266056" />
+                  <mssgle:LineSegment
+                    End="41,19.1743119266056" />
+                  <mssgle:CubicBezierSegment
+                    Point1="41,19.1743119266056"
+                    Point2="45,19.1743119266056"
+                    Point3="45,23.1743119266056" />
+                  <mssgle:LineSegment
+                    End="45,40.0000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GLM Cubes.PrecedenceConstraints[Constraint 8]"
+          TopLeft="1110,203.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="105.5,40.5"
+              Start="0,0"
+              End="105.5,33">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.25"
+                    Point2="0,20.25"
+                    Point3="4,20.25" />
+                  <mssgle:LineSegment
+                    End="101.5,20.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="101.5,20.25"
+                    Point2="105.5,20.25"
+                    Point3="105.5,24.25" />
+                  <mssgle:LineSegment
+                    End="105.5,33" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GLM Cubes.PrecedenceConstraints[Constraint 9]"
+          TopLeft="1476.66666666667,47.4999999999998">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="44.3333333333333,57.5000000000002"
+              Start="0,0"
+              End="44.3333333333333,50.0000000000002">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.2078313253013" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.2078313253013"
+                    Point2="0,23.2078313253013"
+                    Point3="4,23.2078313253013" />
+                  <mssgle:LineSegment
+                    End="40.3333333333333,23.2078313253013" />
+                  <mssgle:CubicBezierSegment
+                    Point1="40.3333333333333,23.2078313253013"
+                    Point2="44.3333333333333,23.2078313253013"
+                    Point3="44.3333333333333,27.2078313253013" />
+                  <mssgle:LineSegment
+                    End="44.3333333333333,50.0000000000002" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="2879,345"
+          Size="2879,388"
+          Id="Package\GLM Cubes"
+          TopLeft="79,114" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <ConnectionManager
+    design-time-name="Package.ConnectionManagers[EMAEDCW704.Sales BI - BHN]">
+    <ProjectReferenceName></ProjectReferenceName>
+  </ConnectionManager>
+  <ConnectionManager
+    design-time-name="Package.ConnectionManagers[EMAEDCW704.Sales BI - EGY]">
+    <ProjectReferenceName></ProjectReferenceName>
+  </ConnectionManager>
+  <ConnectionManager
+    design-time-name="Package.ConnectionManagers[EMAEDCW704.Sales BI – Global]">
+    <ProjectReferenceName></ProjectReferenceName>
+  </ConnectionManager>
+  <ConnectionManager
+    design-time-name="Package.ConnectionManagers[EMAEDCW704.Sales BI - JRD]">
+    <ProjectReferenceName></ProjectReferenceName>
+  </ConnectionManager>
+  <ConnectionManager
+    design-time-name="Package.ConnectionManagers[EMAEDCW704.Sales BI - KWT]">
+    <ProjectReferenceName></ProjectReferenceName>
+  </ConnectionManager>
+  <ConnectionManager
+    design-time-name="Package.ConnectionManagers[EMAEDCW704.Sales BI - LBN]">
+    <ProjectReferenceName></ProjectReferenceName>
+  </ConnectionManager>
+  <ConnectionManager
+    design-time-name="Package.ConnectionManagers[EMAEDCW704.Sales BI - LEV]">
+    <ProjectReferenceName></ProjectReferenceName>
+  </ConnectionManager>
+  <ConnectionManager
+    design-time-name="Package.ConnectionManagers[EMAEDCW704.Sales BI - OMN]">
+    <ProjectReferenceName></ProjectReferenceName>
+  </ConnectionManager>
+  <ConnectionManager
+    design-time-name="Package.ConnectionManagers[EMAEDCW704.Sales BI - QTR]">
+    <ProjectReferenceName></ProjectReferenceName>
+  </ConnectionManager>
+  <ConnectionManager
+    design-time-name="Package.ConnectionManagers[EMAEDCW704.Sales BI - UAE]">
+    <ProjectReferenceName></ProjectReferenceName>
+  </ConnectionManager>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
