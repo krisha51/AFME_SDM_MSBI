@@ -1,19 +1,16 @@
-Name: Log @octokit organization statistics
-on:
-  schedule:
-    # https://crontab.guru/every-day
-    - cron: "0 0 * * *"
+- Name: Log @octokit organization statistics
+  on:
+   workflow_dispatch:
 
-jobs:
-  logOctokitStats:
+ jobs:
+    logOctokitStats:
     runs-on: ubuntu-latest
     steps:
       - uses: gr2m/org-stats-action@v1.x
         id: stats
         with:
           org: krisha51
-        env:
-          GITHUB_TOKEN: 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@github.com
+
       - run: |
           cat << EOF
           result: ${{ steps.stats.outputs.data }}
